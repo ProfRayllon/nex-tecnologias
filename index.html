@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LEST Tecnologia | Soluções tecnológicas para a educação</title>
+  <meta name="description" content="Consultoria e plataformas SaaS para instituições de ensino, redes municipais e empresas: AVA Institucional e CRM Educacional.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- ========== HEADER ========== -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="#inicio" class="logo" aria-label="LEST Tecnologia - início">
+        <svg class="logo__mark" viewBox="0 0 40 40" aria-hidden="true">
+          <rect width="40" height="40" rx="10" fill="currentColor"/>
+          <path d="M13 10v20h14" stroke="#fff" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="27" cy="13" r="3" fill="#7FB2FF"/>
+        </svg>
+        <span class="logo__text">LEST<small>Tecnologia</small></span>
+      </a>
+
+      <nav class="nav" id="nav" aria-label="Navegação principal">
+        <a href="#inicio" class="nav__link is-active">Início</a>
+        <a href="#diferenciais" class="nav__link">Diferenciais</a>
+        <a href="#solucoes" class="nav__link">Soluções</a>
+        <a href="#como-trabalhamos" class="nav__link">Como trabalhamos</a>
+        <a href="#faq" class="nav__link">Dúvidas</a>
+        <a href="#contato" class="btn btn--primary btn--sm nav__cta">Fale conosco
+          <svg viewBox="0 0 24 24" class="ico"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </nav>
+
+      <button class="burger" id="burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- ========== HERO ========== -->
+    <section class="hero" id="inicio">
+      <div class="hero__dots" aria-hidden="true"></div>
+      <div class="container hero__inner">
+        <div class="hero__content">
+          <div class="segments reveal" role="tablist" aria-label="Escolha o seu segmento">
+            <button class="segment is-active" data-segment="municipios" role="tab" aria-selected="true">Municípios</button>
+            <button class="segment" data-segment="superior" role="tab" aria-selected="false">Ensino Superior</button>
+            <button class="segment" data-segment="escolas" role="tab" aria-selected="false">Escolas</button>
+            <button class="segment" data-segment="empresas" role="tab" aria-selected="false">Empresas</button>
+          </div>
+
+          <h1 class="hero__title reveal">
+            Construa um futuro <span class="text-blue">extraordinário</span> para a <span class="hero__word" id="hero-word">educação pública</span>
+          </h1>
+          <p class="hero__text reveal" id="hero-text">
+            Modernize a rede municipal de ensino com plataformas em nuvem para formação de professores,
+            processos seletivos e gestão educacional completa, com transparência e dados para decidir melhor.
+          </p>
+          <div class="hero__actions reveal">
+            <a href="#contato" class="btn btn--primary">Fale com um especialista
+              <svg viewBox="0 0 24 24" class="ico"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+            <a href="#solucoes" class="btn btn--outline">Conheça as soluções</a>
+          </div>
+        </div>
+
+        <div class="hero__visual reveal">
+          <div class="hero__shape" aria-hidden="true">
+            <span class="hero__ring hero__ring--1"></span>
+            <span class="hero__ring hero__ring--2"></span>
+          </div>
+          <img class="hero__photo" src="assets/img/gestora.png" alt="Gestora educacional utilizando um tablet" width="537" height="961">
+
+          <div class="float-card float-card--a" aria-hidden="true">
+            <span class="fc__ico fc__ico--blue"><svg viewBox="0 0 24 24"><path d="M4 19V5M4 19h16M8 15l3-3 3 2 5-6"/></svg></span>
+            <div><small>Engajamento dos alunos</small><strong>+32% no semestre</strong></div>
+          </div>
+          <div class="float-card float-card--b" aria-hidden="true">
+            <span class="fc__ico fc__ico--green"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span>
+            <div><small>Processo seletivo</small><strong>Edital publicado</strong></div>
+          </div>
+          <div class="float-card float-card--c" aria-hidden="true">
+            <div class="mini-chart"><i style="--h:40%"></i><i style="--h:65%"></i><i style="--h:50%"></i><i style="--h:80%"></i><i style="--h:95%"></i></div>
+            <div><small>Matrículas</small><strong>1.284</strong></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== FAIXA DE NÚMEROS ========== -->
+    <section class="strip">
+      <div class="container strip__inner">
+        <h2 class="strip__title reveal">Educação <span class="text-blue">conectada</span> e gestão <span class="text-blue">inteligente</span>, de ponta a ponta</h2>
+        <div class="strip__stats">
+          <div class="stat reveal"><strong><span data-count="99.9" data-decimals="1">0</span>%</strong><p>de disponibilidade (SLA)</p></div>
+          <div class="stat reveal"><strong><span data-count="24">0</span>/7</strong><p>monitoramento contínuo</p></div>
+          <div class="stat reveal"><strong><span data-count="100">0</span>%</strong><p>em nuvem</p></div>
+        </div>
+        <a href="#contato" class="btn btn--primary reveal">Fale com um especialista</a>
+      </div>
+    </section>
+
+    <!-- ========== DIFERENCIAIS (BANNER AZUL) ========== -->
+    <section class="section diff" id="diferenciais">
+      <div class="container">
+        <div class="diff__card reveal">
+          <div class="diff__photo">
+            <img src="assets/img/consultor.png" alt="Consultor da LEST Tecnologia" width="533" height="971" loading="lazy">
+          </div>
+          <div class="diff__content">
+            <h2>A solução mais <span class="hl-light">completa e inteligente</span> para a gestão do ensino</h2>
+            <div class="diff__grid">
+              <div class="diff__item">
+                <span class="diff__ico"><svg viewBox="0 0 24 24"><path d="M18 10h-1.3A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg></span>
+                <div><b>Plataformas 100% em nuvem</b><p>Acesso seguro de qualquer lugar, sem instalar nada.</p></div>
+              </div>
+              <div class="diff__item">
+                <span class="diff__ico"><svg viewBox="0 0 24 24"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.3h6c0-1 .4-1.8 1-2.3A7 7 0 0 0 12 2z"/></svg></span>
+                <div><b>Consultoria especializada</b><p>Especialistas em educação e tecnologia ao seu lado.</p></div>
+              </div>
+              <div class="diff__item">
+                <span class="diff__ico"><svg viewBox="0 0 24 24"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg></span>
+                <div><b>Implantação ágil</b><p>Configuração, migração de dados e treinamento assistidos.</p></div>
+              </div>
+              <div class="diff__item">
+                <span class="diff__ico"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>
+                <div><b>Atendimento humanizado</b><p>Time dedicado da implantação ao suporte contínuo.</p></div>
+              </div>
+              <div class="diff__item">
+                <span class="diff__ico"><svg viewBox="0 0 24 24"><path d="M4 19V5M4 19h16M8 15l3-3 3 2 5-6"/></svg></span>
+                <div><b>Decisões com dados</b><p>Painéis e indicadores em tempo real para gestores.</p></div>
+              </div>
+              <div class="diff__item">
+                <span class="diff__ico"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>
+                <div><b>Segurança e LGPD</b><p>Dados protegidos, backups e controle de acesso por perfil.</p></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SOLUÇÕES (TABS) ========== -->
+    <section class="section solutions" id="solucoes">
+      <div class="container">
+        <div class="section__head section__head--split reveal">
+          <div>
+            <span class="eyebrow">Nossas soluções</span>
+            <h2 class="section__title">Sua instituição rumo ao futuro com <span class="text-blue">tecnologia de referência</span></h2>
+          </div>
+          <p class="section__sub">Do primeiro contato do aluno à sala de aula virtual: plataformas integradas, seguras e prontas para escalar.</p>
+        </div>
+
+        <div class="tabs reveal">
+          <div class="tabs__list" role="tablist">
+            <button class="tab is-active" role="tab" aria-selected="true" aria-controls="tab-ava" id="t-ava">
+              <span class="tab__ico"><svg viewBox="0 0 24 24"><path d="M2 7l10-4 10 4-10 4L2 7z"/><path d="M6 9v5c0 1.7 2.7 3 6 3s6-1.3 6-3V9"/></svg></span>
+              <span><strong>AVA Institucional</strong><small>Ambiente Virtual de Aprendizagem</small></span>
+            </button>
+            <button class="tab" role="tab" aria-selected="false" aria-controls="tab-crm" id="t-crm">
+              <span class="tab__ico"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></svg></span>
+              <span><strong>CRM Educacional</strong><small>Captação, editais e relacionamento</small></span>
+            </button>
+            <button class="tab" role="tab" aria-selected="false" aria-controls="tab-cons" id="t-cons">
+              <span class="tab__ico"><svg viewBox="0 0 24 24"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.3h6c0-1 .4-1.8 1-2.3A7 7 0 0 0 12 2z"/></svg></span>
+              <span><strong>Consultoria</strong><small>Transformação digital no ensino</small></span>
+            </button>
+          </div>
+
+          <!-- AVA -->
+          <div class="tabs__panel is-active" role="tabpanel" id="tab-ava" aria-labelledby="t-ava">
+            <div class="panel__text">
+              <span class="badge">Produto</span>
+              <h3>AVA Institucional</h3>
+              <p>Um ambiente virtual de aprendizagem com a identidade da sua instituição. Cursos, trilhas, avaliações e certificados em uma experiência simples para alunos, professores e gestores.</p>
+              <ul class="checklist">
+                <li>Personalização completa com a sua marca (white label)</li>
+                <li>Trilhas de aprendizagem, videoaulas e avaliações automáticas</li>
+                <li>Emissão de certificados com validação digital</li>
+                <li>Relatórios de desempenho, evasão e engajamento em tempo real</li>
+                <li>Acesso pelo computador, tablet ou celular</li>
+              </ul>
+              <a href="#contato" class="btn btn--primary">Quero conhecer o AVA <svg viewBox="0 0 24 24" class="ico"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </div>
+            <div class="panel__visual">
+              <div class="device-laptop">
+                <div class="dl__screen">
+                  <div class="ava">
+                    <div class="ava__top"><b>Minhas trilhas</b><span class="pill">3 em andamento</span></div>
+                    <div class="ava__cards">
+                      <div class="ava__card"><div class="ava__thumb t1"></div><b>Gestão Escolar</b><div class="prog"><i style="--p:72%"></i></div></div>
+                      <div class="ava__card"><div class="ava__thumb t2"></div><b>Didática Digital</b><div class="prog"><i style="--p:45%"></i></div></div>
+                      <div class="ava__card"><div class="ava__thumb t3"></div><b>BNCC na Prática</b><div class="prog"><i style="--p:90%"></i></div></div>
+                    </div>
+                    <div class="ava__lesson"><span class="ava__play"></span><div><b>Aula 4 · Avaliação formativa</b><small>12 min · videoaula</small></div></div>
+                  </div>
+                </div>
+                <div class="dl__base"></div>
+              </div>
+              <div class="device-phone">
+                <div class="dp__notch"></div>
+                <div class="dp__screen">
+                  <div class="dp__cert"><svg viewBox="0 0 24 24"><circle cx="12" cy="9" r="6"/><path d="M8.5 14 7 22l5-3 5 3-1.5-8"/></svg><b>Certificado emitido</b><small>Didática Digital · 40h</small></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- CRM -->
+          <div class="tabs__panel" role="tabpanel" id="tab-crm" aria-labelledby="t-crm" hidden>
+            <div class="panel__text">
+              <span class="badge">Produto</span>
+              <h3>CRM Educacional</h3>
+              <p>Gestão de relacionamento pensada para a educação: da publicação de editais e processos seletivos à matrícula, com funis, automações e indicadores em um só lugar.</p>
+              <ul class="checklist">
+                <li>Gestão de editais, inscrições e processos seletivos</li>
+                <li>Funil de captação com etapas personalizáveis</li>
+                <li>Automação de e-mails, WhatsApp e notificações</li>
+                <li>Painéis de conversão por curso, campanha e canal</li>
+                <li>Histórico completo de cada candidato e aluno</li>
+              </ul>
+              <a href="#contato" class="btn btn--primary">Quero conhecer o CRM <svg viewBox="0 0 24 24" class="ico"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </div>
+            <div class="panel__visual">
+              <div class="kanban">
+                <div class="kanban__head"><b>Processo Seletivo 2027.1</b><span class="pill">Edital nº 012</span></div>
+                <div class="kanban__cols">
+                  <div class="kcol"><small>Inscritos <em>482</em></small><div class="kcard"></div><div class="kcard"></div><div class="kcard"></div></div>
+                  <div class="kcol"><small>Documentação <em>215</em></small><div class="kcard"></div><div class="kcard kcard--hl"></div></div>
+                  <div class="kcol"><small>Aprovados <em>140</em></small><div class="kcard"></div><div class="kcard"></div></div>
+                  <div class="kcol"><small>Matriculados <em>118</em></small><div class="kcard kcard--ok"></div></div>
+                </div>
+                <div class="funnel">
+                  <div style="--w:100%"><span>Interessados</span></div>
+                  <div style="--w:72%"><span>Inscrições</span></div>
+                  <div style="--w:46%"><span>Aprovados</span></div>
+                  <div style="--w:34%"><span>Matrículas</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- CONSULTORIA -->
+          <div class="tabs__panel" role="tabpanel" id="tab-cons" aria-labelledby="t-cons" hidden>
+            <div class="panel__text">
+              <span class="badge">Serviço</span>
+              <h3>Consultoria em Tecnologia Educacional</h3>
+              <p>Diagnosticamos, planejamos e executamos a transformação digital da sua instituição, com método, metas claras e acompanhamento de ponta a ponta.</p>
+              <ul class="checklist">
+                <li>Diagnóstico de maturidade digital</li>
+                <li>Planejamento de implantação e migração de dados</li>
+                <li>Integração com os sistemas que você já utiliza</li>
+                <li>Capacitação de equipes gestoras e docentes</li>
+                <li>Projetos sob medida para redes públicas e privadas</li>
+              </ul>
+              <a href="#contato" class="btn btn--primary">Falar com um consultor <svg viewBox="0 0 24 24" class="ico"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </div>
+            <div class="panel__visual">
+              <div class="roadmap">
+                <div class="rm__item is-done"><i>1</i><div><b>Diagnóstico</b><small>Concluído</small></div></div>
+                <div class="rm__item is-done"><i>2</i><div><b>Planejamento</b><small>Concluído</small></div></div>
+                <div class="rm__item is-now"><i>3</i><div><b>Implantação</b><small>Em andamento · 68%</small><div class="prog"><i style="--p:68%"></i></div></div></div>
+                <div class="rm__item"><i>4</i><div><b>Capacitação</b><small>Próxima etapa</small></div></div>
+                <div class="rm__item"><i>5</i><div><b>Evolução contínua</b><small>Acompanhamento</small></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Benefícios -->
+        <div class="benefits">
+          <div class="benefit reveal"><span class="benefit__ico"><svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span><h3>Mais economia</h3><p>Menos papel, menos retrabalho e processos que custam menos para a instituição.</p></div>
+          <div class="benefit reveal"><span class="benefit__ico"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zM12 6v6l4 2"/></svg></span><h3>Agilidade no dia a dia</h3><p>Inscrições, matrículas e certificados on-line, sem filas e sem planilhas.</p></div>
+          <div class="benefit reveal"><span class="benefit__ico"><svg viewBox="0 0 24 24"><path d="M3 3h18v18H3zM3 9h18M9 21V9"/></svg></span><h3>Tudo em um só lugar</h3><p>Informações centralizadas e integradas entre as plataformas.</p></div>
+          <div class="benefit reveal"><span class="benefit__ico"><svg viewBox="0 0 24 24"><path d="M2 7l10-4 10 4-10 4L2 7z"/><path d="M6 9v5c0 1.7 2.7 3 6 3s6-1.3 6-3V9"/></svg></span><h3>Aprendizagem de qualidade</h3><p>Trilhas, avaliações e acompanhamento individual de cada aluno.</p></div>
+          <div class="benefit reveal"><span class="benefit__ico"><svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg></span><h3>Transparência</h3><p>Relatórios claros para gestores, órgãos de controle e comunidade.</p></div>
+          <div class="benefit reveal"><span class="benefit__ico"><svg viewBox="0 0 24 24"><path d="M4 19V5M4 19h16M8 15l3-3 3 2 5-6"/></svg></span><h3>Melhores decisões</h3><p>Indicadores em tempo real para planejar com base em dados.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== MÓDULOS ========== -->
+    <section class="section modules">
+      <div class="container">
+        <div class="section__head section__head--split reveal">
+          <h2 class="section__title">Tecnologia para quem quer <span class="text-blue">estar à frente</span></h2>
+          <a href="#contato" class="btn btn--primary">Fale com um especialista</a>
+        </div>
+
+        <div class="modules__inner">
+          <div class="modules__photo reveal">
+            <img src="assets/img/equipe.png" alt="Equipe de gestão educacional analisando dados em um tablet" width="800" height="960" loading="lazy">
+            <div class="checkcard" aria-hidden="true">
+              <b>Tarefas de hoje</b>
+              <label><input type="checkbox" checked tabindex="-1"><span>Publicar edital</span></label>
+              <label><input type="checkbox" checked tabindex="-1"><span>Liberar trilha de formação</span></label>
+              <label><input type="checkbox" tabindex="-1"><span>Emitir certificados</span></label>
+            </div>
+          </div>
+
+          <div class="modules__grid">
+            <button class="mod reveal" data-goto-tab="t-ava">
+              <span class="mod__ico"><svg viewBox="0 0 24 24"><path d="M2 7l10-4 10 4-10 4L2 7z"/><path d="M6 9v5c0 1.7 2.7 3 6 3s6-1.3 6-3V9"/></svg></span>
+              <b>Sala de aula virtual</b>
+              <p>Cursos, videoaulas, fóruns e avaliações em um ambiente com a sua marca.</p>
+              <span class="mod__more">Ver no AVA →</span>
+            </button>
+            <button class="mod reveal" data-goto-tab="t-crm">
+              <span class="mod__ico"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg></span>
+              <b>Editais e seleções</b>
+              <p>Publique editais, receba inscrições e documentos e divulgue resultados.</p>
+              <span class="mod__more">Ver no CRM →</span>
+            </button>
+            <button class="mod reveal" data-goto-tab="t-crm">
+              <span class="mod__ico"><svg viewBox="0 0 24 24"><path d="M22 3H2l8 9.5V19l4 2v-8.5z"/></svg></span>
+              <b>Funil de captação</b>
+              <p>Acompanhe cada interessado, do primeiro contato até a matrícula.</p>
+              <span class="mod__more">Ver no CRM →</span>
+            </button>
+            <button class="mod reveal" data-goto-tab="t-ava">
+              <span class="mod__ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="9" r="6"/><path d="M8.5 14 7 22l5-3 5 3-1.5-8"/></svg></span>
+              <b>Certificação digital</b>
+              <p>Certificados automáticos, com código de validação on-line.</p>
+              <span class="mod__more">Ver no AVA →</span>
+            </button>
+            <button class="mod reveal" data-goto-tab="t-crm">
+              <span class="mod__ico"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>
+              <b>Comunicação integrada</b>
+              <p>E-mail, WhatsApp e notificações automáticas para alunos e famílias.</p>
+              <span class="mod__more">Ver no CRM →</span>
+            </button>
+            <button class="mod reveal" data-goto-tab="t-cons">
+              <span class="mod__ico"><svg viewBox="0 0 24 24"><path d="M4 19V5M4 19h16M8 15l3-3 3 2 5-6"/></svg></span>
+              <b>Indicadores e relatórios</b>
+              <p>Painéis de gestão com metas, evasão, desempenho e conversão.</p>
+              <span class="mod__more">Ver na Consultoria →</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== COMO TRABALHAMOS ========== -->
+    <section class="section process" id="como-trabalhamos">
+      <div class="container">
+        <div class="section__head section__head--light reveal">
+          <span class="eyebrow eyebrow--dark">Como trabalhamos</span>
+          <h2 class="section__title">Da análise à evolução contínua, <span class="hl-light">ao seu lado</span></h2>
+          <p class="section__sub">Um método claro, com entregas mensuráveis e atendimento humanizado em todas as etapas.</p>
+        </div>
+        <ol class="steps">
+          <li class="step reveal"><span class="step__n">01</span><h3>Diagnóstico</h3><p>Entendemos seus processos, sistemas atuais e objetivos pedagógicos.</p></li>
+          <li class="step reveal"><span class="step__n">02</span><h3>Planejamento</h3><p>Definimos escopo, cronograma e indicadores de sucesso.</p></li>
+          <li class="step reveal"><span class="step__n">03</span><h3>Implantação</h3><p>Configuramos as plataformas com sua identidade e migramos os dados.</p></li>
+          <li class="step reveal"><span class="step__n">04</span><h3>Capacitação</h3><p>Treinamos gestores, professores e equipes técnicas.</p></li>
+          <li class="step reveal"><span class="step__n">05</span><h3>Evolução</h3><p>Suporte contínuo, novas funcionalidades e acompanhamento de resultados.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ========== ATENDIMENTO ========== -->
+    <section class="section support">
+      <div class="container support__inner">
+        <div class="support__text reveal">
+          <span class="eyebrow">Atendimento humanizado</span>
+          <h2 class="section__title">Gente de verdade <span class="text-blue">do outro lado</span></h2>
+          <p class="section__sub">Cada cliente conta com um time dedicado de implantação e suporte. Atendimento por chat, e-mail, telefone e WhatsApp, com quem entende de educação.</p>
+          <a href="#contato" class="btn btn--primary">Converse com nosso time <svg viewBox="0 0 24 24" class="ico"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+        <div class="support__chat reveal" aria-hidden="true">
+          <div class="chat__head"><span class="chat__av">L</span><div><b>Suporte LEST</b><small><i></i> online agora</small></div></div>
+          <div class="chat__body">
+            <div class="msg msg--in">Olá! Precisamos abrir um novo edital para o processo seletivo.</div>
+            <div class="msg msg--out">Claro! Já deixei um modelo pronto no seu CRM. Quer que eu configure as etapas com você agora?</div>
+            <div class="msg msg--in">Perfeito, vamos lá!</div>
+            <div class="msg msg--typing"><i></i><i></i><i></i></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== FAQ ========== -->
+    <section class="section faq" id="faq">
+      <div class="container faq__inner">
+        <div class="faq__head reveal">
+          <span class="eyebrow">Dúvidas frequentes</span>
+          <h2 class="section__title">Perguntas <span class="text-blue">frequentes</span></h2>
+          <p class="section__sub">Não encontrou o que procurava? <a href="#contato" class="link">Fale com a gente.</a></p>
+        </div>
+        <div class="accordion reveal">
+          <details class="acc" open>
+            <summary>O que é a LEST Tecnologia?</summary>
+            <p>Somos uma empresa de consultoria e soluções computacionais voltadas para o ensino. Desenvolvemos plataformas SaaS próprias, como o AVA Institucional e o CRM Educacional, e apoiamos instituições em toda a jornada de transformação digital.</p>
+          </details>
+          <details class="acc">
+            <summary>Preciso instalar algum programa?</summary>
+            <p>Não. Todas as soluções funcionam 100% em nuvem e são acessadas pelo navegador, em computadores, tablets e celulares.</p>
+          </details>
+          <details class="acc">
+            <summary>As plataformas atendem órgãos públicos e municípios?</summary>
+            <p>Sim. Nossas soluções são pensadas para redes públicas e privadas, com recursos de transparência, controle de acesso por perfil e adequação à LGPD.</p>
+          </details>
+          <details class="acc">
+            <summary>É possível integrar com os sistemas que já usamos?</summary>
+            <p>Sim. Realizamos integrações com sistemas acadêmicos, ferramentas de comunicação e plataformas de pagamento.</p>
+          </details>
+          <details class="acc">
+            <summary>Como funciona o valor e a contratação?</summary>
+            <p>O modelo é por assinatura (SaaS), dimensionado conforme o número de usuários e os módulos contratados. Fale com nosso time para receber uma proposta personalizada.</p>
+          </details>
+          <details class="acc">
+            <summary>Como é feito o suporte?</summary>
+            <p>Oferecemos suporte humanizado por chat, e-mail, telefone e WhatsApp, além de treinamentos periódicos.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== CONTATO (FAIXA AZUL) ========== -->
+    <section class="contact" id="contato">
+      <div class="contact__deco" aria-hidden="true"></div>
+      <div class="container contact__inner">
+        <div class="contact__text reveal">
+          <h2>Como podemos impulsionar a sua gestão?</h2>
+          <p>Descubra como a LEST pode transformar a educação na sua instituição ou município.</p>
+          <p>Fale com nosso time de especialistas e agende uma demonstração gratuita.</p>
+          <div class="contact__hint">
+            <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            <span>Preencha o formulário e entraremos em contato com você.</span>
+          </div>
+          <ul class="contact__list">
+            <li><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>contato@lest.com.br</li>
+            <li><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>(00) 0000-0000</li>
+          </ul>
+        </div>
+
+        <form class="form reveal" id="contact-form" novalidate>
+          <label class="field"><span>Nome completo *</span><input type="text" name="nome" required placeholder="Digite seu nome"></label>
+          <div class="form__row">
+            <label class="field"><span>E-mail *</span><input type="email" name="email" required placeholder="voce@instituicao.com.br"></label>
+            <label class="field"><span>Telefone / WhatsApp *</span><input type="tel" name="telefone" required placeholder="(00) 00000-0000"></label>
+          </div>
+          <div class="form__row">
+            <label class="field"><span>Instituição / Órgão *</span><input type="text" name="instituicao" required placeholder="Nome da instituição"></label>
+            <label class="field"><span>Cidade / UF</span><input type="text" name="cidade" placeholder="Sua cidade"></label>
+          </div>
+          <div class="form__row">
+            <label class="field"><span>Segmento</span>
+              <select name="tipo" id="form-segment">
+                <option value="">Selecione</option>
+                <option value="municipios">Município / Secretaria de Educação</option>
+                <option value="superior">Instituição de Ensino Superior</option>
+                <option value="escolas">Escola / Curso livre</option>
+                <option value="empresas">Empresa / Universidade corporativa</option>
+              </select>
+            </label>
+            <label class="field"><span>Interesse</span>
+              <select name="interesse">
+                <option value="">Selecione</option>
+                <option>AVA Institucional</option>
+                <option>CRM Educacional</option>
+                <option>Consultoria</option>
+                <option>Todas as soluções</option>
+              </select>
+            </label>
+          </div>
+          <label class="field"><span>Mensagem</span><textarea name="mensagem" rows="3" placeholder="Conte um pouco sobre sua necessidade"></textarea></label>
+          <label class="check"><input type="checkbox" name="lgpd" required> <span>Concordo com o tratamento dos meus dados conforme a Política de Privacidade.</span></label>
+          <button type="submit" class="btn btn--primary btn--block">Fale com um especialista <svg viewBox="0 0 24 24" class="ico"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+          <p class="form__msg" id="form-msg" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <a href="#inicio" class="logo logo--light">
+            <svg class="logo__mark" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="10" fill="currentColor"/><path d="M13 10v20h14" stroke="#fff" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="27" cy="13" r="3" fill="#7FB2FF"/></svg>
+            <span class="logo__text">LEST<small>Tecnologia</small></span>
+          </a>
+          <p class="footer__about">Transformando o futuro da educação com tecnologia e pessoas.</p>
+        </div>
+        <div><h4>Soluções</h4><a href="#solucoes">AVA Institucional</a><a href="#solucoes">CRM Educacional</a><a href="#solucoes">Consultoria</a></div>
+        <div><h4>Institucional</h4><a href="#diferenciais">Diferenciais</a><a href="#como-trabalhamos">Como trabalhamos</a><a href="#faq">Dúvidas frequentes</a><a href="#contato">Contato</a></div>
+        <div><h4>Legal</h4><a href="#">Política de Privacidade</a><a href="#">Termos de Uso</a><a href="#">Política de Cookies</a></div>
+      </div>
+      <div class="footer__bottom">
+        <span>© <span id="year"></span> LEST Tecnologia. Todos os direitos reservados.</span>
+        <span>CNPJ 00.000.000/0000-00</span>
+      </div>
+    </div>
+  </footer>
+
+  <a href="#contato" class="fab" aria-label="Fale conosco">
+    <svg viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.4A8.4 8.4 0 1 1 21 11.5z"/></svg>
+  </a>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
