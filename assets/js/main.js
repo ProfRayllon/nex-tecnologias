@@ -136,32 +136,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  /* ---------- Vitrine de benefícios (troca automática) ---------- */
-  const scItems = $$(".sc-item");
-  const showItem = (item) => {
-    scItems.forEach((it) => {
-      const on = it === item;
-      it.classList.toggle("is-active", on);
-      it.setAttribute("aria-selected", String(on));
-      const panel = $("#" + it.getAttribute("aria-controls"));
-      panel.hidden = !on;
-      panel.classList.toggle("is-active", on);
-    });
-  };
-  scItems.forEach((it, i) => {
-    it.addEventListener("click", () => showItem(it));
-    it.addEventListener("mouseenter", () => { if (window.matchMedia("(hover: hover)").matches) showItem(it); });
-    it.addEventListener("keydown", (ev) => {
-      if (ev.key !== "ArrowDown" && ev.key !== "ArrowUp") return;
-      ev.preventDefault();
-      const next = scItems[(i + (ev.key === "ArrowDown" ? 1 : -1) + scItems.length) % scItems.length];
-      next.focus();
-      showItem(next);
-    });
-    // quando a barra de progresso enche, passa para o próximo
-    $(".sc-item__bar i", it).addEventListener("animationend", () => showItem(scItems[(i + 1) % scItems.length]));
-  });
-
   /* ---------- Formulário de contato ---------- */
   const form = $("#contact-form");
   const msg = $("#form-msg");
