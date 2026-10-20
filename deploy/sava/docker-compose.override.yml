@@ -1,0 +1,20 @@
+# Jornada SAVA na MESMA VPS da NEX: copie este arquivo para a pasta do SAVA na VPS
+# (ex.: /opt/jornada-sava/docker-compose.override.yml). Nada muda no repositório do SAVA.
+#
+# - O Caddy do SAVA fica desligado: quem atende as portas 80/443 é o Caddy da NEX.
+# - A aplicação do SAVA entra na rede "web" com o nome sava-app (usado em deploy/sites/jornadasava.caddy).
+# - Banco, dados e domínio do SAVA continuam separados dos da NEX.
+
+services:
+  caddy:
+    profiles: ["desligado"]
+
+  app:
+    networks:
+      default: {}
+      web:
+        aliases: [sava-app]
+
+networks:
+  web:
+    external: true

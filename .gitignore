@@ -2,3 +2,20 @@ Thumbs.db
 .DS_Store
 desktop.ini
 .vscode/
+
+# Variáveis de ambiente e credenciais.
+.env
+.env.*
+!.env.example
+
+# Arquivos enviados pelo painel, backups e pacotes de entrega (ficam só na VPS / na máquina).
+uploads/
+backups/
+entregas/
+
+# Backend
+server/node_modules/
+*.log
+
+# Projetos de clientes têm repositório próprio.
+Jornada SAVA/

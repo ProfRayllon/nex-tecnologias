@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Painel | NEX Tecnologias</title>
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600&family=Montserrat:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="/assets/img/favicon.png">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/app.css">
+</head>
+<body class="app">
+  <div class="adm">
+    <aside class="lateral">
+      <a href="#/" class="logo logo--light" aria-label="Painel NEX">
+        <img class="logo__mark" src="/assets/img/nex-simbolo.png" alt="" width="38" height="38">
+        <span class="logo__text">NEX<small>Painel</small></span>
+      </a>
+      <nav class="lateral__nav" id="nav" aria-label="Seções do painel">
+        <a href="#/" data-secao="inicio"><span data-ico="painel"></span><span class="rot">Visão geral</span></a>
+        <a href="#/clientes" data-secao="clientes"><span data-ico="predio"></span><span class="rot">Clientes</span></a>
+        <a href="#/projetos" data-secao="projetos"><span data-ico="camadas"></span><span class="rot">Projetos</span></a>
+        <a href="#/acessos" data-secao="acessos"><span data-ico="usuarios"></span><span class="rot">Acessos</span></a>
+        <a href="#/contatos" data-secao="contatos"><span data-ico="mensagem"></span><span class="rot">Contatos do site</span><span class="contador" id="nao-lidos" hidden></span></a>
+        <a href="#/atividade" data-secao="atividade"><span data-ico="atividade"></span><span class="rot">Atividade</span></a>
+      </nav>
+      <div class="lateral__pe">
+        <div class="lateral__eu"><b id="eu-nome"></b><span id="eu-email"></span></div>
+        <a href="/" target="_blank" rel="noopener"><span data-ico="site"></span><span class="rot">Ver o site</span></a>
+        <button type="button" id="minha-senha"><span data-ico="chave"></span><span class="rot">Alterar senha</span></button>
+        <button type="button" id="sair"><span data-ico="sair"></span><span class="rot">Sair</span></button>
+      </div>
+    </aside>
+
+    <main class="adm__main" id="conteudo"><div class="carregando">Carregando o painel…</div></main>
+  </div>
+
+  <script src="/assets/js/nex.js"></script>
+  <script src="/assets/js/admin.js"></script>
+</body>
+</html>

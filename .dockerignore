@@ -1,0 +1,12 @@
+.git
+.env
+.env.*
+!.env.example
+Jornada SAVA
+visual
+uploads
+backups
+entregas
+deploy
+server/node_modules
+*.log

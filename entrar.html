@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Área do cliente | NEX Tecnologias</title>
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600&family=Montserrat:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="/assets/img/favicon.png">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/app.css">
+</head>
+<body class="app">
+  <main class="entrar">
+    <section class="entrar__lado">
+      <a href="/" class="logo logo--light" aria-label="NEX Tecnologias - site">
+        <img class="logo__mark" src="/assets/img/nex-simbolo.png" alt="" width="38" height="38">
+        <span class="logo__text">NEX<small>Tecnologias</small></span>
+      </a>
+      <div>
+        <span class="eyebrow eyebrow--dark">Área do cliente</span>
+        <h1>Tudo sobre o seu sistema, em um só lugar.</h1>
+        <p>Acompanhe o seu projeto com a NEX: proposta, telas, acesso ao sistema e o código-fonte que é seu.</p>
+        <ul class="entrar__itens">
+          <li><svg viewBox="0 0 24 24" class="ico"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg>Orçamento e documentos do projeto</li>
+          <li><svg viewBox="0 0 24 24" class="ico"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg>Telas, informações e link de acesso</li>
+          <li><svg viewBox="0 0 24 24" class="ico"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></svg>Download do código-fonte do seu sistema</li>
+        </ul>
+      </div>
+      <p class="entrar__rodape">© <span id="ano"></span> NEX Tecnologias · Conexão protegida</p>
+    </section>
+
+    <section class="entrar__form">
+      <!-- Etapa 1: e-mail e senha -->
+      <form class="entrar__caixa" id="form-entrar" novalidate>
+        <a href="/" class="entrar__voltar"><svg viewBox="0 0 24 24" class="ico"><path d="M5 12h14M13 6l6 6-6 6"/></svg>Voltar ao site</a>
+        <h2>Entrar</h2>
+        <p>Use o e-mail e a senha enviados pela equipe NEX.</p>
+        <div class="entrar__erro" id="erro-entrar" role="alert"></div>
+        <label class="field"><span>E-mail</span><input type="email" name="email" autocomplete="username" required placeholder="voce@empresa.com.br"></label>
+        <label class="field"><span>Senha</span>
+          <span class="senha">
+            <input type="password" name="senha" autocomplete="current-password" required placeholder="Sua senha">
+            <button type="button" class="icobtn" data-ver-senha aria-label="Mostrar senha"><svg viewBox="0 0 24 24" class="ico"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></button>
+          </span>
+        </label>
+        <button type="submit" class="btn btn--primary btn--block">Entrar <svg viewBox="0 0 24 24" class="ico"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        <p class="small muted">Esqueceu a senha? Fale com a NEX em <a class="link" href="mailto:contato@nextecnologias.com.br">contato@nextecnologias.com.br</a>.</p>
+      </form>
+
+      <!-- Etapa 2: primeira entrada, troca da senha provisória -->
+      <form class="entrar__caixa" id="form-senha" novalidate hidden>
+        <h2>Crie sua senha</h2>
+        <p id="ola-senha">Este é o seu primeiro acesso. Defina uma senha pessoal para continuar.</p>
+        <div class="entrar__erro" id="erro-senha" role="alert"></div>
+        <label class="field"><span>Nova senha</span>
+          <span class="senha">
+            <input type="password" name="senha" autocomplete="new-password" required minlength="8" placeholder="Pelo menos 8 caracteres">
+            <button type="button" class="icobtn" data-ver-senha aria-label="Mostrar senha"><svg viewBox="0 0 24 24" class="ico"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></button>
+          </span>
+        </label>
+        <label class="field"><span>Confirme a nova senha</span><input type="password" name="confirma" autocomplete="new-password" required placeholder="Repita a senha"></label>
+        <button type="submit" class="btn btn--primary btn--block">Salvar e continuar <svg viewBox="0 0 24 24" class="ico"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+      </form>
+    </section>
+  </main>
+
+  <script src="/assets/js/nex.js"></script>
+  <script src="/assets/js/entrar.js"></script>
+</body>
+</html>

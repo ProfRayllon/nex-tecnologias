@@ -1,0 +1,12 @@
+# Jornada SAVA na MESMA VPS da NEX.
+# Para ativar: renomeie para jornadasava.caddy e rode `docker compose restart caddy` em /opt/nex.
+# Antes, suba o SAVA com deploy/sava/docker-compose.override.yml (veja o README).
+
+jornadasava.com.br {
+	encode gzip zstd
+	reverse_proxy sava-app:3000
+}
+
+www.jornadasava.com.br {
+	redir https://jornadasava.com.br{uri} permanent
+}

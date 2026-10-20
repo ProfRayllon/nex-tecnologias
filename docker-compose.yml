@@ -1,0 +1,71 @@
+# NEX Tecnologias na VPS: PostgreSQL + aplicação + Caddy (HTTPS automático com Let's Encrypt).
+# Uso: copie .env.example para .env, preencha e rode `docker compose up -d --build`.
+#
+# O Caddy daqui é o único que escuta as portas 80/443 da VPS. Outros sistemas na mesma máquina
+# (ex.: Jornada SAVA) entram na rede "web" e ganham um arquivo em deploy/sites/. Veja o README.
+
+services:
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: nex
+      POSTGRES_USER: nex
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?defina POSTGRES_PASSWORD no .env}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U nex -d nex"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  app:
+    build: .
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgres://nex:${POSTGRES_PASSWORD}@db:5432/nex
+      ADMIN_EMAIL: ${ADMIN_EMAIL:-contato@nextecnologias.com.br}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD:?defina ADMIN_PASSWORD no .env}
+      SESSION_HOURS: ${SESSION_HOURS:-12}
+      MAX_UPLOAD_MB: ${MAX_UPLOAD_MB:-500}
+    volumes:
+      # Orçamentos, telas e pacotes de código enviados pelo painel.
+      - uploads:/app/uploads
+    networks:
+      default: {}
+      web:
+        aliases: [nex-app]
+
+  caddy:
+    image: caddy:2-alpine
+    restart: unless-stopped
+    depends_on:
+      - app
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    environment:
+      DOMAIN: ${DOMAIN:?defina DOMAIN no .env}
+      ACME_EMAIL: ${ACME_EMAIL:-contato@nextecnologias.com.br}
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - ./deploy/sites:/etc/caddy/sites:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    networks:
+      - web
+
+networks:
+  web:
+    name: web
+
+volumes:
+  pgdata:
+  uploads:
+  caddy_data:
+  caddy_config:

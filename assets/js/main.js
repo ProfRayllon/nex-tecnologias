@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
   $$("a", nav).forEach((a) => a.addEventListener("click", () => toggleMenu(false)));
 
   /* ---------- Link ativo conforme a seção ---------- */
-  const links = $$(".nav__link");
+  const links = $$('.nav__link[href^="#"]');
   const spy = new IntersectionObserver(
     (entries) => {
       entries.forEach((e) => {
@@ -165,7 +165,7 @@ document.addEventListener("DOMContentLoaded", () => {
   /* ---------- Formulário de contato ---------- */
   const form = $("#contact-form");
   const msg = $("#form-msg");
-  form.addEventListener("submit", (ev) => {
+  form.addEventListener("submit", async (ev) => {
     ev.preventDefault();
     let valid = true;
     $$("[required]", form).forEach((input) => {
@@ -180,9 +180,27 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    // TODO: integrar com o back-end / CRM (ex.: fetch("/api/contato", { method: "POST", body: new FormData(form) }))
-    msg.className = "form__msg ok";
-    msg.textContent = "Recebemos seu contato! Nossa equipe retornará em breve.";
-    form.reset();
+    // A mensagem vai para o banco da NEX e aparece no painel (/admin → Contatos do site).
+    const botao = $("[type=submit]", form);
+    botao.disabled = true;
+    msg.className = "form__msg";
+    msg.textContent = "Enviando…";
+    try {
+      const res = await fetch("/api/contato", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(Object.fromEntries(new FormData(form))),
+      });
+      const json = await res.json().catch(() => ({}));
+      if (!res.ok) throw new Error(json.erro || "Não foi possível enviar agora.");
+      msg.className = "form__msg ok";
+      msg.textContent = "Recebemos seu contato! Nossa equipe retornará em breve.";
+      form.reset();
+    } catch (err) {
+      msg.className = "form__msg err";
+      msg.textContent = `${err.message} Se preferir, fale com a gente pelo WhatsApp.`;
+    } finally {
+      botao.disabled = false;
+    }
   });
 });

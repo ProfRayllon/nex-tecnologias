@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Área do cliente | NEX Tecnologias</title>
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600&family=Montserrat:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="/assets/img/favicon.png">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/app.css">
+</head>
+<body class="app">
+  <!-- Só aparece para a equipe NEX: pré-visualização do portal de um cliente -->
+  <div class="previa" id="previa" hidden>
+    <div class="container">
+      <span>Pré-visualização do portal ·</span>
+      <label>cliente <select id="previa-cliente"></select></label>
+      <a href="/admin">Voltar ao painel</a>
+    </div>
+  </div>
+
+  <header class="barra">
+    <div class="container barra__in">
+      <div class="barra__marca">
+        <a href="/portal" class="logo" aria-label="NEX Tecnologias - área do cliente">
+          <img class="logo__mark" src="/assets/img/nex-simbolo-clara-128.png" alt="" width="38" height="38">
+          <span class="logo__text">NEX<small>Tecnologias</small></span>
+        </a>
+        <span class="barra__sep"></span>
+        <span class="barra__rotulo">Área do cliente</span>
+      </div>
+      <div class="barra__acoes">
+        <div class="usuario">
+          <button class="usuario__btn" id="usuario-btn" aria-expanded="false" aria-haspopup="menu">
+            <span class="avatar" id="usuario-avatar"></span>
+            <span class="usuario__nome"><b id="usuario-nome"></b><small id="usuario-cliente"></small></span>
+          </button>
+          <div class="menu" id="usuario-menu" role="menu" hidden>
+            <button role="menuitem" id="acao-senha"></button>
+            <a role="menuitem" href="/" id="acao-site"></a>
+            <button role="menuitem" id="acao-sair"></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="app" class="conteudo"><div class="carregando">Carregando seus projetos…</div></main>
+
+  <footer class="rodape-app">
+    <div class="container">
+      <span>© <span id="ano"></span> NEX Tecnologias · Sistemas sob medida</span>
+      <span>Precisa de ajuda? <a href="mailto:contato@nextecnologias.com.br">contato@nextecnologias.com.br</a></span>
+    </div>
+  </footer>
+
+  <dialog class="dlg" id="dlg-senha">
+    <form method="dialog" id="form-senha" novalidate>
+      <div class="dlg__topo"><h2>Alterar senha</h2><button type="button" class="icobtn" data-fechar aria-label="Fechar"></button></div>
+      <div class="dlg__corpo">
+        <label class="field"><span>Nova senha</span>
+          <span class="senha"><input type="password" name="senha" autocomplete="new-password" minlength="8" placeholder="Pelo menos 8 caracteres"><button type="button" class="icobtn" data-ver-senha aria-label="Mostrar senha"></button></span>
+        </label>
+        <label class="field"><span>Confirme a nova senha</span><input type="password" name="confirma" autocomplete="new-password"></label>
+        <p class="dlg__erro" role="alert"></p>
+      </div>
+      <div class="dlg__rodape">
+        <button type="button" class="btn btn--outline btn--sm" data-fechar>Cancelar</button>
+        <button type="submit" class="btn btn--primary btn--sm">Salvar senha</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="/assets/js/nex.js"></script>
+  <script src="/assets/js/portal.js"></script>
+</body>
+</html>

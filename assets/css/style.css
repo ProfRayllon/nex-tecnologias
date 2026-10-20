@@ -127,6 +127,9 @@ h1, h2, h3, h4 { font-family: var(--font-display); color: var(--navy-900); line-
 .nav__link::after { content: ""; position: absolute; left: 14px; right: 14px; bottom: 2px; height: 2px; border-radius: 2px; background: var(--blue-600); transform: scaleX(0); transition: transform .3s var(--ease); }
 .nav__link.is-active::after, .nav__link:hover::after { transform: scaleX(1); }
 .nav__cta { margin-left: 10px; }
+.nav__cliente { display: inline-flex; align-items: center; gap: 7px; margin-left: 6px; }
+.nav__cliente .ico { width: 16px; height: 16px; }
+.nav__cliente::after { display: none; }
 
 .burger { display: none; width: 44px; height: 44px; border-radius: 10px; flex-direction: column; justify-content: center; align-items: center; gap: 5px; }
 .burger span { width: 22px; height: 2px; background: var(--navy-900); border-radius: 2px; transition: transform .3s, opacity .3s; }
