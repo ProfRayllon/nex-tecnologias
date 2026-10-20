@@ -205,6 +205,30 @@
       </div>`;
   }
 
+  // Orçamento e documentos: cartão com os dados e os botões, e a prévia do PDF ao lado.
+  function documentoPdf(a, selo = "") {
+    const pdf = a.mime === "application/pdf";
+    return `
+      <div class="doc${pdf ? "" : " doc--sem-previa"}">
+        <div class="cartao doc__info">
+          <span class="arquivo__ico${pdf ? " arquivo__ico--pdf" : ""}">${ico(pdf ? "pdf" : "doc")}</span>
+          <h2>${esc(a.titulo || a.nome)}</h2>
+          ${selo ? `<span class="selo">${selo}</span>` : ""}
+          ${a.legenda ? `<p>${esc(a.legenda)}</p>` : ""}
+          <dl class="doc__dados">
+            <div><dt>Arquivo</dt><dd>${esc(a.nome)}</dd></div>
+            <div><dt>Tamanho</dt><dd>${NEX.tamanho(a.tamanho)}</dd></div>
+            <div><dt>Publicado em</dt><dd>${esc(NEX.data(a.criadoEm))}</dd></div>
+          </dl>
+          <div class="doc__acoes">
+            <a class="btn btn--primary btn--block" href="${arquivoUrl(a, true)}">${ico("baixar")} Baixar ${pdf ? "PDF" : "arquivo"}</a>
+            ${pdf ? `<a class="btn btn--outline btn--block" href="${arquivoUrl(a)}" target="_blank" rel="noopener">${ico("externo")} Abrir em nova aba</a>` : ""}
+          </div>
+        </div>
+        ${pdf ? `<div class="doc__previa"><iframe src="${arquivoUrl(a)}#view=FitH" title="${esc(a.titulo)}" loading="lazy"></iframe></div>` : ""}
+      </div>`;
+  }
+
   function ficha(p) {
     const linhas = [
       ["Cliente", esc(p.clienteNome || dados.cliente?.nome || "")],
@@ -215,17 +239,6 @@
       ...p.informacoes.map((i) => [esc(i.rotulo), esc(i.valor)]),
     ].filter(Boolean);
     return `<dl class="ficha">${linhas.map(([r, v]) => `<div><dt>${r}</dt><dd>${v}</dd></div>`).join("")}</dl>`;
-  }
-
-  // Ícone de cada tecnologia (assets/img/tech). Sem ícone próprio, usa o símbolo de código.
-  const ICONES_TECH = [
-    [/typescript/i, "typescript"], [/javascript/i, "javascript"], [/python/i, "python"], [/postgres/i, "postgresql"],
-    [/mysql/i, "mysql"], [/react/i, "react"], [/tailwind/i, "tailwind"], [/github/i, "github"], [/git/i, "git"],
-    [/api|server-sent|tempo real/i, "api"], [/banco de dados|sql/i, "banco-de-dados"],
-  ];
-  function iconeTech(nome) {
-    const achado = ICONES_TECH.find(([re]) => re.test(nome));
-    return achado ? `<img src="/assets/img/tech/${achado[1]}.png" alt="" loading="lazy">` : `<span class="chip__ico">${ico("codigo")}</span>`;
   }
 
   // Login de administrador do sistema entregue; a senha fica oculta até o cliente pedir.
@@ -284,26 +297,29 @@
     orcamento(p) {
       const lista = porTipo(p, "orcamento");
       if (!lista.length) return vazio("pdf", "Orçamento ainda não publicado", "Assim que a proposta for enviada, o PDF fica disponível aqui.");
-      const [principal, ...outros] = lista;
-      return `
-        <div class="cartao">
-          <div class="cartao__topo"><h2>Proposta comercial</h2></div>
-          ${linhaArquivo(principal, { selo: lista.length > 1 ? "Principal" : "" })}
-          <div class="pdf"><iframe src="${arquivoUrl(principal)}#view=FitH" title="${esc(principal.titulo)}"></iframe></div>
-        </div>
-        ${outros.length ? `<div class="cartao"><h3>Outras versões</h3>${outros.map((a) => linhaArquivo(a)).join("")}</div>` : ""}`;
+      return lista.map((a, i) => documentoPdf(a, lista.length > 1 && i === 0 ? "Principal" : "")).join("");
     },
 
     telas(p) {
       const imgs = porTipo(p, "imagem");
       if (!imgs.length) return vazio("imagem", "Telas em preparação", "As imagens do sistema serão publicadas aqui.");
+      const a = imgs[0];
       return `
-        <div class="galeria">
-          ${imgs.map((a, i) => `
-            <figure data-lupa="${i}" tabindex="0" role="button" aria-label="Ampliar ${esc(a.titulo)}">
-              <img src="${arquivoUrl(a)}" alt="${esc(a.titulo)}" loading="lazy">
-              <figcaption><b>${esc(a.titulo)}</b>${a.legenda ? `<span>${esc(a.legenda)}</span>` : ""}</figcaption>
-            </figure>`).join("")}
+        <div class="carrossel" data-carrossel>
+          <div class="carrossel__palco">
+            <img class="carrossel__img" src="${arquivoUrl(a)}" alt="${esc(a.titulo)}" data-lupa="0">
+            ${imgs.length > 1 ? `
+              <button type="button" class="carrossel__seta carrossel__seta--ant" data-mover-tela="-1" aria-label="Tela anterior">${ico("esquerda")}</button>
+              <button type="button" class="carrossel__seta carrossel__seta--prox" data-mover-tela="1" aria-label="Próxima tela">${ico("direita")}</button>` : ""}
+            <span class="carrossel__contador">1 / ${imgs.length}</span>
+          </div>
+          <div class="carrossel__legenda"><b>${esc(a.titulo)}</b><span>${esc(a.legenda)}</span></div>
+          <div class="carrossel__miniaturas" role="tablist" aria-label="Telas do sistema">
+            ${imgs.map((t, i) => `
+              <button type="button" class="miniatura${i === 0 ? " is-ativa" : ""}" data-ir-tela="${i}" role="tab" aria-selected="${i === 0}">
+                <img src="${arquivoUrl(t)}" alt="" loading="lazy"><span>${esc(t.titulo)}</span>
+              </button>`).join("")}
+          </div>
         </div>`;
     },
 
@@ -311,7 +327,6 @@
       if (!p.tecnologias.length) return vazio("camadas", "Tecnologias em definição", "A lista de tecnologias do projeto aparece aqui.");
       const grupos = new Map();
       for (const t of p.tecnologias) grupos.set(t.categoria, [...(grupos.get(t.categoria) || []), t.nome]);
-      const icone = (c) => (/front|interface|tela/i.test(c) ? "tela" : /back|api|servidor/i.test(c) ? "servidor" : /banco|dados/i.test(c) ? "banco" : /infra|nuvem|hospedagem|deploy/i.test(c) ? "globo" : /segur/i.test(c) ? "escudo" : "ferramenta");
       return `
         <div class="cartao">
           <div class="cartao__topo">
@@ -321,8 +336,8 @@
           <div class="techs">
             ${[...grupos].map(([cat, nomes]) => `
               <div class="tech">
-                <h3>${ico(icone(cat))}${esc(cat)}</h3>
-                <div class="chips">${nomes.map((n) => `<span class="chip chip--tech">${iconeTech(n)}${esc(n)}</span>`).join("")}</div>
+                <h3>${esc(cat)}</h3>
+                <ul>${nomes.map((n) => `<li>${esc(n)}</li>`).join("")}</ul>
               </div>`).join("")}
           </div>
         </div>`;
@@ -354,7 +369,7 @@
     },
 
     documentos(p) {
-      return `<div class="cartao"><h2>Documentos</h2>${porTipo(p, "documento").map((a) => linhaArquivo(a)).join("")}</div>`;
+      return porTipo(p, "documento").map((a) => documentoPdf(a)).join("");
     },
   };
 
@@ -399,7 +414,39 @@
     document.body.style.overflow = "";
   }
 
+  // ---------- Carrossel das telas ----------
+  let telaAtual = 0;
+  function mostrarTela(i) {
+    const caixa = $("[data-carrossel]");
+    const imgs = porTipo(projetoAtual(), "imagem");
+    if (!caixa || !imgs.length) return;
+    telaAtual = (i + imgs.length) % imgs.length;
+    const a = imgs[telaAtual];
+    const img = $(".carrossel__img", caixa);
+    img.src = arquivoUrl(a);
+    img.alt = a.titulo;
+    img.dataset.lupa = telaAtual;
+    $(".carrossel__contador", caixa).textContent = `${telaAtual + 1} / ${imgs.length}`;
+    $(".carrossel__legenda", caixa).innerHTML = `<b>${esc(a.titulo)}</b><span>${esc(a.legenda)}</span>`;
+    caixa.querySelectorAll("[data-ir-tela]").forEach((m, j) => {
+      m.classList.toggle("is-ativa", j === telaAtual);
+      m.setAttribute("aria-selected", String(j === telaAtual));
+      if (j === telaAtual) m.scrollIntoView({ block: "nearest", inline: "nearest" });
+    });
+    const proxima = imgs[(telaAtual + 1) % imgs.length];
+    if (proxima) new Image().src = arquivoUrl(proxima);
+  }
+  document.addEventListener("keydown", (ev) => {
+    if (lupa || !$("[data-carrossel]") || /input|textarea|select/i.test(ev.target.tagName)) return;
+    if (ev.key === "ArrowLeft") mostrarTela(telaAtual - 1);
+    if (ev.key === "ArrowRight") mostrarTela(telaAtual + 1);
+  });
+
   app.addEventListener("click", (ev) => {
+    const mover = ev.target.closest("[data-mover-tela]");
+    if (mover) return mostrarTela(telaAtual + Number(mover.dataset.moverTela));
+    const irTela = ev.target.closest("[data-ir-tela]");
+    if (irTela) return mostrarTela(Number(irTela.dataset.irTela));
     const copiar = ev.target.closest("[data-copiar-valor]");
     if (copiar) NEX.copiar(copiar.dataset.copiarValor);
     const revelar = ev.target.closest("[data-revelar]");
@@ -437,6 +484,7 @@
   let ultimoProjeto = null;
   function desenhar() {
     fecharLupa();
+    telaAtual = 0;
     const p = projetoAtual();
     if (!p) return telaLista();
     telaProjeto(p, rota().aba);
