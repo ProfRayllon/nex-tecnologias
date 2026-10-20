@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NEX Tecnologias | Soluções tecnológicas para a educação</title>
-  <meta name="description" content="Consultoria e plataformas SaaS para instituições de ensino, redes municipais e empresas: AVA Institucional e CRM Educacional.">
+  <title>NEX Tecnologias | Desenvolvimento de sistemas, SaaS e soluções educacionais</title>
+  <meta name="description" content="A NEX Tecnologias desenvolve sistemas educacionais, plataformas corporativas SaaS e software sob medida para instituições de ensino, órgãos públicos e empresas.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600&family=Montserrat:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="assets/img/favicon.png">
   <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
   <link rel="stylesheet" href="assets/css/style.css">
@@ -17,7 +17,7 @@
   <!-- ========== HEADER ========== -->
   <header class="header" id="header">
     <div class="container header__inner">
-      <a href="#inicio" class="logo" aria-label="NEX Tecnologias - início">
+      <a href="#inicio" class="logo logo--light" aria-label="NEX Tecnologias - início">
         <img class="logo__mark" src="assets/img/nex-simbolo.png" alt="" width="38" height="38">
         <span class="logo__text">NEX<small>Tecnologias</small></span>
       </a>
@@ -42,28 +42,39 @@
   <main>
     <!-- ========== HERO ========== -->
     <section class="hero" id="inicio">
-      <div class="hero__dots" aria-hidden="true"></div>
+      <div class="hero__grid" aria-hidden="true"></div>
       <div class="container hero__inner">
         <div class="hero__content">
-          <div class="segments reveal" role="tablist" aria-label="Escolha o seu segmento">
-            <button class="segment is-active" data-segment="municipios" role="tab" aria-selected="true">Municípios</button>
-            <button class="segment" data-segment="superior" role="tab" aria-selected="false">Ensino Superior</button>
-            <button class="segment" data-segment="escolas" role="tab" aria-selected="false">Escolas</button>
-            <button class="segment" data-segment="empresas" role="tab" aria-selected="false">Empresas</button>
-          </div>
+          <span class="eyebrow eyebrow--dark reveal"><i class="dot"></i>Desenvolvimento de sistemas · SaaS · Educação</span>
 
           <h1 class="hero__title reveal">
-            Construa um futuro <span class="text-blue">extraordinário</span> para a <span class="hero__word" id="hero-word">educação pública</span>
+            Desenvolvemos sistemas para um amanhã <span class="text-grad">mais inteligente.</span>
           </h1>
-          <p class="hero__text reveal" id="hero-text">
-            Modernize a rede municipal de ensino com plataformas em nuvem para formação de professores,
-            processos seletivos e gestão educacional completa, com transparência e dados para decidir melhor.
+          <p class="hero__text reveal">
+            A NEX Tecnologias cria, hospeda e evolui software para instituições de ensino, órgãos públicos e empresas,
+            do código à nuvem, com segurança e gente de verdade no suporte.
           </p>
+
+          <ul class="fronts reveal" aria-label="Frentes de atuação">
+            <li>
+              <span class="fronts__ico"><svg viewBox="0 0 24 24"><path d="M2 7l10-4 10 4-10 4L2 7z"/><path d="M6 9v5c0 1.7 2.7 3 6 3s6-1.3 6-3V9"/></svg></span>
+              <span><b>Sistemas educacionais</b><small>AVA, CRM e gestão do ensino</small></span>
+            </li>
+            <li>
+              <span class="fronts__ico"><svg viewBox="0 0 24 24"><path d="M18 10h-1.3A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg></span>
+              <span><b>Sistemas corporativos</b><small>Plataformas SaaS para empresas</small></span>
+            </li>
+            <li>
+              <span class="fronts__ico"><svg viewBox="0 0 24 24"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></svg></span>
+              <span><b>Desenvolvimento sob medida</b><small>Software feito para o seu processo</small></span>
+            </li>
+          </ul>
+
           <div class="hero__actions reveal">
-            <a href="#contato" class="btn btn--primary">Fale com um especialista
+            <a href="#contato" class="btn btn--primary">Fale conosco
               <svg viewBox="0 0 24 24" class="ico"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
             </a>
-            <a href="#solucoes" class="btn btn--outline">Conheça as soluções</a>
+            <a href="#solucoes" class="btn btn--ghost">Conheça as soluções</a>
           </div>
         </div>
 
@@ -72,34 +83,34 @@
             <span class="hero__ring hero__ring--1"></span>
             <span class="hero__ring hero__ring--2"></span>
           </div>
-          <img class="hero__photo" src="assets/img/gestora.png" alt="Gestora educacional utilizando um tablet" width="537" height="961">
+          <img class="hero__photo" src="assets/img/gestora.png" alt="Profissional utilizando um sistema da NEX em um tablet" width="537" height="961">
 
           <div class="float-card float-card--a" aria-hidden="true">
-            <span class="fc__ico fc__ico--blue"><svg viewBox="0 0 24 24"><path d="M4 19V5M4 19h16M8 15l3-3 3 2 5-6"/></svg></span>
-            <div><small>Engajamento dos alunos</small><strong>+32% no semestre</strong></div>
+            <span class="fc__ico fc__ico--blue"><svg viewBox="0 0 24 24"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></svg></span>
+            <div><small>Build &amp; deploy</small><strong>Publicado em produção</strong></div>
           </div>
           <div class="float-card float-card--b" aria-hidden="true">
             <span class="fc__ico fc__ico--green"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span>
-            <div><small>Processo seletivo</small><strong>Edital publicado</strong></div>
+            <div><small>Disponibilidade</small><strong>99,9% uptime</strong></div>
           </div>
-          <div class="float-card float-card--c" aria-hidden="true">
-            <div class="mini-chart"><i style="--h:40%"></i><i style="--h:65%"></i><i style="--h:50%"></i><i style="--h:80%"></i><i style="--h:95%"></i></div>
-            <div><small>Matrículas</small><strong>1.284</strong></div>
+          <div class="float-card float-card--c term" aria-hidden="true">
+            <div class="term__bar"><i></i><i></i><i></i></div>
+            <code><span class="term__p">$</span> nex deploy --prod</code>
+            <code class="ok">✓ 128 testes aprovados</code>
+            <code class="ok">✓ deploy concluído em 42s</code>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ========== FAIXA DE NÚMEROS ========== -->
-    <section class="strip">
-      <div class="container strip__inner">
-        <h2 class="strip__title reveal">Educação <span class="text-blue">conectada</span> e gestão <span class="text-blue">inteligente</span>, de ponta a ponta</h2>
-        <div class="strip__stats">
-          <div class="stat reveal"><strong><span data-count="99.9" data-decimals="1">0</span>%</strong><p>de disponibilidade (SLA)</p></div>
-          <div class="stat reveal"><strong><span data-count="24">0</span>/7</strong><p>monitoramento contínuo</p></div>
-          <div class="stat reveal"><strong><span data-count="100">0</span>%</strong><p>em nuvem</p></div>
-        </div>
-        <a href="#contato" class="btn btn--primary reveal">Fale com um especialista</a>
+    <!-- ========== NÚMEROS ========== -->
+    <section class="stats" aria-label="A NEX em números">
+      <div class="container stats__grid">
+        <div class="stat reveal"><strong><span data-count="99.9" data-decimals="1">0</span>%</strong><p>de disponibilidade garantida em contrato (SLA)</p></div>
+        <div class="stat reveal"><strong><span data-count="24">0</span>/7</strong><p>monitoramento contínuo da infraestrutura</p></div>
+        <div class="stat reveal"><strong><span data-count="100">0</span>%</strong><p>em nuvem, sem instalar nada</p></div>
+        <div class="stat reveal"><strong><span data-count="3">0</span></strong><p>frentes de atuação em desenvolvimento</p></div>
+        <div class="stat reveal"><strong>+<span data-count="15">0</span></strong><p>tecnologias no nosso stack</p></div>
       </div>
     </section>
 
@@ -111,7 +122,8 @@
             <img src="assets/img/consultor.png" alt="Consultor da NEX Tecnologias" width="533" height="971" loading="lazy">
           </div>
           <div class="diff__content">
-            <h2>A solução mais <span class="hl-light">completa e inteligente</span> para a gestão do ensino</h2>
+            <span class="eyebrow eyebrow--dark">Por que a NEX</span>
+            <h2>Tecnologia completa, segura e <span class="hl-light">pronta para escalar</span></h2>
             <div class="diff__grid">
               <div class="diff__item">
                 <span class="diff__ico"><svg viewBox="0 0 24 24"><path d="M18 10h-1.3A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg></span>
@@ -119,7 +131,7 @@
               </div>
               <div class="diff__item">
                 <span class="diff__ico"><svg viewBox="0 0 24 24"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.3h6c0-1 .4-1.8 1-2.3A7 7 0 0 0 12 2z"/></svg></span>
-                <div><b>Consultoria especializada</b><p>Especialistas em educação e tecnologia ao seu lado.</p></div>
+                <div><b>Time de especialistas</b><p>Desenvolvedores, analistas e consultores ao seu lado.</p></div>
               </div>
               <div class="diff__item">
                 <span class="diff__ico"><svg viewBox="0 0 24 24"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg></span>
@@ -282,12 +294,21 @@
       </div>
     </section>
 
+    <!-- ========== FAIXA DE TECNOLOGIAS ========== -->
+    <section class="marquee" aria-label="Tecnologias e frentes de atuação">
+      <div class="marquee__row">
+        <div class="marquee__track"><ul><li>React</li><li>Next.js</li><li>Node.js</li><li>TypeScript</li><li>Python</li><li>PHP</li><li>Laravel</li><li>Flutter</li><li>PostgreSQL</li><li>MySQL</li><li>MongoDB</li><li>Docker</li><li>AWS</li><li>Azure</li><li>APIs REST</li><li>Git</li></ul><ul aria-hidden="true"><li>React</li><li>Next.js</li><li>Node.js</li><li>TypeScript</li><li>Python</li><li>PHP</li><li>Laravel</li><li>Flutter</li><li>PostgreSQL</li><li>MySQL</li><li>MongoDB</li><li>Docker</li><li>AWS</li><li>Azure</li><li>APIs REST</li><li>Git</li></ul></div>
+      </div>
+      <div class="marquee__row marquee__row--alt">
+        <div class="marquee__track"><ul><li>Sistemas educacionais</li><li>SaaS corporativo</li><li>Desenvolvimento sob medida</li><li>Integrações e APIs</li><li>Cloud e DevOps</li><li>Segurança e LGPD</li><li>Suporte humanizado</li><li>Dados e indicadores</li></ul><ul aria-hidden="true"><li>Sistemas educacionais</li><li>SaaS corporativo</li><li>Desenvolvimento sob medida</li><li>Integrações e APIs</li><li>Cloud e DevOps</li><li>Segurança e LGPD</li><li>Suporte humanizado</li><li>Dados e indicadores</li></ul></div>
+      </div>
+    </section>
+
     <!-- ========== MÓDULOS ========== -->
     <section class="section modules">
       <div class="container">
         <div class="section__head section__head--split reveal">
           <h2 class="section__title">Tecnologia para quem quer <span class="text-blue">estar à frente</span></h2>
-          <a href="#contato" class="btn btn--primary">Fale com um especialista</a>
         </div>
 
         <div class="modules__inner">
@@ -351,13 +372,16 @@
           <h2 class="section__title">Da análise à evolução contínua, <span class="hl-light">ao seu lado</span></h2>
           <p class="section__sub">Um método claro, com entregas mensuráveis e atendimento humanizado em todas as etapas.</p>
         </div>
-        <ol class="steps">
-          <li class="step reveal"><span class="step__n">01</span><h3>Diagnóstico</h3><p>Entendemos seus processos, sistemas atuais e objetivos pedagógicos.</p></li>
-          <li class="step reveal"><span class="step__n">02</span><h3>Planejamento</h3><p>Definimos escopo, cronograma e indicadores de sucesso.</p></li>
-          <li class="step reveal"><span class="step__n">03</span><h3>Implantação</h3><p>Configuramos as plataformas com sua identidade e migramos os dados.</p></li>
-          <li class="step reveal"><span class="step__n">04</span><h3>Capacitação</h3><p>Treinamos gestores, professores e equipes técnicas.</p></li>
-          <li class="step reveal"><span class="step__n">05</span><h3>Evolução</h3><p>Suporte contínuo, novas funcionalidades e acompanhamento de resultados.</p></li>
-        </ol>
+        <div class="flow reveal">
+          <div class="flow__line" aria-hidden="true"><i></i></div>
+          <ol class="steps">
+            <li class="step"><span class="step__n">01</span><h3>Diagnóstico</h3><p>Entendemos seus processos, sistemas atuais e objetivos de negócio.</p></li>
+            <li class="step"><span class="step__n">02</span><h3>Planejamento</h3><p>Definimos escopo, arquitetura, cronograma e indicadores de sucesso.</p></li>
+            <li class="step"><span class="step__n">03</span><h3>Desenvolvimento</h3><p>Construímos e configuramos a solução com entregas contínuas e migração de dados.</p></li>
+            <li class="step"><span class="step__n">04</span><h3>Capacitação</h3><p>Treinamos gestores, usuários e equipes técnicas.</p></li>
+            <li class="step"><span class="step__n">05</span><h3>Evolução</h3><p>Monitoramento, suporte contínuo e novas funcionalidades.</p></li>
+          </ol>
+        </div>
       </div>
     </section>
 
@@ -393,7 +417,7 @@
         <div class="accordion reveal">
           <details class="acc" open>
             <summary>O que é a NEX Tecnologias?</summary>
-            <p>Somos uma empresa de consultoria e soluções computacionais voltadas para o ensino. Desenvolvemos plataformas SaaS próprias, como o AVA Institucional e o CRM Educacional, e apoiamos instituições em toda a jornada de transformação digital.</p>
+            <p>Somos uma empresa de desenvolvimento de sistemas. Atuamos em três frentes: sistemas educacionais (como o AVA Institucional e o CRM Educacional), sistemas corporativos no modelo SaaS e desenvolvimento de software sob medida.</p>
           </details>
           <details class="acc">
             <summary>Preciso instalar algum programa?</summary>
@@ -425,7 +449,7 @@
       <div class="container contact__inner">
         <div class="contact__text reveal">
           <h2>Como podemos impulsionar a sua gestão?</h2>
-          <p>Descubra como a NEX pode transformar a educação na sua instituição ou município.</p>
+          <p>Descubra como a NEX pode transformar a sua instituição ou empresa com tecnologia.</p>
           <p>Fale com nosso time de especialistas e agende uma demonstração gratuita.</p>
           <div class="contact__hint">
             <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
@@ -454,22 +478,23 @@
                 <option value="municipios">Município / Secretaria de Educação</option>
                 <option value="superior">Instituição de Ensino Superior</option>
                 <option value="escolas">Escola / Curso livre</option>
-                <option value="empresas">Empresa / Universidade corporativa</option>
+                <option value="empresas">Empresa</option>
+                <option value="outro">Outro</option>
               </select>
             </label>
             <label class="field"><span>Interesse</span>
               <select name="interesse">
                 <option value="">Selecione</option>
-                <option>AVA Institucional</option>
-                <option>CRM Educacional</option>
+                <option>Sistemas educacionais (AVA / CRM)</option>
+                <option>Sistemas corporativos (SaaS)</option>
+                <option>Desenvolvimento sob medida</option>
                 <option>Consultoria</option>
-                <option>Todas as soluções</option>
               </select>
             </label>
           </div>
           <label class="field"><span>Mensagem</span><textarea name="mensagem" rows="3" placeholder="Conte um pouco sobre sua necessidade"></textarea></label>
           <label class="check"><input type="checkbox" name="lgpd" required> <span>Concordo com o tratamento dos meus dados conforme a Política de Privacidade.</span></label>
-          <button type="submit" class="btn btn--primary btn--block">Fale com um especialista <svg viewBox="0 0 24 24" class="ico"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+          <button type="submit" class="btn btn--primary btn--block">Fale conosco <svg viewBox="0 0 24 24" class="ico"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
           <p class="form__msg" id="form-msg" role="status" aria-live="polite"></p>
         </form>
       </div>
@@ -485,21 +510,22 @@
             <img class="logo__mark" src="assets/img/nex-simbolo.png" alt="" width="38" height="38">
             <span class="logo__text">NEX<small>Tecnologias</small></span>
           </a>
-          <p class="footer__about">Transformando o futuro da educação com tecnologia e pessoas.</p>
+          <p class="footer__about">Conectando ideias hoje para um amanhã mais inteligente.</p>
         </div>
-        <div><h4>Soluções</h4><a href="#solucoes">AVA Institucional</a><a href="#solucoes">CRM Educacional</a><a href="#solucoes">Consultoria</a></div>
+        <div><h4>Soluções</h4><a href="#solucoes">Sistemas educacionais</a><a href="#solucoes">Sistemas corporativos</a><a href="#solucoes">Desenvolvimento sob medida</a><a href="#solucoes">Consultoria</a></div>
         <div><h4>Institucional</h4><a href="#diferenciais">Diferenciais</a><a href="#como-trabalhamos">Como trabalhamos</a><a href="#faq">Dúvidas frequentes</a><a href="#contato">Contato</a></div>
         <div><h4>Legal</h4><a href="#">Política de Privacidade</a><a href="#">Termos de Uso</a><a href="#">Política de Cookies</a></div>
       </div>
       <div class="footer__bottom">
         <span>© <span id="year"></span> NEX Tecnologias. Todos os direitos reservados.</span>
-        <span>CNPJ 00.000.000/0000-00</span>
       </div>
     </div>
   </footer>
 
-  <a href="#contato" class="fab" aria-label="Fale conosco">
-    <svg viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.4A8.4 8.4 0 1 1 21 11.5z"/></svg>
+  <!-- TODO: trocar 5500000000000 pelo número real (55 + DDD + número) -->
+  <a href="https://wa.me/5500000000000?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20NEX%20Tecnologias." class="fab" target="_blank" rel="noopener" aria-label="Fale conosco pelo WhatsApp">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.26-.47-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.08-.13-.27-.2-.57-.35m-5.42 7.4h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.82 9.82 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89a11.82 11.82 0 0 0-3.48-8.41z"/></svg>
+    <span class="fab__label">Fale no WhatsApp</span>
   </a>
 
   <script src="assets/js/main.js"></script>

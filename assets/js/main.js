@@ -2,25 +2,10 @@
    NEX Tecnologias — interações da landing page
    ========================================================= */
 
-// Textos do hero conforme o segmento escolhido
-const SEGMENTS = {
-  municipios: {
-    word: "educação pública",
-    text: "Modernize a rede municipal de ensino com plataformas em nuvem para formação de professores, processos seletivos e gestão educacional completa, com transparência e dados para decidir melhor.",
-  },
-  superior: {
-    word: "sua instituição",
-    text: "Atraia mais alunos e ofereça cursos EAD e híbridos de alto nível, com um CRM de captação do vestibular à matrícula e um AVA com a identidade da sua marca.",
-  },
-  escolas: {
-    word: "sua escola",
-    text: "Leve a sala de aula para o digital, simplifique as matrículas e aproxime as famílias com uma gestão educacional moderna, simples e acessível.",
-  },
-  empresas: {
-    word: "sua equipe",
-    text: "Treinamentos, onboarding e trilhas de desenvolvimento em uma universidade corporativa digital, com indicadores claros de aprendizagem e desempenho.",
-  },
-};
+// Teste de tipografia: ?fonte=montserrat deixa os títulos também em Montserrat
+if (new URLSearchParams(location.search).get("fonte") === "montserrat") {
+  document.documentElement.classList.add("font-all-montserrat");
+}
 
 document.addEventListener("DOMContentLoaded", () => {
   const $ = (s, el = document) => el.querySelector(s);
@@ -101,30 +86,6 @@ document.addEventListener("DOMContentLoaded", () => {
     { threshold: 0.6 }
   );
   $$("[data-count]").forEach((el) => countObs.observe(el));
-
-  /* ---------- Segmentos do hero ---------- */
-  const heroWord = $("#hero-word");
-  const heroText = $("#hero-text");
-  const formSegment = $("#form-segment");
-  $$(".segment").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const key = btn.dataset.segment;
-      $$(".segment").forEach((b) => {
-        b.classList.toggle("is-active", b === btn);
-        b.setAttribute("aria-selected", String(b === btn));
-      });
-      heroWord.classList.add("is-swapping");
-      heroText.classList.add("is-swapping");
-      setTimeout(() => {
-        heroWord.textContent = SEGMENTS[key].word;
-        heroText.textContent = SEGMENTS[key].text;
-        heroWord.classList.remove("is-swapping");
-        heroText.classList.remove("is-swapping");
-      }, 250);
-      // já deixa o segmento pré-selecionado no formulário
-      if (formSegment) formSegment.value = key;
-    });
-  });
 
   /* ---------- Abas de soluções ---------- */
   const tabs = $$(".tab");
