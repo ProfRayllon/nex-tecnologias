@@ -49,12 +49,20 @@ const comSessao = (arquivo, perfil) => async (req, res, next) => {
   }
 };
 
+// Só acontece se o JavaScript da página falhar: o formulário cai aqui (POST, nunca na URL) e volta para a página.
+app.post(["/", "/entrar"], (req, res) => res.redirect(303, req.path));
+
 app.get(["/", "/index.html"], enviar("index.html"));
 app.get(["/entrar", "/login", "/cliente"], enviar("entrar.html"));
 app.get("/portal", comSessao("portal.html"));
 app.get("/admin", comSessao("admin.html", "admin"));
 app.get("/favicon.ico", enviar("assets/img/favicon.png"));
-app.use("/assets", express.static(raiz("assets"), { maxAge: "1h", fallthrough: false }));
+// CSS e JS sempre revalidados (ETag): depois de uma atualização, o navegador não mistura HTML novo com script velho.
+app.use("/assets", express.static(raiz("assets"), {
+  maxAge: "1h",
+  fallthrough: false,
+  setHeaders: (res, arquivo) => /\.(css|js)$/.test(arquivo) && res.set("Cache-Control", "no-cache"),
+}));
 
 app.use((req, res) => res.status(404).sendFile(raiz("404.html")));
 

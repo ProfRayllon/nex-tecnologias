@@ -10,13 +10,13 @@
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600&family=Montserrat:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="/assets/img/favicon.png">
   <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
-  <link rel="stylesheet" href="/assets/css/style.css">
-  <link rel="stylesheet" href="/assets/css/app.css">
+  <link rel="stylesheet" href="/assets/css/style.css?v=3">
+  <link rel="stylesheet" href="/assets/css/app.css?v=3">
 </head>
 <body class="app">
   <main class="entrar">
     <!-- Etapa 1: e-mail e senha -->
-    <form class="entrar__caixa" id="form-entrar" novalidate>
+    <form class="entrar__caixa" id="form-entrar" method="post" action="/entrar" novalidate>
       <div class="entrar__topo">
         <a href="/" class="logo" aria-label="NEX Tecnologias - site">
           <img class="logo__mark" src="/assets/img/nex-simbolo-clara-128.png" alt="" width="38" height="38">
@@ -43,7 +43,7 @@
     </form>
 
     <!-- Etapa 2: primeira entrada, troca da senha provisória -->
-    <form class="entrar__caixa" id="form-senha" novalidate hidden>
+    <form class="entrar__caixa" id="form-senha" method="post" action="/entrar" novalidate hidden>
       <div class="entrar__topo">
         <a href="/" class="logo" aria-label="NEX Tecnologias - site">
           <img class="logo__mark" src="/assets/img/nex-simbolo-clara-128.png" alt="" width="38" height="38">
@@ -66,7 +66,7 @@
     </form>
   </main>
 
-  <script src="/assets/js/nex.js"></script>
-  <script src="/assets/js/entrar.js"></script>
+  <script src="/assets/js/nex.js?v=3"></script>
+  <script src="/assets/js/entrar.js?v=3"></script>
 </body>
 </html>
