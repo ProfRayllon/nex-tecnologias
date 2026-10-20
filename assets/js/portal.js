@@ -304,12 +304,18 @@
       for (const t of p.tecnologias) grupos.set(t.categoria, [...(grupos.get(t.categoria) || []), t.nome]);
       const icone = (c) => (/front|interface|tela/i.test(c) ? "tela" : /back|api|servidor/i.test(c) ? "servidor" : /banco|dados/i.test(c) ? "banco" : /infra|nuvem|hospedagem|deploy/i.test(c) ? "globo" : /segur/i.test(c) ? "escudo" : "ferramenta");
       return `
-        <div class="techs">
-          ${[...grupos].map(([cat, nomes]) => `
-            <div class="cartao tech">
-              <h3>${ico(icone(cat))}${esc(cat)}</h3>
-              <div class="chips">${nomes.map((n) => `<span class="chip">${esc(n)}</span>`).join("")}</div>
-            </div>`).join("")}
+        <div class="cartao">
+          <div class="cartao__topo">
+            <h2>Tecnologias e ferramentas</h2>
+            <span class="muted small">${p.tecnologias.length} itens em ${grupos.size} categorias</span>
+          </div>
+          <div class="techs">
+            ${[...grupos].map(([cat, nomes]) => `
+              <div class="tech">
+                <h3>${ico(icone(cat))}${esc(cat)}</h3>
+                <div class="chips">${nomes.map((n) => `<span class="chip">${esc(n)}</span>`).join("")}</div>
+              </div>`).join("")}
+          </div>
         </div>`;
     },
 
