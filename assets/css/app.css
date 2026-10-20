@@ -77,8 +77,11 @@ body.app { background: var(--gray-50); min-height: 100vh; display: flex; flex-di
 .capa .eyebrow { margin-bottom: 0; }
 
 /* Foto da área do cliente, apoiada na base da capa (as etapas sobrepõem a parte de baixo) */
-.capa__foto { position: relative; align-self: end; margin-bottom: -120px; display: flex; justify-content: center; }
-.capa__foto::before { content: ""; position: absolute; left: 50%; bottom: 70px; width: min(420px, 90%); aspect-ratio: 1; transform: translateX(-50%); border-radius: 50%; background: radial-gradient(circle at 50% 40%, rgba(125,211,252,.45), rgba(255,255,255,.06) 68%, transparent 70%); border: 1px solid rgba(255,255,255,.18); }
+.capa__foto { position: relative; isolation: isolate; align-self: end; margin-bottom: -120px; display: flex; justify-content: center; }
+/* Quadrado branco de cantos arredondados atrás da foto, com um contorno deslocado para dar profundidade */
+.capa__foto::before, .capa__foto::after { content: ""; position: absolute; left: 50%; bottom: 72px; width: min(380px, 88%); aspect-ratio: 1; border-radius: 36px; transform: translateX(-50%); }
+.capa__foto::before { background: linear-gradient(160deg, var(--white) 0%, var(--blue-50) 100%); box-shadow: 0 30px 60px -24px rgba(2, 12, 27, .45); }
+.capa__foto::after { z-index: -1; transform: translate(calc(-50% + 22px), -22px); border: 1.5px solid rgba(255,255,255,.35); }
 .capa__foto img { position: relative; width: min(400px, 100%); height: auto; filter: drop-shadow(0 30px 40px rgba(2, 12, 27, .35)); }
 .capa__selo { position: absolute; z-index: 2; left: 0; bottom: 170px; display: flex; align-items: center; gap: 12px; padding: 12px 16px; border-radius: 14px; background: var(--white); color: var(--navy-900); box-shadow: var(--shadow-lg); animation: flutuar 5s ease-in-out infinite; }
 .capa__selo .ico { width: 34px; height: 34px; padding: 8px; border-radius: 10px; background: #D1FAE5; color: #047857; }
