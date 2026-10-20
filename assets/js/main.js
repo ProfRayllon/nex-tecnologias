@@ -1,5 +1,5 @@
 /* =========================================================
-   LEST Tecnologia — interações da landing page
+   NEX Tecnologias — interações da landing page
    ========================================================= */
 
 // Textos do hero conforme o segmento escolhido
