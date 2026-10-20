@@ -217,6 +217,17 @@
     return `<dl class="ficha">${linhas.map(([r, v]) => `<div><dt>${r}</dt><dd>${v}</dd></div>`).join("")}</dl>`;
   }
 
+  // Ícone de cada tecnologia (assets/img/tech). Sem ícone próprio, usa o símbolo de código.
+  const ICONES_TECH = [
+    [/typescript/i, "typescript"], [/javascript/i, "javascript"], [/python/i, "python"], [/postgres/i, "postgresql"],
+    [/mysql/i, "mysql"], [/react/i, "react"], [/tailwind/i, "tailwind"], [/github/i, "github"], [/git/i, "git"],
+    [/api|server-sent|tempo real/i, "api"], [/banco de dados|sql/i, "banco-de-dados"],
+  ];
+  function iconeTech(nome) {
+    const achado = ICONES_TECH.find(([re]) => re.test(nome));
+    return achado ? `<img src="/assets/img/tech/${achado[1]}.png" alt="" loading="lazy">` : `<span class="chip__ico">${ico("codigo")}</span>`;
+  }
+
   // Login de administrador do sistema entregue; a senha fica oculta até o cliente pedir.
   function acessoSistema(p) {
     if (!p.acessoUsuario && !p.acessoSenha) return "";
@@ -241,8 +252,10 @@
 
   const ajuda = () => `
     <div class="cartao ajuda">
-      <h3>Precisa de ajuda?</h3>
-      <p>A equipe da NEX acompanha o seu sistema. Fale com a gente pelo canal que preferir.</p>
+      <div>
+        <h3>Precisa de ajuda?</h3>
+        <p>A equipe da NEX acompanha o seu sistema. Fale com a gente pelo canal que preferir.</p>
+      </div>
       <div class="ajuda__links">
         <a href="https://wa.me/${NEX.CONTATO.whatsapp}?text=${encodeURIComponent("Olá! Sou cliente da NEX e preciso de ajuda com o meu sistema.")}" target="_blank" rel="noopener">${ico("whats")}WhatsApp</a>
         <a href="mailto:${NEX.CONTATO.email}">${ico("email")}${NEX.CONTATO.email}</a>
@@ -251,25 +264,21 @@
 
   const CONTEUDO = {
     visao(p) {
-      return `
-        <div class="grade-2">
-          <div>
-            <div class="cartao">
-              <h2>Sobre o sistema</h2>
-              <div class="texto">${p.descricao ? paragrafos(p.descricao) : '<p class="muted">A descrição do projeto será publicada em breve.</p>'}</div>
-            </div>
-            ${p.destaques.length ? `
-              <div class="cartao">
-                <h2>O que o sistema entrega</h2>
-                <ul class="lista-ok">${p.destaques.map((d) => `<li>${ico("check")}<span>${esc(d)}</span></li>`).join("")}</ul>
-              </div>` : ""}
-          </div>
-          <div>
-            ${acessoSistema(p)}
-            <div class="cartao"><h3>Ficha do projeto</h3>${ficha(p)}</div>
-            ${ajuda()}
-          </div>
+      const acesso = acessoSistema(p);
+      const sobre = `
+        <div class="cartao">
+          <h2>Sobre o sistema</h2>
+          <div class="texto">${p.descricao ? paragrafos(p.descricao) : '<p class="muted">A descrição do projeto será publicada em breve.</p>'}</div>
         </div>`;
+      return `
+        ${acesso ? `<div class="grade-2 grade-2--igual">${sobre}${acesso}</div>` : sobre}
+        ${p.destaques.length ? `
+          <div class="cartao">
+            <h2>O que o sistema entrega</h2>
+            <ul class="lista-ok">${p.destaques.map((d) => `<li>${ico("check")}<span>${esc(d)}</span></li>`).join("")}</ul>
+          </div>` : ""}
+        <div class="cartao"><h2>Ficha do projeto</h2>${ficha(p)}</div>
+        ${ajuda()}`;
     },
 
     orcamento(p) {
@@ -313,7 +322,7 @@
             ${[...grupos].map(([cat, nomes]) => `
               <div class="tech">
                 <h3>${ico(icone(cat))}${esc(cat)}</h3>
-                <div class="chips">${nomes.map((n) => `<span class="chip">${esc(n)}</span>`).join("")}</div>
+                <div class="chips">${nomes.map((n) => `<span class="chip chip--tech">${iconeTech(n)}${esc(n)}</span>`).join("")}</div>
               </div>`).join("")}
           </div>
         </div>`;
