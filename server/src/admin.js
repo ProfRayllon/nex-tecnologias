@@ -106,6 +106,8 @@ function dadosProjeto(b) {
     status: STATUS.includes(b.status) ? b.status : "proposta",
     urlAcesso: url(b.urlAcesso),
     urlCodigo: url(b.urlCodigo),
+    acessoUsuario: texto(b.acessoUsuario, 200),
+    acessoSenha: texto(b.acessoSenha, 200),
     destaques: lista(b.destaques).map((d) => texto(d, 300)).filter(Boolean).slice(0, 60),
     informacoes: lista(b.informacoes)
       .map((i) => ({ rotulo: texto(i?.rotulo, 80), valor: texto(i?.valor, 400) }))
@@ -127,15 +129,15 @@ function dadosProjeto(b) {
 const valoresProjeto = (p) => [
   p.clienteId, p.nome, p.subtitulo, p.descricao, p.status, p.urlAcesso, p.urlCodigo,
   JSON.stringify(p.destaques), JSON.stringify(p.informacoes), JSON.stringify(p.tecnologias),
-  p.inicio, p.entrega, p.visivel,
+  p.inicio, p.entrega, p.visivel, p.acessoUsuario, p.acessoSenha,
 ];
 
 admin.post("/projetos", assincrono(async (req, res) => {
   const id = uid("p");
   await pool.query(
     `INSERT INTO projetos (id, cliente_id, nome, subtitulo, descricao, status, url_acesso, url_codigo,
-     destaques, informacoes, tecnologias, inicio, entrega, visivel)
-     VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14)`,
+     destaques, informacoes, tecnologias, inicio, entrega, visivel, acesso_usuario, acesso_senha)
+     VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16)`,
     [id, ...valoresProjeto(dadosProjeto(req.body))],
   );
   res.json({ id });
@@ -145,7 +147,7 @@ admin.put("/projetos/:id", assincrono(async (req, res) => {
   const { rowCount } = await pool.query(
     `UPDATE projetos SET cliente_id = $2, nome = $3, subtitulo = $4, descricao = $5, status = $6, url_acesso = $7,
      url_codigo = $8, destaques = $9, informacoes = $10, tecnologias = $11, inicio = $12, entrega = $13, visivel = $14,
-     atualizado_em = now() WHERE id = $1`,
+     acesso_usuario = $15, acesso_senha = $16, atualizado_em = now() WHERE id = $1`,
     [req.params.id, ...valoresProjeto(dadosProjeto(req.body))],
   );
   if (!rowCount) throw new ErroDeUso("Projeto não encontrado.", 404);

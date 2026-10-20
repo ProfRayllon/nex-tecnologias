@@ -120,10 +120,8 @@
 
   function telaProjeto(p, aba) {
     document.title = `${p.nome} | Área do cliente NEX`;
-    const st = NEX.statusDe(p.status);
     const codigo = maisRecentes(porTipo(p, "codigo"))[0];
     const orcamento = porTipo(p, "orcamento")[0];
-    const capa = porTipo(p, "imagem")[0];
     const abas = ABAS.filter((a) => !a.opcional || a.conta(p));
     if (!abas.some((a) => a.id === aba)) aba = "visao";
     const varios = dados.projetos.length > 1;
@@ -137,7 +135,6 @@
             <h1>${esc(p.nome)}</h1>
             ${p.subtitulo ? `<p class="capa__sub">${esc(p.subtitulo)}</p>` : ""}
             <div class="capa__meta">
-              <span class="status status--${p.status}">${esc(st.rotulo)}</span>
               ${p.urlAcesso ? `<span>${ico("globo")}${esc(NEX.dominio(p.urlAcesso))}</span>` : ""}
               <span>${ico("calendario")}Atualizado em ${esc(NEX.data(p.atualizadoEm))}</span>
               ${p.visivel ? "" : '<span class="status status--off">Oculto para o cliente</span>'}
@@ -148,9 +145,9 @@
               ${orcamento && !codigo ? `<a class="btn btn--ghost" href="#/projeto/${esc(p.id)}/orcamento">${ico("pdf")} Ver orçamento</a>` : ""}
             </div>
           </div>
-          <div class="janela">
-            <div class="janela__barra"><i></i><i></i><i></i><span class="janela__url">${ico("cadeado")}${esc(p.urlAcesso ? NEX.dominio(p.urlAcesso) : p.nome)}</span></div>
-            ${capa ? `<img src="${arquivoUrl(capa)}" alt="${esc(capa.titulo)}" data-lupa="0">` : `<div class="janela__vazio"><div>${ico("tela")}As telas do sistema aparecem aqui assim que forem publicadas.</div></div>`}
+          <div class="capa__foto" aria-hidden="true">
+            <img src="/assets/img/area-do-cliente.png" alt="" width="760" height="931">
+            ${p.urlAcesso ? `<div class="capa__selo">${ico("cadeado")}<div><small>Seu sistema</small><b>${esc(NEX.dominio(p.urlAcesso))}</b></div></div>` : ""}
           </div>
         </div>
       </section>
@@ -220,6 +217,28 @@
     return `<dl class="ficha">${linhas.map(([r, v]) => `<div><dt>${r}</dt><dd>${v}</dd></div>`).join("")}</dl>`;
   }
 
+  // Login de administrador do sistema entregue; a senha fica oculta até o cliente pedir.
+  function acessoSistema(p) {
+    if (!p.acessoUsuario && !p.acessoSenha) return "";
+    const linha = (rotulo, valor, segredo) => `
+      <div class="credencial-linha">
+        <span>${rotulo}</span>
+        <code${segredo ? ' data-segredo="1"' : ""}>${segredo ? "••••••••••" : esc(valor)}</code>
+        ${segredo ? `<button type="button" class="icobtn" data-revelar aria-label="Mostrar senha">${ico("olho")}</button>` : ""}
+        <button type="button" class="icobtn" data-copiar-valor="${esc(valor)}" aria-label="Copiar ${rotulo.toLowerCase()}">${ico("copiar")}</button>
+      </div>`;
+    return `
+      <div class="cartao acesso">
+        <h3>${ico("chave")} Acesso administrativo</h3>
+        <p class="small muted">Login de administrador do ${esc(p.nome)}.</p>
+        ${p.urlAcesso ? linha("Endereço", p.urlAcesso, false) : ""}
+        ${p.acessoUsuario ? linha("Usuário", p.acessoUsuario, false) : ""}
+        ${p.acessoSenha ? linha("Senha", p.acessoSenha, true) : ""}
+        ${p.urlAcesso ? `<a class="btn btn--primary btn--sm btn--block" href="${esc(p.urlAcesso)}" target="_blank" rel="noopener">Entrar no sistema ${ico("externo")}</a>` : ""}
+        <p class="small muted">Por segurança, troque a senha no primeiro acesso ao sistema.</p>
+      </div>`;
+  }
+
   const ajuda = () => `
     <div class="cartao ajuda">
       <h3>Precisa de ajuda?</h3>
@@ -246,6 +265,7 @@
               </div>` : ""}
           </div>
           <div>
+            ${acessoSistema(p)}
             <div class="cartao"><h3>Ficha do projeto</h3>${ficha(p)}</div>
             ${ajuda()}
           </div>
@@ -365,6 +385,16 @@
   }
 
   app.addEventListener("click", (ev) => {
+    const copiar = ev.target.closest("[data-copiar-valor]");
+    if (copiar) NEX.copiar(copiar.dataset.copiarValor);
+    const revelar = ev.target.closest("[data-revelar]");
+    if (revelar) {
+      const campo = $("[data-segredo]", revelar.parentElement);
+      const mostrar = campo.textContent.startsWith("•");
+      campo.textContent = mostrar ? $("[data-copiar-valor]", revelar.parentElement).dataset.copiarValor : "••••••••••";
+      revelar.innerHTML = ico(mostrar ? "olhoOff" : "olho");
+      revelar.setAttribute("aria-label", mostrar ? "Ocultar senha" : "Mostrar senha");
+    }
     const ir = ev.target.closest("[data-ir]");
     if (ir) location.hash = ir.dataset.ir;
     const alvo = ev.target.closest("[data-lupa]");

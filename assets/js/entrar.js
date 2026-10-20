@@ -5,8 +5,6 @@
   const formSenha = $("#form-senha");
   let usuario = null;
 
-  $("#ano").textContent = new Date().getFullYear();
-
   // Só aceita voltar para uma página do próprio site.
   function destino() {
     const volta = new URLSearchParams(location.search).get("volta") || "";

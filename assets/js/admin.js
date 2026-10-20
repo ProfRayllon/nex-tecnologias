@@ -217,7 +217,7 @@
     projeto(id) {
       const novo = id === "novo";
       const p = novo
-        ? { clienteId: new URLSearchParams(location.hash.split("?")[1]).get("cliente") || estado.clientes[0]?.id, nome: "", subtitulo: "", descricao: "", status: "proposta", urlAcesso: "", urlCodigo: "", destaques: [], informacoes: [], tecnologias: [], inicio: null, entrega: null, visivel: true, arquivos: [] }
+        ? { clienteId: new URLSearchParams(location.hash.split("?")[1]).get("cliente") || estado.clientes[0]?.id, nome: "", subtitulo: "", descricao: "", status: "proposta", urlAcesso: "", urlCodigo: "", acessoUsuario: "", acessoSenha: "", destaques: [], informacoes: [], tecnologias: [], inicio: null, entrega: null, visivel: true, arquivos: [] }
         : estado.projetos.find((x) => x.id === id);
       if (!p) return vazio("info", "Projeto não encontrado", '<a class="link" href="#/projetos">Voltar aos projetos</a>');
 
@@ -249,6 +249,14 @@
                 <label class="field"><span>Entrega</span><input type="date" name="entrega" value="${esc(p.entrega || "")}"></label>
               </div>
               <label class="alternar"><input type="checkbox" name="visivel"${p.visivel ? " checked" : ""}> Visível para o cliente no portal</label>
+            </div>
+            <div class="cartao form-grid">
+              <h3>Acesso administrativo do sistema</h3>
+              <p class="small muted" style="margin-top:-6px">Login de administrador do sistema entregue. Aparece para o cliente na Visão geral, com a senha oculta até ele clicar.</p>
+              <div class="campos-2">
+                <label class="field"><span>Usuário / e-mail</span><input name="acessoUsuario" value="${esc(p.acessoUsuario || "")}" autocomplete="off"></label>
+                <label class="field"><span>Senha</span><input name="acessoSenha" value="${esc(p.acessoSenha || "")}" autocomplete="off"></label>
+              </div>
             </div>
             <div class="cartao form-grid">
               <h3>Conteúdo do portal</h3>
@@ -504,6 +512,8 @@
       subtitulo: form.subtitulo.value,
       urlAcesso: form.urlAcesso.value,
       urlCodigo: form.urlCodigo.value,
+      acessoUsuario: form.acessoUsuario.value,
+      acessoSenha: form.acessoSenha.value,
       inicio: form.inicio.value,
       entrega: form.entrega.value,
       visivel: form.visivel.checked,
@@ -649,6 +659,7 @@
   }
 
   function desenhar() {
+    if (!estado) return; // ainda carregando: carregar() desenha ao terminar
     const { secao, id } = rota();
     const tela = TELAS[secao] ? secao : "inicio";
     const ativa = tela === "projeto" ? "projetos" : tela;

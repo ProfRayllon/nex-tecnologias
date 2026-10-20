@@ -111,6 +111,8 @@ const projetoDoBanco = (r, arquivos = []) => ({
   status: r.status,
   urlAcesso: r.url_acesso,
   urlCodigo: r.url_codigo,
+  acessoUsuario: r.acesso_usuario,
+  acessoSenha: r.acesso_senha,
   destaques: r.destaques,
   informacoes: r.informacoes,
   tecnologias: r.tecnologias,
