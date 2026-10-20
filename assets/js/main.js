@@ -61,6 +61,25 @@ document.addEventListener("DOMContentLoaded", () => {
     revealObs.observe(el);
   });
 
+  /* ---------- Fluxo do processo: uma etapa acende por vez ---------- */
+  const stepsEl = $(".steps");
+  if (stepsEl) {
+    const steps = $$(".step", stepsEl);
+    let cur = -1, timer;
+    const next = () => {
+      cur = (cur + 1) % steps.length;
+      steps.forEach((s, k) => {
+        s.classList.toggle("is-active", k === cur);
+        s.classList.toggle("is-done", k < cur);
+      });
+      stepsEl.style.setProperty("--p", cur / (steps.length - 1));
+    };
+    new IntersectionObserver(([e]) => {
+      clearInterval(timer);
+      if (e.isIntersecting) { next(); timer = setInterval(next, 1800); }
+    }, { threshold: 0.3 }).observe(stepsEl);
+  }
+
   /* ---------- Contadores ---------- */
   const countObs = new IntersectionObserver(
     (entries) => {

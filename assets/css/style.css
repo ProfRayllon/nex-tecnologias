@@ -224,12 +224,15 @@ h1, h2, h3, h4 { font-family: var(--font-display); color: var(--navy-900); line-
 
 /* ---------- Frentes de atuação ---------- */
 .areas__grid { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--gray-200); }
-.area { padding: 36px 36px 0 0; }
-.area + .area { padding-left: 36px; border-left: 1px solid var(--gray-200); }
-.area__ico { display: block; margin-bottom: 18px; color: var(--blue-600); }
-.area__ico svg { width: 30px; height: 30px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
-.area h3 { font-size: 20px; margin-bottom: 8px; }
-.area p { font-size: 15px; color: var(--gray-500); max-width: 320px; }
+.area { padding: 48px 44px 8px 0; }
+.area + .area { padding-left: 44px; border-left: 1px solid var(--gray-200); }
+.area__ico { position: relative; width: 72px; height: 72px; margin-bottom: 26px; border-radius: 20px; display: grid; place-items: center; background: var(--grad-blue); color: var(--white); box-shadow: 0 14px 28px -12px rgba(37,99,235,.7), inset 0 1px 0 rgba(255,255,255,.25); transition: transform .4s var(--ease), box-shadow .4s var(--ease); }
+.area__ico::after { content: ""; position: absolute; inset: -7px; border-radius: 26px; border: 1px solid var(--blue-100); transition: inset .4s var(--ease), border-color .4s; }
+.area__ico svg { width: 34px; height: 34px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.area:hover .area__ico { transform: translateY(-4px) rotate(-4deg); box-shadow: 0 20px 34px -12px rgba(37,99,235,.75), inset 0 1px 0 rgba(255,255,255,.25); }
+.area:hover .area__ico::after { inset: -10px; border-color: var(--blue-300); }
+.area h3 { font-size: 23px; margin-bottom: 10px; }
+.area p { font-size: 16px; line-height: 1.6; color: var(--gray-500); max-width: 340px; }
 
 /* ---------- Diferenciais ---------- */
 .diff { padding-top: 120px; }
@@ -432,13 +435,18 @@ h1, h2, h3, h4 { font-family: var(--font-display); color: var(--navy-900); line-
 /* ---------- Processo ---------- */
 .process { background: var(--gray-50); }
 .steps { position: relative; display: grid; grid-template-columns: repeat(5, 1fr); gap: 24px; }
-.steps::before { content: ""; position: absolute; top: 28px; left: 10%; right: 10%; height: 1px; background: var(--gray-300); transform: scaleX(0); transform-origin: left; transition: transform 1.4s var(--ease) .2s; }
+.steps::before, .steps::after { content: ""; position: absolute; top: 37px; left: 10%; right: 10%; height: 2px; border-radius: 2px; background: var(--gray-300); transform: scaleX(0); transform-origin: left; transition: transform 1.4s var(--ease) .2s; }
+.steps::after { background: linear-gradient(90deg, var(--blue-500), var(--blue-700)); transform: scaleX(var(--p, 0)); transition: transform .7s var(--ease); }
 .steps.in-view::before { transform: scaleX(1); }
-.step { --d: 0s; position: relative; text-align: center; opacity: 0; translate: 0 16px; transition: opacity .6s var(--ease) var(--d), translate .6s var(--ease) var(--d); }
+.step { --d: 0s; position: relative; z-index: 1; text-align: center; opacity: 0; translate: 0 16px; transition: opacity .6s var(--ease) var(--d), translate .6s var(--ease) var(--d); }
 .step:nth-child(2) { --d: .15s; } .step:nth-child(3) { --d: .3s; } .step:nth-child(4) { --d: .45s; } .step:nth-child(5) { --d: .6s; }
 .steps.in-view .step { opacity: 1; translate: 0 0; }
-.step__ico { position: relative; z-index: 1; width: 56px; height: 56px; margin: 0 auto 16px; border-radius: 50%; display: grid; place-items: center; background: var(--white); border: 1px solid var(--gray-200); color: var(--blue-600); }
-.step__ico svg { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.step__ico { position: relative; z-index: 1; width: 76px; height: 76px; margin: 0 auto 18px; border-radius: 50%; display: grid; place-items: center; background: var(--white); border: 1px solid var(--gray-200); color: var(--gray-400); box-shadow: var(--shadow); transition: background .5s var(--ease), color .5s, border-color .5s, transform .5s var(--ease), box-shadow .5s var(--ease); }
+.step__ico svg { width: 32px; height: 32px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.step.is-done .step__ico { background: var(--blue-50); border-color: var(--blue-300); color: var(--blue-600); }
+.step.is-active .step__ico { background: var(--grad-blue); border-color: transparent; color: var(--white); transform: scale(1.1); box-shadow: 0 0 0 8px rgba(37,99,235,.12), 0 16px 30px -10px rgba(37,99,235,.7); }
+.step__n, .step h3 { transition: color .5s; }
+.step.is-active .step__n, .step.is-active h3 { color: var(--blue-600); }
 .step__n { display: block; margin-bottom: 6px; font: 600 12px/1 var(--font-mono); letter-spacing: .1em; color: var(--gray-400); }
 .step h3 { font-size: 17px; margin-bottom: 6px; }
 .step p { max-width: 200px; margin: 0 auto; font-size: 14px; color: var(--gray-500); }
@@ -544,7 +552,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); color: var(--navy-900); line-
   .showcase__stage { order: -1; }
 
   .steps { grid-template-columns: repeat(2, 1fr); }
-  .steps::before { display: none; }
+  .steps::before, .steps::after { display: none; }
   .steps { row-gap: 40px; }
   .footer__grid { grid-template-columns: 1fr 1fr; }
   .section__head--split { flex-direction: column; align-items: flex-start; gap: 16px; }
