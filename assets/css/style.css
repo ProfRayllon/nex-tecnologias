@@ -406,23 +406,51 @@ h1, h2, h3, h4 { font-family: var(--font-display); color: var(--navy-900); line-
 .support { background: var(--white); }
 .support__inner { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
 .support__text .section__sub { margin-bottom: 28px; }
-.support__chat { background: var(--white); border: 1px solid var(--gray-200); border-radius: var(--radius-lg); box-shadow: var(--shadow); overflow: hidden; }
-.chat__head { display: flex; align-items: center; gap: 12px; padding: 16px 20px; background: var(--navy-900); color: var(--white); }
-.chat__head b { display: block; color: var(--white); font-size: 15px; }
-.chat__head small { display: flex; align-items: center; gap: 6px; font-size: 12px; color: rgba(255,255,255,.7); }
-.chat__head small i { width: 8px; height: 8px; border-radius: 50%; background: var(--green); }
-.chat__av { width: 40px; height: 40px; border-radius: 12px; background: var(--blue-600); display: grid; place-items: center; font-weight: 800; }
-.chat__body { display: flex; flex-direction: column; gap: 10px; padding: 24px 20px; min-height: 280px; background: var(--blue-50); }
-.msg { max-width: 82%; padding: 12px 16px; border-radius: 16px; font-size: 14px; line-height: 1.5; opacity: 0; transform: translateY(10px); }
-.msg--in { background: var(--white); color: var(--gray-700); border-bottom-left-radius: 4px; align-self: flex-start; box-shadow: var(--shadow-sm); }
-.msg--out { background: var(--blue-600); color: var(--white); border-bottom-right-radius: 4px; align-self: flex-end; }
-.msg--typing { background: var(--white); align-self: flex-start; display: flex; gap: 4px; padding: 14px 16px; }
+/* Celular com a conversa no estilo WhatsApp, em azul */
+.support__phone { display: flex; justify-content: center; }
+.wa {
+  width: 340px; border: 10px solid var(--navy-950); border-radius: 46px; overflow: hidden;
+  background: #EAF1FD; box-shadow: var(--shadow-lg), 0 0 0 1px var(--gray-300);
+  display: flex; flex-direction: column;
+}
+.wa svg { fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.wa__status { position: relative; display: flex; justify-content: space-between; align-items: center; padding: 10px 22px 6px; background: var(--blue-700); color: var(--white); font-size: 12px; font-weight: 600; }
+.wa__ilha { position: absolute; left: 50%; top: 7px; width: 82px; height: 20px; border-radius: 12px; background: var(--navy-950); transform: translateX(-50%); }
+.wa__sinais { display: flex; align-items: center; gap: 5px; }
+.wa__sinais svg { width: 15px; height: 11px; fill: currentColor; stroke: none; }
+.wa__sinais b { width: 22px; height: 11px; border-radius: 3px; border: 1.5px solid rgba(255,255,255,.85); background: linear-gradient(90deg, #fff 70%, transparent 70%) content-box; padding: 1px; }
+.wa__head { display: flex; align-items: center; gap: 10px; padding: 8px 14px 12px 8px; background: var(--blue-700); color: var(--white); }
+.wa__head > svg { width: 21px; height: 21px; flex: none; }
+.wa__head > svg.wa__voltar { width: 22px; height: 22px; }
+.wa__head img { width: 38px; height: 38px; border-radius: 50%; object-fit: cover; flex: none; }
+.wa__nome { flex: 1; min-width: 0; line-height: 1.2; }
+.wa__nome b { display: block; font-size: 15px; color: var(--white); }
+.wa__nome small { font-size: 11.5px; color: rgba(255,255,255,.75); }
+.wa__body {
+  display: flex; flex-direction: column; gap: 8px; min-height: 330px; padding: 14px 12px 16px;
+  background-color: #EAF1FD;
+  background-image: radial-gradient(rgba(37,99,235,.09) 1.2px, transparent 1.3px), radial-gradient(rgba(37,99,235,.06) 1.2px, transparent 1.3px);
+  background-size: 22px 22px, 22px 22px; background-position: 0 0, 11px 11px;
+}
+.wa__dia { align-self: center; margin-bottom: 4px; padding: 4px 10px; border-radius: 8px; background: rgba(255,255,255,.9); color: var(--gray-500); font-size: 11px; font-weight: 600; box-shadow: var(--shadow-sm); }
+.msg { position: relative; max-width: 84%; padding: 7px 10px 6px; border-radius: 10px; font-size: 13.5px; line-height: 1.45; color: var(--gray-900); opacity: 0; transform: translateY(10px); box-shadow: 0 1px 1px rgba(10,37,64,.08); }
+.msg__hora { float: right; display: inline-flex; align-items: center; gap: 3px; margin: 6px 0 -2px 10px; font-size: 10.5px; line-height: 1; color: var(--gray-500); }
+.wa .msg__ticks { width: 16px; height: 10px; stroke: var(--blue-600); stroke-width: 1.6; }
+.msg--in { align-self: flex-start; background: var(--white); border-top-left-radius: 3px; }
+.msg--out { align-self: flex-end; background: #CFE0FF; border-top-right-radius: 3px; }
+.msg--typing { align-self: flex-start; display: flex; gap: 4px; padding: 12px 14px; background: var(--white); border-top-left-radius: 3px; }
 .msg--typing i { width: 7px; height: 7px; border-radius: 50%; background: var(--gray-400); animation: typing 1.2s infinite; }
 .msg--typing i:nth-child(2) { animation-delay: .15s; } .msg--typing i:nth-child(3) { animation-delay: .3s; }
 .in-view .msg { animation: msgIn .5s var(--ease) forwards; }
-.in-view .msg:nth-child(2) { animation-delay: .7s; }
-.in-view .msg:nth-child(3) { animation-delay: 1.4s; }
-.in-view .msg:nth-child(4) { animation-delay: 2.1s; }
+.in-view .msg:nth-child(3) { animation-delay: .7s; }
+.in-view .msg:nth-child(4) { animation-delay: 1.4s; }
+.in-view .msg:nth-child(5) { animation-delay: 2.1s; }
+.wa__input { display: flex; align-items: center; gap: 8px; padding: 8px 10px 18px; background: #EAF1FD; }
+.wa__campo { flex: 1; display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 999px; background: var(--white); color: var(--gray-400); font-size: 13.5px; }
+.wa__campo span { flex: 1; }
+.wa__campo svg { width: 19px; height: 19px; flex: none; }
+.wa__mic { flex: none; width: 42px; height: 42px; border-radius: 50%; display: grid; place-items: center; background: var(--blue-600); color: var(--white); }
+.wa__mic svg { width: 20px; height: 20px; }
 
 /* ---------- Contato ---------- */
 .contact { position: relative; overflow: hidden; padding: 112px 0; background: var(--grad-blue); }
@@ -647,10 +675,9 @@ h1, h2, h3, h4 { font-family: var(--font-display); color: var(--navy-900); line-
   /* Atendimento */
   .support__inner { gap: 24px; }
   .support__text .section__sub { margin-bottom: 18px; }
-  .chat__head { padding: 12px 14px; }
-  .chat__av { width: 34px; height: 34px; border-radius: 10px; }
-  .chat__body { min-height: 0; padding: 16px 14px; gap: 8px; }
-  .msg { font-size: 12.5px; padding: 9px 12px; }
+  .wa { width: 290px; border-width: 8px; border-radius: 40px; }
+  .wa__body { min-height: 0; }
+  .msg { font-size: 12.5px; }
 
   /* Contato */
   .contact__inner { gap: 24px; }
