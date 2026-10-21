@@ -236,24 +236,25 @@ h1, h2, h3, h4 { font-family: var(--font-display); color: var(--navy-900); line-
 /* ---------- Diferenciais ---------- */
 .diff { padding-top: 120px; }
 .diff__card {
-  position: relative; display: grid; grid-template-columns: .8fr 1.2fr; gap: 32px; align-items: end;
-  border-radius: var(--radius-lg); padding: 56px 56px 56px 0;
+  position: relative; display: grid; grid-template-columns: .78fr 1.22fr; gap: 24px; align-items: center;
+  border-radius: 84px 12px 84px 12px; padding: 44px 56px 44px 0;
   background: var(--grad-blue);
   box-shadow: var(--shadow-lg);
 }
 .diff__card::before { content: ""; position: absolute; inset: 0; border-radius: inherit; background-image: linear-gradient(rgba(255,255,255,.07) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.07) 1px, transparent 1px); background-size: 36px 36px; mask-image: linear-gradient(90deg, transparent 30%, #000); -webkit-mask-image: linear-gradient(90deg, transparent 30%, #000); pointer-events: none; }
 .diff__photo { position: relative; align-self: stretch; display: flex; align-items: flex-end; justify-content: center; }
-.diff__photo img { width: auto; max-height: 560px; margin: -120px 0 -56px; }
+.diff__photo { align-self: end; }
+.diff__photo img { width: auto; height: 480px; max-height: none; margin: -130px 0 -44px; }
 .diff__content { position: relative; }
-.diff__content h2 { color: var(--white); font-size: clamp(26px, 3vw, 38px); margin-bottom: 32px; }
-.diff__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-.diff__item { display: flex; gap: 14px; padding: 16px; border-radius: var(--radius); background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.14); }
-.diff__ico { flex: none; width: 42px; height: 42px; border-radius: 12px; background: var(--white); color: var(--blue-600); display: grid; place-items: center; }
+.diff__content h2 { color: var(--white); font-size: clamp(26px, 2.8vw, 36px); line-height: 1.15; margin-bottom: 28px; }
+.diff__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px 36px; }
+.diff__item { display: flex; align-items: flex-start; gap: 14px; }
+.diff__ico { flex: none; width: 40px; height: 40px; border-radius: 50%; background: var(--white); color: var(--blue-600); display: grid; place-items: center; }
 .diff .eyebrow--dark { color: var(--white); background: rgba(255,255,255,.12); border-color: rgba(255,255,255,.25); }
 .diff .hl-light { color: #BAE6FD; }
-.diff__ico svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-.diff__item b { display: block; color: var(--white); font-size: 15px; margin-bottom: 2px; }
-.diff__item p { font-size: 13.5px; color: rgba(255,255,255,.8); line-height: 1.5; }
+.diff__ico svg { width: 19px; height: 19px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.diff__item b { display: block; color: var(--white); font-size: 15.5px; margin-bottom: 3px; }
+.diff__item p { font-size: 14px; color: rgba(255,255,255,.88); line-height: 1.45; }
 
 /* ---------- Tabs / Soluções ---------- */
 .solutions { background: var(--gray-100); }
@@ -512,9 +513,9 @@ h1, h2, h3, h4 { font-family: var(--font-display); color: var(--navy-900); line-
   .hero__visual { max-width: 560px; width: 100%; margin: 0 auto; height: 540px; }
   .stats__grid { grid-template-columns: repeat(3, 1fr); gap: 36px 0; }
   .stat:nth-child(4) { border-left: 0; padding-left: 0; }
-  .diff__card { grid-template-columns: 1fr; padding: 48px 32px 0; }
+  .diff__card { grid-template-columns: 1fr; padding: 48px 32px 0; border-radius: 56px 12px 56px 12px; }
   .diff__content { order: -1; }
-  .diff__photo img { margin: 0; max-height: 420px; }
+  .diff__photo img { margin: 0; height: auto; max-height: 420px; }
   .tabs__panel { grid-template-columns: 1fr; padding: 40px; }
   .valores { grid-template-columns: repeat(2, 1fr); }
 
