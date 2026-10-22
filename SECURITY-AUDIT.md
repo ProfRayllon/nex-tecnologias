@@ -195,3 +195,32 @@ SAVA, e avaliar a substituição do armazenamento recuperável de senhas no port
 Também foi observado que os usuários das aplicações nos bancos têm privilégio de
 superusuário; a redução desses privilégios exige separar as necessidades de migração
 e execução e não foi realizada como parte desta troca de senhas.
+
+## 8. Publicação, histórico e implantação concluídos — 22/10/2026
+
+Após nova autorização do proprietário, as correções foram publicadas nos repositórios
+NEX e SAVA. Os históricos foram saneados em clones isolados com `git-filter-repo`,
+após backups privados, removendo os padrões identificados dos arquivos e mensagens.
+As branches remotas existentes foram preservadas e atualizadas com proteção contra
+sobrescrita de alterações concorrentes. Não foram anunciadas referências de PRs ou tags.
+Foram verificados 308 objetos na NEX e 236 no SAVA sem os padrões antigos ou as sete
+senhas novas; a árvore da aplicação atual foi preservada pela limpeza do histórico.
+
+Os commits de código saneados são `2131580803ff429d75dbfe0889434f3ca2018888` (NEX)
+e `863eb179f4fdaf88a2537eee9bc0290118cbbf74` (SAVA). As cópias locais e da VPS foram
+atualizadas. As imagens das aplicações foram reconstruídas e implantadas com plano de
+retorno, preservando as configurações de produção e os volumes. Os bancos não foram
+reiniciados nesta implantação de código. Os dez testes locais dos projetos passaram.
+
+O pacote de entrega do SAVA foi regenerado a partir do código saneado e publicado
+como versão 1.1, com o mesmo identificador de download no portal. O download
+autenticado foi conferido por tamanho e SHA-256. As cópias locais de entrega também
+foram substituídas, preservando os originais apenas nos backups privados.
+
+As senhas rotacionadas continuam fora do Git. Outros clones antigos devem ser
+substituídos ou reconciliados antes de novos pushes para evitar recontaminação.
+A limpeza das branches publicadas não garante remoção de caches do GitHub, forks
+ou cópias de terceiros; a correlação com o alerta específico do GitGuardian ainda
+depende do arquivo/commit informado pelo detector. Permanecem para planejamento
+separado a redução dos privilégios do banco e a substituição do armazenamento
+recuperável de senhas de sistemas entregues.
