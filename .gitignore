@@ -4,9 +4,21 @@ desktop.ini
 .vscode/
 
 # Variáveis de ambiente e credenciais.
-.env
-.env.*
+.env*
 !.env.example
+
+# Credenciais locais, certificados privados e configurações de autenticação.
+.npmrc
+.netrc
+.pgpass
+*.pem
+*.key
+*.p12
+*.pfx
+id_rsa
+id_ed25519
+credentials*.json
+service-account*.json
 
 # Arquivos enviados pelo painel, backups e pacotes de entrega (ficam só na VPS / na máquina).
 uploads/

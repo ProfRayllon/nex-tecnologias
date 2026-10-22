@@ -44,6 +44,9 @@ async function migrar() {
 async function semear() {
   const { rows } = await pool.query("SELECT count(*)::int AS n FROM usuarios WHERE perfil = 'admin'");
   if (rows[0].n) return;
+  if (!config.ADMIN_SENHA || !config.ADMIN_SENHA.trim()) {
+    throw new Error("Defina ADMIN_PASSWORD no ambiente para criar o primeiro administrador.");
+  }
   await pool.query(
     "INSERT INTO usuarios (id, nome, email, perfil, senha_hash, trocar_senha) VALUES ($1, 'NEX Tecnologias', $2, 'admin', $3, TRUE)",
     [uid("u"), config.ADMIN_EMAIL, await gerarHash(config.ADMIN_SENHA)],

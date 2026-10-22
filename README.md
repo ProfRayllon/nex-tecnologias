@@ -109,9 +109,20 @@ Precisa do Node.js 20+ e de um PostgreSQL (ou `docker compose up db`).
 ```powershell
 cd server
 npm install
-$env:DATABASE_URL = ""
-npm start
+# Configure DATABASE_URL em ../.env com a conexão local antes de iniciar.
+npm run dev
 ```
 
-Acesse `http://localhost:3000`. Sem `ADMIN_PASSWORD`, o administrador inicial é
-`contato@nextecnologias.com.br` / `` (pede a troca no primeiro acesso).
+Defina `ADMIN_EMAIL` e `ADMIN_PASSWORD` no ambiente para criar o primeiro administrador.
+Não existe senha padrão. Em um banco que já possui administrador, essas variáveis não alteram a senha da conta.
+
+
+## Segurança e configuração
+
+O `.env.example` contém somente exemplos. Copie-o para `.env` e preencha os valores em um editor local, sem incluir segredos em comandos, logs ou commits. Use senhas diferentes para o banco, o portal, a caixa de e-mail e a VPS. Arquivos `.env*` (exceto `.env.example`) ficam fora do Git e do contexto de build Docker.
+
+O Docker Compose já transmite `DATABASE_URL` e `ADMIN_PASSWORD` para a aplicação. Fora do Docker, configure `DATABASE_URL` explicitamente; `npm run dev` carrega o `.env` da raiz. A senha dentro de `DATABASE_URL` precisa estar codificada para URL quando contiver caracteres reservados. O Compose atual interpola `POSTGRES_PASSWORD` diretamente, sem codificação automática; para uma instalação nova, prefira uma senha aleatória com caracteres seguros para URL (por exemplo, gerada com `openssl rand -hex 32`).
+
+O formulário de contato grava no PostgreSQL; este projeto não contém cliente SMTP nem envio de e-mail. `ADMIN_EMAIL` identifica a conta do portal e `ACME_EMAIL` é o contato dos certificados HTTPS; nenhum deles configura a autenticação de uma caixa de e-mail.
+
+Antes de aplicar esta versão na VPS, confirme a configuração existente sem imprimir valores. Alterar `ADMIN_PASSWORD` não troca a senha de um usuário já criado. Alterar `POSTGRES_PASSWORD` no `.env` não troca a senha de um PostgreSQL com volume inicializado; qualquer rotação precisa ser coordenada com o banco e a aplicação. Veja [a auditoria de segurança](SECURITY-AUDIT.md).
