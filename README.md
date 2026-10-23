@@ -8,10 +8,10 @@ Site institucional da NEX Tecnologias, **área do cliente** e **painel administr
 | ---------- | ----------------------------------------------------------------------------------------- |
 | `/`        | Site institucional (o formulário de contato grava no banco)                               |
 | `/entrar`  | Login de clientes e da equipe NEX (no 1º acesso pede para criar uma senha pessoal)        |
-| `/portal`  | Área do cliente: orçamento (PDF), telas do sistema, informações, tecnologias, link de acesso e download do código-fonte |
+| `/portal`  | Área do cliente: orçamento (PDF), telas, vídeo, identidade visual, informações, tecnologias, link de acesso e download do código-fonte |
 | `/admin`   | Painel da NEX: clientes, projetos, arquivos, acessos, contatos do site e atividade        |
 
-Os sistemas dos clientes (ex.: Jornada SAVA) **não rodam aqui**: cada um tem domínio, banco e
+Os sistemas dos clientes (ex.: Jornada SAVA, Apresentação PrimeEdu) **não rodam aqui**: cada um tem domínio, banco e
 repositório próprios. O banco da NEX guarda só o cadastro do cliente, o projeto e as entregas.
 
 ## Estrutura
@@ -23,8 +23,8 @@ assets/
   js/    main.js (site) · nex.js (utilidades) · entrar.js · portal.js · admin.js
 server/  API Node.js + PostgreSQL
   src/   index.js · rotas.js (público, login, portal) · admin.js (painel) · arquivos.js · auth.js · db.js
-  sql/   migrações, aplicadas sozinhas na ordem (002 cadastra o cliente Jornada SAVA)
-deploy/  backup.sh · sites/ (outros domínios no mesmo Caddy) · sava/ (SAVA na mesma VPS)
+  sql/   migrações, aplicadas sozinhas na ordem (002 cadastra a Jornada SAVA, 005 a PrimeEdu)
+deploy/  backup.sh · enviar-entrega.mjs · sites/ (outros domínios no mesmo Caddy) · sava/ (SAVA na mesma VPS)
 ```
 
 ## Como os dados ficam
@@ -39,9 +39,17 @@ deploy/  backup.sh · sites/ (outros domínios no mesmo Caddy) · sava/ (SAVA na
 
 1. **Clientes → Novo cliente**.
 2. **Projetos → Novo projeto**: descrição, funcionalidades, informações, tecnologias, link do sistema.
-3. No projeto, envie o **orçamento (PDF)**, as **telas** e o **código-fonte (ZIP)**.
+3. No projeto, envie o **orçamento (PDF)**, as **telas** e o **código-fonte (ZIP)**. Quando houver, envie também o
+   **vídeo** (MP4) e a **identidade visual** (logos, fontes, manual) e preencha a paleta de cores: cada um vira uma aba no portal.
 4. **Acessos → Novo acesso**: gera a senha provisória e uma mensagem pronta para mandar por WhatsApp ou e-mail.
 5. Use **Ver como o cliente** para conferir o portal antes de enviar.
+
+Com uma pasta de entrega pronta (com `entrega.json`, como `entregas/prime-edu`), os arquivos podem ser enviados de uma vez,
+com título e legenda. O script pula o que já foi enviado:
+
+```bash
+NEX_URL=https://nextecnologias.com.br ADMIN_EMAIL=... ADMIN_PASSWORD=... node deploy/enviar-entrega.mjs entregas/prime-edu
+```
 
 O pacote do código pode ser gerado a partir do repositório do sistema:
 

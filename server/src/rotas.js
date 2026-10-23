@@ -99,7 +99,13 @@ rotas.get("/portal", auth.exigir(), assincrono(async (req, res) => {
   });
 }));
 
-const ROTULO_DOWNLOAD = { orcamento: "baixou o orçamento", codigo: "baixou o código-fonte", documento: "baixou um documento" };
+const ROTULO_DOWNLOAD = {
+  orcamento: "baixou o orçamento",
+  codigo: "baixou o código-fonte",
+  documento: "baixou um documento",
+  video: "baixou o vídeo",
+  identidade: "baixou a identidade visual",
+};
 
 rotas.get("/arquivos/:id", auth.exigir(), assincrono(async (req, res) => {
   const { rows } = await pool.query(

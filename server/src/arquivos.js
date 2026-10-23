@@ -13,6 +13,11 @@ const MIMES = {
   ".jpeg": "image/jpeg",
   ".webp": "image/webp",
   ".gif": "image/gif",
+  ".mp4": "video/mp4",
+  ".webm": "video/webm",
+  ".otf": "font/otf",
+  ".ttf": "font/ttf",
+  ".woff2": "font/woff2",
   ".zip": "application/zip",
   ".rar": "application/vnd.rar",
   ".7z": "application/x-7z-compressed",
@@ -30,6 +35,8 @@ const ACEITOS_POR_TIPO = {
   imagem: [".png", ".jpg", ".jpeg", ".webp", ".gif"],
   codigo: [".zip", ".rar", ".7z", ".gz", ".tgz"],
   documento: Object.keys(MIMES),
+  video: [".mp4", ".webm"],
+  identidade: [".png", ".jpg", ".jpeg", ".webp", ".pdf", ".zip", ".otf", ".ttf", ".woff2"],
 };
 
 function validar(tipo, nome) {
@@ -76,12 +83,13 @@ function disposicao(modo, nome) {
 }
 
 function enviar(res, arquivo, baixar) {
-  const inline = !baixar && (arquivo.mime === "application/pdf" || arquivo.mime.startsWith("image/"));
+  const inline = !baixar && (arquivo.mime === "application/pdf" || /^(image|video)\//.test(arquivo.mime));
   res.set({
     "Content-Type": arquivo.mime,
     "Content-Disposition": disposicao(inline ? "inline" : "attachment", arquivo.nome_original),
     "Cache-Control": "private, max-age=3600",
   });
+  // sendFile atende pedidos parciais (Range): o vídeo pode ser adiantado sem baixar tudo.
   res.sendFile(path.join(config.UPLOADS, arquivo.caminho), (err) => err && !res.headersSent && res.status(404).send("Arquivo não encontrado."));
 }
 

@@ -119,6 +119,7 @@ const projetoDoBanco = (r, arquivos = []) => ({
   destaques: r.destaques,
   informacoes: r.informacoes,
   tecnologias: r.tecnologias,
+  identidade: r.identidade,
   inicio: dataISO(r.inicio),
   entrega: dataISO(r.entrega),
   visivel: r.visivel,

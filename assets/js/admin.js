@@ -10,6 +10,8 @@
     { id: "orcamento", rotulo: "Orçamento", dica: "PDF da proposta", aceita: ".pdf", multiplo: false, icone: "pdf" },
     { id: "imagem", rotulo: "Telas do sistema", dica: "PNG, JPG ou WEBP", aceita: ".png,.jpg,.jpeg,.webp,.gif", multiplo: true, icone: "imagem" },
     { id: "codigo", rotulo: "Código-fonte", dica: "ZIP, RAR, 7Z ou TAR.GZ", aceita: ".zip,.rar,.7z,.gz,.tgz", multiplo: false, icone: "zip" },
+    { id: "video", rotulo: "Vídeo", dica: "MP4 ou WEBM", aceita: ".mp4,.webm", multiplo: true, icone: "video" },
+    { id: "identidade", rotulo: "Identidade visual", dica: "Logos, fontes e manual da marca", aceita: ".png,.jpg,.jpeg,.webp,.pdf,.zip,.otf,.ttf,.woff2", multiplo: true, icone: "paleta" },
     { id: "documento", rotulo: "Outros documentos", dica: "Contrato, manual, termo de entrega…", aceita: ".pdf,.docx,.xlsx,.pptx,.txt,.md,.zip,.png,.jpg,.jpeg", multiplo: true, icone: "doc" },
   ];
 
@@ -217,7 +219,7 @@
     projeto(id) {
       const novo = id === "novo";
       const p = novo
-        ? { clienteId: new URLSearchParams(location.hash.split("?")[1]).get("cliente") || estado.clientes[0]?.id, nome: "", subtitulo: "", descricao: "", status: "proposta", urlAcesso: "", urlCodigo: "", acessoUsuario: "", acessoSenha: "", destaques: [], informacoes: [], tecnologias: [], inicio: null, entrega: null, visivel: true, arquivos: [] }
+        ? { clienteId: new URLSearchParams(location.hash.split("?")[1]).get("cliente") || estado.clientes[0]?.id, nome: "", subtitulo: "", descricao: "", status: "proposta", urlAcesso: "", urlCodigo: "", acessoUsuario: "", acessoSenha: "", destaques: [], informacoes: [], tecnologias: [], identidade: [], inicio: null, entrega: null, visivel: true, arquivos: [] }
         : estado.projetos.find((x) => x.id === id);
       if (!p) return vazio("info", "Projeto não encontrado", '<a class="link" href="#/projetos">Voltar aos projetos</a>');
 
@@ -264,6 +266,7 @@
               <label class="field"><span>O que o sistema entrega <small>(uma funcionalidade por linha)</small></span><textarea name="destaques" rows="6">${esc(p.destaques.join("\n"))}</textarea></label>
               <label class="field"><span>Informações <small>(uma por linha, no formato Rótulo: valor)</small></span><textarea class="mono" name="informacoes" rows="5" placeholder="Hospedagem: VPS Linux">${esc(p.informacoes.map((i) => `${i.rotulo}: ${i.valor}`).join("\n"))}</textarea></label>
               <label class="field"><span>Tecnologias e ferramentas <small>(uma categoria por linha: Categoria: item, item)</small></span><textarea class="mono" name="tecnologias" rows="6" placeholder="Back-end: Node.js, Express">${esc(tecnologiasTexto)}</textarea></label>
+              <label class="field"><span>Paleta da identidade visual <small>(uma cor por linha: Nome: #HEX)</small></span><textarea class="mono" name="identidade" rows="4" placeholder="Azul: #1E63E9">${esc(p.identidade.map((c) => `${c.nome}: ${c.hex}`).join("\n"))}</textarea></label>
               <div style="display:flex;justify-content:flex-end"><button type="submit" class="btn btn--primary">${ico("check")} ${novo ? "Criar projeto" : "Salvar alterações"}</button></div>
             </div>
           </form>
@@ -357,7 +360,7 @@
     const lista = p.arquivos.filter((a) => a.tipo === t.id);
     const item = (a, i) => `
       <div class="envio__item" data-arquivo="${esc(a.id)}">
-        ${t.id === "imagem" ? `<img src="/api/arquivos/${esc(a.id)}" alt="" loading="lazy">` : `<span class="arquivo__ico ${t.id === "orcamento" ? "arquivo__ico--pdf" : t.id === "codigo" ? "arquivo__ico--zip" : ""}">${ico(t.icone)}</span>`}
+        ${a.mime.startsWith("image/") ? `<img src="/api/arquivos/${esc(a.id)}" alt="" loading="lazy">` : `<span class="arquivo__ico ${t.id === "orcamento" ? "arquivo__ico--pdf" : t.id === "codigo" ? "arquivo__ico--zip" : ""}">${ico(t.icone)}</span>`}
         <div>
           <input data-campo="titulo" value="${esc(a.titulo)}" aria-label="Título" placeholder="Título">
           ${t.id === "imagem" ? `<input class="legenda" data-campo="legenda" value="${esc(a.legenda)}" aria-label="Legenda" placeholder="Legenda (opcional)">` : ""}
@@ -524,6 +527,7 @@
         const [categoria, itens] = dividir(l);
         return itens.split(",").map((nome) => ({ categoria: categoria || "Outros", nome: nome.trim() })).filter((t) => t.nome);
       }),
+      identidade: linhas(form.identidade.value).map(dividir).filter(([n, h]) => n && h).map(([nome, hex]) => ({ nome, hex })),
     };
     const botao = $("[type=submit]", form);
     botao.disabled = true;
