@@ -15,9 +15,6 @@ const MIMES = {
   ".gif": "image/gif",
   ".mp4": "video/mp4",
   ".webm": "video/webm",
-  ".otf": "font/otf",
-  ".ttf": "font/ttf",
-  ".woff2": "font/woff2",
   ".zip": "application/zip",
   ".rar": "application/vnd.rar",
   ".7z": "application/x-7z-compressed",
@@ -36,7 +33,6 @@ const ACEITOS_POR_TIPO = {
   codigo: [".zip", ".rar", ".7z", ".gz", ".tgz"],
   documento: Object.keys(MIMES),
   video: [".mp4", ".webm"],
-  identidade: [".png", ".jpg", ".jpeg", ".webp", ".pdf", ".zip", ".otf", ".ttf", ".woff2"],
 };
 
 function validar(tipo, nome) {

@@ -104,7 +104,6 @@ const ROTULO_DOWNLOAD = {
   codigo: "baixou o código-fonte",
   documento: "baixou um documento",
   video: "baixou o vídeo",
-  identidade: "baixou a identidade visual",
 };
 
 rotas.get("/arquivos/:id", auth.exigir(), assincrono(async (req, res) => {

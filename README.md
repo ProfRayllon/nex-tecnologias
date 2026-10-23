@@ -8,7 +8,7 @@ Site institucional da NEX Tecnologias, **área do cliente** e **painel administr
 | ---------- | ----------------------------------------------------------------------------------------- |
 | `/`        | Site institucional (o formulário de contato grava no banco)                               |
 | `/entrar`  | Login de clientes e da equipe NEX (no 1º acesso pede para criar uma senha pessoal)        |
-| `/portal`  | Área do cliente: orçamento (PDF), telas, vídeo, identidade visual, informações, tecnologias, link de acesso e download do código-fonte |
+| `/portal`  | Área do cliente: orçamento (PDF), telas, vídeo, informações, tecnologias, link de acesso e download do código-fonte |
 | `/admin`   | Painel da NEX: clientes, projetos, arquivos, acessos, contatos do site e atividade        |
 
 Os sistemas dos clientes (ex.: Jornada SAVA, Apresentação PrimeEdu) **não rodam aqui**: cada um tem domínio, banco e
@@ -40,7 +40,7 @@ deploy/  backup.sh · enviar-entrega.mjs · sites/ (outros domínios no mesmo Ca
 1. **Clientes → Novo cliente**.
 2. **Projetos → Novo projeto**: descrição, funcionalidades, informações, tecnologias, link do sistema.
 3. No projeto, envie o **orçamento (PDF)**, as **telas** e o **código-fonte (ZIP)**. Quando houver, envie também o
-   **vídeo** (MP4) e a **identidade visual** (imagem ou documento da marca): cada um vira uma aba no portal.
+   **vídeo** (MP4), que vira uma aba no portal.
 4. **Acessos → Novo acesso**: gera a senha provisória e uma mensagem pronta para mandar por WhatsApp ou e-mail.
 5. Use **Ver como o cliente** para conferir o portal antes de enviar.
 

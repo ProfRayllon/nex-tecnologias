@@ -114,7 +114,6 @@
     { id: "orcamento", rotulo: "Orçamento", ico: "pdf", conta: (p) => porTipo(p, "orcamento").length },
     { id: "telas", rotulo: "Telas do sistema", ico: "imagem", conta: (p) => porTipo(p, "imagem").length },
     { id: "video", rotulo: "Vídeo", ico: "video", conta: (p) => porTipo(p, "video").length, opcional: true },
-    { id: "identidade", rotulo: "Identidade visual", ico: "paleta", conta: (p) => porTipo(p, "identidade").length, opcional: true },
     { id: "tecnologias", rotulo: "Tecnologias", ico: "camadas", conta: (p) => p.tecnologias.length },
     { id: "codigo", rotulo: "Código-fonte", ico: "codigo" },
     { id: "documentos", rotulo: "Documentos", ico: "pasta", conta: (p) => porTipo(p, "documento").length, opcional: true },
@@ -389,21 +388,6 @@
         </div>`).join("");
     },
 
-    // A identidade é o material que a NEX envia: imagens aparecem inteiras, outros arquivos em lista.
-    identidade(p) {
-      const arqs = porTipo(p, "identidade");
-      return arqs.map((a) => a.mime.startsWith("image/") ? `
-        <div class="cartao">
-          <div class="cartao__topo">
-            <div>
-              <h2>${esc(a.titulo || a.nome)}</h2>
-              ${a.legenda ? `<p class="muted small">${esc(a.legenda)}</p>` : ""}
-            </div>
-            <a class="btn btn--primary btn--sm" href="${arquivoUrl(a, true)}">${ico("baixar")} Baixar imagem</a>
-          </div>
-          <a href="${arquivoUrl(a)}" target="_blank" rel="noopener"><img class="identidade" src="${arquivoUrl(a)}" alt="${esc(a.titulo)}"></a>
-        </div>` : `<div class="cartao">${linhaArquivo(a)}</div>`).join("");
-    },
   };
 
   // ---------- Ampliar imagens ----------

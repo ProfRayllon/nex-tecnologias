@@ -11,7 +11,6 @@
     { id: "imagem", rotulo: "Telas do sistema", dica: "PNG, JPG ou WEBP", aceita: ".png,.jpg,.jpeg,.webp,.gif", multiplo: true, icone: "imagem" },
     { id: "codigo", rotulo: "Código-fonte", dica: "ZIP, RAR, 7Z ou TAR.GZ", aceita: ".zip,.rar,.7z,.gz,.tgz", multiplo: false, icone: "zip" },
     { id: "video", rotulo: "Vídeo", dica: "MP4 ou WEBM", aceita: ".mp4,.webm", multiplo: true, icone: "video" },
-    { id: "identidade", rotulo: "Identidade visual", dica: "Imagem ou documento da marca", aceita: ".png,.jpg,.jpeg,.webp,.pdf,.zip,.otf,.ttf,.woff2", multiplo: true, icone: "paleta" },
     { id: "documento", rotulo: "Outros documentos", dica: "Contrato, manual, termo de entrega…", aceita: ".pdf,.docx,.xlsx,.pptx,.txt,.md,.zip,.png,.jpg,.jpeg", multiplo: true, icone: "doc" },
   ];
 
