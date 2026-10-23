@@ -114,7 +114,7 @@
     { id: "orcamento", rotulo: "Orçamento", ico: "pdf", conta: (p) => porTipo(p, "orcamento").length },
     { id: "telas", rotulo: "Telas do sistema", ico: "imagem", conta: (p) => porTipo(p, "imagem").length },
     { id: "video", rotulo: "Vídeo", ico: "video", conta: (p) => porTipo(p, "video").length, opcional: true },
-    { id: "identidade", rotulo: "Identidade visual", ico: "paleta", conta: (p) => porTipo(p, "identidade").length || p.identidade.length, opcional: true },
+    { id: "identidade", rotulo: "Identidade visual", ico: "paleta", conta: (p) => porTipo(p, "identidade").length, opcional: true },
     { id: "tecnologias", rotulo: "Tecnologias", ico: "camadas", conta: (p) => p.tecnologias.length },
     { id: "codigo", rotulo: "Código-fonte", ico: "codigo" },
     { id: "documentos", rotulo: "Documentos", ico: "pasta", conta: (p) => porTipo(p, "documento").length, opcional: true },
@@ -389,42 +389,20 @@
         </div>`).join("");
     },
 
-    // Paleta (clique copia o código da cor), logos em fundo quadriculado e os demais arquivos da marca.
+    // A identidade é o material que a NEX envia: imagens aparecem inteiras, outros arquivos em lista.
     identidade(p) {
       const arqs = porTipo(p, "identidade");
-      const logos = arqs.filter((a) => a.mime.startsWith("image/"));
-      const outros = arqs.filter((a) => !a.mime.startsWith("image/"));
-      return `
-        ${p.identidade.length ? `
-          <div class="cartao">
-            <div class="cartao__topo"><h2>Paleta de cores</h2><span class="muted small">Clique em uma cor para copiar o código</span></div>
-            <div class="cores">
-              ${p.identidade.map((c) => `
-                <button type="button" class="cor" data-copiar-valor="${esc(c.hex)}">
-                  <span class="cor__amostra" style="background:${esc(c.hex)}"></span>
-                  <b>${esc(c.nome)}</b><code>${esc(c.hex)}</code>
-                </button>`).join("")}
+      return arqs.map((a) => a.mime.startsWith("image/") ? `
+        <div class="cartao">
+          <div class="cartao__topo">
+            <div>
+              <h2>${esc(a.titulo || a.nome)}</h2>
+              ${a.legenda ? `<p class="muted small">${esc(a.legenda)}</p>` : ""}
             </div>
-          </div>` : ""}
-        ${logos.length ? `
-          <div class="cartao">
-            <div class="cartao__topo"><h2>Logotipos</h2><span class="muted small">${logos.length} versões</span></div>
-            <div class="logos">
-              ${logos.map((a) => `
-                <div class="logo-item">
-                  <div class="logo-item__img"><img src="${arquivoUrl(a)}" alt="${esc(a.titulo)}" loading="lazy"></div>
-                  <div class="logo-item__pe">
-                    <span><b>${esc(a.titulo || a.nome)}</b>${a.legenda ? `<small>${esc(a.legenda)}</small>` : ""}</span>
-                    <a class="icobtn" href="${arquivoUrl(a, true)}" aria-label="Baixar ${esc(a.titulo)}">${ico("baixar")}</a>
-                  </div>
-                </div>`).join("")}
-            </div>
-          </div>` : ""}
-        ${outros.length ? `
-          <div class="cartao">
-            <div class="cartao__topo"><h2>Fontes e arquivos da marca</h2></div>
-            ${outros.map((a) => linhaArquivo(a)).join("")}
-          </div>` : ""}`;
+            <a class="btn btn--primary btn--sm" href="${arquivoUrl(a, true)}">${ico("baixar")} Baixar imagem</a>
+          </div>
+          <a href="${arquivoUrl(a)}" target="_blank" rel="noopener"><img class="identidade" src="${arquivoUrl(a)}" alt="${esc(a.titulo)}"></a>
+        </div>` : `<div class="cartao">${linhaArquivo(a)}</div>`).join("");
     },
   };
 

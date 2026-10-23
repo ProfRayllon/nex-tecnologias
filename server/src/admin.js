@@ -117,10 +117,6 @@ function dadosProjeto(b) {
       .map((t) => ({ categoria: texto(t?.categoria, 60) || "Outros", nome: texto(t?.nome, 80) }))
       .filter((t) => t.nome)
       .slice(0, 120),
-    identidade: lista(b.identidade)
-      .map((c) => ({ nome: texto(c?.nome, 60), hex: texto(c?.hex, 7).toUpperCase() }))
-      .filter((c) => c.nome && /^#[0-9A-F]{6}$/.test(c.hex))
-      .slice(0, 30),
     inicio: data(b.inicio),
     entrega: data(b.entrega),
     visivel: b.visivel !== false,
@@ -133,15 +129,15 @@ function dadosProjeto(b) {
 const valoresProjeto = (p) => [
   p.clienteId, p.nome, p.subtitulo, p.descricao, p.status, p.urlAcesso, p.urlCodigo,
   JSON.stringify(p.destaques), JSON.stringify(p.informacoes), JSON.stringify(p.tecnologias),
-  p.inicio, p.entrega, p.visivel, p.acessoUsuario, p.acessoSenha, JSON.stringify(p.identidade),
+  p.inicio, p.entrega, p.visivel, p.acessoUsuario, p.acessoSenha,
 ];
 
 admin.post("/projetos", assincrono(async (req, res) => {
   const id = uid("p");
   await pool.query(
     `INSERT INTO projetos (id, cliente_id, nome, subtitulo, descricao, status, url_acesso, url_codigo,
-     destaques, informacoes, tecnologias, inicio, entrega, visivel, acesso_usuario, acesso_senha, identidade)
-     VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17)`,
+     destaques, informacoes, tecnologias, inicio, entrega, visivel, acesso_usuario, acesso_senha)
+     VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16)`,
     [id, ...valoresProjeto(dadosProjeto(req.body))],
   );
   res.json({ id });
@@ -151,7 +147,7 @@ admin.put("/projetos/:id", assincrono(async (req, res) => {
   const { rowCount } = await pool.query(
     `UPDATE projetos SET cliente_id = $2, nome = $3, subtitulo = $4, descricao = $5, status = $6, url_acesso = $7,
      url_codigo = $8, destaques = $9, informacoes = $10, tecnologias = $11, inicio = $12, entrega = $13, visivel = $14,
-     acesso_usuario = $15, acesso_senha = $16, identidade = $17, atualizado_em = now() WHERE id = $1`,
+     acesso_usuario = $15, acesso_senha = $16, atualizado_em = now() WHERE id = $1`,
     [req.params.id, ...valoresProjeto(dadosProjeto(req.body))],
   );
   if (!rowCount) throw new ErroDeUso("Projeto não encontrado.", 404);

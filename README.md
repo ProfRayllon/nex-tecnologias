@@ -40,7 +40,7 @@ deploy/  backup.sh · enviar-entrega.mjs · sites/ (outros domínios no mesmo Ca
 1. **Clientes → Novo cliente**.
 2. **Projetos → Novo projeto**: descrição, funcionalidades, informações, tecnologias, link do sistema.
 3. No projeto, envie o **orçamento (PDF)**, as **telas** e o **código-fonte (ZIP)**. Quando houver, envie também o
-   **vídeo** (MP4) e a **identidade visual** (logos, fontes, manual) e preencha a paleta de cores: cada um vira uma aba no portal.
+   **vídeo** (MP4) e a **identidade visual** (imagem ou documento da marca): cada um vira uma aba no portal.
 4. **Acessos → Novo acesso**: gera a senha provisória e uma mensagem pronta para mandar por WhatsApp ou e-mail.
 5. Use **Ver como o cliente** para conferir o portal antes de enviar.
 
