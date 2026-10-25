@@ -73,26 +73,32 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  /* ---------- Módulos: carrossel que avança sozinho enquanto está na tela ---------- */
+  /* ---------- Módulos: carrossel em loop dentro de cada classe ---------- */
   const car = $("#car");
-  const trilho = $("#car-track");
-  const slides = $$(".slide", trilho);
+  const palco = $("#car-track");
+  const slides = $$(".slide", palco);
   const classes = $$(".car__cats button", car);
-  const TEMPO_SLIDE = 6000;
+  const caixaPontos = $("#car-dots");
+  const TEMPO_SLIDE = 5000;
   car.style.setProperty("--dur", `${TEMPO_SLIDE}ms`);
-  let ativo = -1, carTimer, carVisivel = false, carPausado = false;
-  const pontos = [];
-  const marcar = (k) => {
-    if (k === ativo) return;
-    ativo = k;
-    slides.forEach((s, i) => s.classList.toggle("is-active", i === k));
-    pontos.forEach((d, i) => d.classList.toggle("is-on", i === k));
-    classes.forEach((c) => c.classList.toggle("is-on", c.dataset.cat === slides[k].dataset.cat));
+  let grupo = [], pontos = [], atual = 0, carTimer, carVisivel = false, carPausado = false;
+  const ajustarAltura = () => {
+    palco.style.height = `${Math.max(...grupo.map((s) => s.offsetHeight))}px`;
   };
-  const irPara = (k) => {
-    const s = slides[(k + slides.length) % slides.length];
-    trilho.scrollTo({ left: s.offsetLeft - (trilho.clientWidth - s.clientWidth) / 2, behavior: "smooth" });
-    marcar(slides.indexOf(s));
+  const posicionarSlides = () => {
+    slides.forEach((s) => {
+      const i = grupo.indexOf(s);
+      let p = "fora";
+      if (i >= 0) {
+        p = ((i - atual) % grupo.length + grupo.length) % grupo.length;
+        if (p > grupo.length / 2) p -= grupo.length;
+        if (Math.abs(p) > 1) p = "fora";
+      }
+      s.dataset.pos = p;
+      s.classList.toggle("is-active", p === 0);
+      s.setAttribute("aria-hidden", String(p !== 0));
+    });
+    pontos.forEach((d, k) => d.classList.toggle("is-on", k === atual));
   };
   const reiniciar = () => {
     clearTimeout(carTimer);
@@ -100,39 +106,67 @@ document.addEventListener("DOMContentLoaded", () => {
     void car.offsetWidth; // recomeça a barrinha do ponto ativo
     if (!carVisivel || carPausado) return;
     car.classList.add("is-playing");
-    carTimer = setTimeout(() => { irPara(ativo + 1); reiniciar(); }, TEMPO_SLIDE);
+    carTimer = setTimeout(() => { andar(1); reiniciar(); }, TEMPO_SLIDE);
   };
-  slides.forEach((s, k) => {
-    const d = document.createElement("button");
-    d.setAttribute("aria-label", `${s.getAttribute("aria-label")} (${k + 1} de ${slides.length})`);
-    d.addEventListener("click", () => { irPara(k); reiniciar(); });
-    $("#car-dots").append(d);
-    pontos.push(d);
-  });
-  $("#car-prev").addEventListener("click", () => { irPara(ativo - 1); reiniciar(); });
-  $("#car-next").addEventListener("click", () => { irPara(ativo + 1); reiniciar(); });
-  classes.forEach((c) => c.addEventListener("click", () => {
-    irPara(slides.findIndex((s) => s.dataset.cat === c.dataset.cat));
-    reiniciar();
+  const andar = (passo) => {
+    atual = (atual + passo + grupo.length) % grupo.length;
+    posicionarSlides();
+  };
+  const escolherClasse = (cat) => {
+    grupo = slides.filter((s) => s.dataset.cat === cat);
+    atual = 0;
+    classes.forEach((c) => c.classList.toggle("is-on", c.dataset.cat === cat));
+    pontos = grupo.map((s, k) => {
+      const d = document.createElement("button");
+      d.setAttribute("aria-label", `${s.getAttribute("aria-label")} (${k + 1} de ${grupo.length})`);
+      d.addEventListener("click", () => { atual = k; posicionarSlides(); reiniciar(); });
+      return d;
+    });
+    caixaPontos.replaceChildren(...pontos);
+    posicionarSlides();
+    ajustarAltura();
+  };
+  classes.forEach((c) => c.addEventListener("click", () => { escolherClasse(c.dataset.cat); reiniciar(); }));
+  $("#car-prev").addEventListener("click", () => { andar(-1); reiniciar(); });
+  $("#car-next").addEventListener("click", () => { andar(1); reiniciar(); });
+  // Clicar no módulo ao lado traz ele para o atual.
+  slides.forEach((s) => s.addEventListener("click", () => {
+    const p = Number(s.dataset.pos);
+    if (p === 1 || p === -1) { andar(p); reiniciar(); }
   }));
-  // Arrastar ou rolar à mão também troca o módulo ativo.
-  let fimRolagem;
-  trilho.addEventListener("scroll", () => {
-    clearTimeout(fimRolagem);
-    fimRolagem = setTimeout(() => {
-      const meio = trilho.scrollLeft + trilho.clientWidth / 2;
-      let perto = 0, menor = Infinity;
-      slides.forEach((s, i) => {
-        const d = Math.abs(s.offsetLeft + s.clientWidth / 2 - meio);
-        if (d < menor) { menor = d; perto = i; }
-      });
-      if (perto !== ativo) { marcar(perto); reiniciar(); }
-    }, 100);
-  }, { passive: true });
+  // Arrastar o dedo para os lados no celular.
+  let toqueX = null;
+  palco.addEventListener("touchstart", (e) => { toqueX = e.touches[0].clientX; }, { passive: true });
+  palco.addEventListener("touchend", (e) => {
+    if (toqueX === null) return;
+    const dx = e.changedTouches[0].clientX - toqueX;
+    toqueX = null;
+    if (Math.abs(dx) > 40) { andar(dx < 0 ? 1 : -1); reiniciar(); }
+  });
   car.addEventListener("mouseenter", () => { carPausado = true; reiniciar(); });
   car.addEventListener("mouseleave", () => { carPausado = false; reiniciar(); });
+  window.addEventListener("resize", ajustarAltura);
   new IntersectionObserver(([e]) => { carVisivel = e.isIntersecting; reiniciar(); }, { threshold: 0.3 }).observe(car);
-  marcar(0);
+  escolherClasse(classes[0].dataset.cat);
+
+  /* ---------- Mapa de acessos por dia e horário (relatórios) ---------- */
+  $$("[data-heat]").forEach((mapa) => {
+    const dias = ["Seg", "Ter", "Qua", "Qui", "Sex", "Sáb", "Dom"];
+    const pesoDia = [0.9, 1, 0.95, 0.85, 0.7, 0.35, 0.25];
+    dias.forEach((dia, d) => {
+      const rotulo = document.createElement("small");
+      rotulo.textContent = dia;
+      mapa.append(rotulo);
+      for (let h = 0; h < 14; h++) {
+        // Picos no fim da manhã e à noite, como em um AVA de formação.
+        const curva = Math.max(Math.exp(-((h - 3) ** 2) / 6), Math.exp(-((h - 12) ** 2) / 4));
+        const q = document.createElement("i");
+        q.style.setProperty("--a", (0.08 + 0.9 * pesoDia[d] * curva).toFixed(2));
+        q.style.setProperty("--d", (d * 14 + h) * 8);
+        mapa.append(q);
+      }
+    });
+  });
 
   /* ---------- Código de validação do certificado (desenho de QR) ---------- */
   $$("[data-qr]").forEach((qr) => {
@@ -171,13 +205,13 @@ document.addEventListener("DOMContentLoaded", () => {
     sf.classList.remove("is-playing");
   }, { threshold: 0.3 }).observe(sf);
 
-  /* ---------- Fácil de usar: vídeo com capítulos (Envio, Organização, Publicação) ---------- */
+  /* ---------- Tecnologia: vídeo com capítulos (arquitetura, armazenamento, mensageria e segurança) ---------- */
   const vp = $("#vp");
   const cenas = $$(".vp__scene", vp);
   const capitulos = $$(".vp__seg", vp);
   const botaoPlay = $("#vp-pp");
   const relogio = $("#vp-time");
-  const CENA = 4000, TOTAL = CENA * cenas.length;
+  const CENA = 6000, TOTAL = CENA * cenas.length;
   let t = 0, ultimo = 0, rodando = false, vpVisivel = false, cenaAtual = -1;
   const mmss = (ms) => `0:${String(Math.floor(ms / 1000)).padStart(2, "0")}`;
   const desenhar = () => {
@@ -194,7 +228,7 @@ document.addEventListener("DOMContentLoaded", () => {
   };
   const quadro = (agora) => {
     if (!rodando) return;
-    t += agora - ultimo;
+    t = Math.max(0, t + agora - ultimo); // o primeiro quadro pode chegar com horário anterior ao play
     ultimo = agora;
     if (t >= TOTAL) { t = 0; cenaAtual = -1; }
     desenhar();
