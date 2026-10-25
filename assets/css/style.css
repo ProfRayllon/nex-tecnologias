@@ -289,36 +289,11 @@ h1, h2, h3, h4 { font-family: var(--font-display); color: var(--navy-900); line-
   background: var(--blue-100) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232563EB' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E") center / 12px no-repeat;
 }
 .panel__visual { position: relative; min-height: 360px; display: grid; place-items: center; background: radial-gradient(circle at 50% 50%, var(--blue-100), transparent 70%); border-radius: var(--radius); }
+.panel__visual--ava { place-items: stretch; background: none; }
 
-/* Laptop AVA */
-.device-laptop { width: 92%; }
-.dl__screen { background: var(--navy-900); border-radius: 14px 14px 0 0; padding: 10px; box-shadow: var(--shadow-lg); }
-.dl__base { height: 14px; background: linear-gradient(var(--gray-300), var(--gray-400)); border-radius: 0 0 14px 14px; margin: 0 -4%; }
-.ava { background: var(--gray-50); border-radius: 6px; padding: 16px; display: flex; flex-direction: column; gap: 12px; }
-.ava__top { display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--gray-900); }
-.ava__cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
-.ava__card { background: var(--white); border: 1px solid var(--gray-200); border-radius: 8px; padding: 8px; font-size: 10.5px; color: var(--gray-900); display: flex; flex-direction: column; gap: 6px; transition: transform .3s var(--ease); }
-.ava__card:hover { transform: translateY(-3px); }
-.ava__thumb { height: 50px; border-radius: 6px; }
-.t1 { background: linear-gradient(135deg, #2563EB, #60A5FA); }
-.t2 { background: linear-gradient(135deg, #0A2540, #3B82F6); }
-.t3 { background: linear-gradient(135deg, #64748B, #CBD5E1); }
 .prog { height: 5px; border-radius: 3px; background: var(--gray-200); overflow: hidden; }
 .prog i { display: block; height: 100%; width: 0; background: var(--blue-600); border-radius: 3px; transition: width 1.4s var(--ease); }
 .in-view .is-active .prog i, .in-view .rm__item .prog i { width: var(--p); }
-.ava__lesson { display: flex; align-items: center; gap: 10px; background: var(--white); border: 1px solid var(--gray-200); border-radius: 8px; padding: 10px; font-size: 11px; color: var(--gray-900); }
-.ava__lesson small { display: block; color: var(--gray-500); font-size: 10px; }
-.ava__play { width: 28px; height: 28px; border-radius: 50%; background: var(--blue-600); position: relative; flex: none; }
-.ava__play::after { content: ""; position: absolute; left: 11px; top: 8px; border-left: 9px solid #fff; border-top: 6px solid transparent; border-bottom: 6px solid transparent; }
-
-.device-phone { position: absolute; right: 2%; bottom: -10px; width: 132px; height: 230px; background: var(--navy-900); border-radius: 22px; padding: 8px; box-shadow: var(--shadow-lg); animation: float 6s ease-in-out infinite; }
-.dp__notch { width: 40px; height: 5px; border-radius: 3px; background: rgba(255,255,255,.2); margin: 2px auto 8px; }
-.dp__screen { background: var(--white); height: calc(100% - 15px); border-radius: 14px; display: grid; place-items: center; padding: 10px; }
-.dp__cert { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 6px; }
-.dp__cert svg { width: 42px; height: 42px; fill: none; stroke: var(--blue-600); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
-.dp__cert b { font-size: 11px; color: var(--gray-900); }
-.dp__cert small { font-size: 9.5px; color: var(--gray-500); }
-
 /* Kanban CRM */
 .kanban { width: 100%; background: var(--white); border: 1px solid var(--gray-200); border-radius: 14px; padding: 18px; box-shadow: var(--shadow); }
 .kanban__head { display: flex; justify-content: space-between; align-items: center; font-size: 14px; color: var(--gray-900); margin-bottom: 14px; }
@@ -587,7 +562,6 @@ h1, h2, h3, h4 { font-family: var(--font-display); color: var(--navy-900); line-
   .vision { padding: 72px 0; }
   .tabs__panel { padding: 28px 20px; }
   .panel__visual { min-height: 300px; }
-  .device-phone { width: 100px; height: 176px; }
   .modules__photo { min-height: 380px; }
   .form { padding: 24px 18px; }
   .footer__grid { grid-template-columns: 1fr; }

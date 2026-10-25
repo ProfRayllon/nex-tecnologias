@@ -10,7 +10,8 @@
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600&family=Montserrat:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="assets/img/favicon.png">
   <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
-  <link rel="stylesheet" href="assets/css/style.css?v=15">
+  <link rel="stylesheet" href="assets/css/style.css?v=16">
+  <link rel="stylesheet" href="assets/css/ava-tela.css?v=1">
 </head>
 <body>
 
@@ -202,27 +203,54 @@
               </ul>
               <a href="/solucoes/ava" class="btn btn--primary">Conhecer o AVA por dentro <svg viewBox="0 0 24 24" class="ico"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
             </div>
-            <div class="panel__visual">
-              <div class="device-laptop">
-                <div class="dl__screen">
-                  <div class="ava">
-                    <div class="ava__top"><b>Minhas trilhas</b><span class="pill">3 em andamento</span></div>
-                    <div class="ava__cards">
-                      <div class="ava__card"><div class="ava__thumb t1"></div><b>Gestão Escolar</b><div class="prog"><i style="--p:72%"></i></div></div>
-                      <div class="ava__card"><div class="ava__thumb t2"></div><b>Didática Digital</b><div class="prog"><i style="--p:45%"></i></div></div>
-                      <div class="ava__card"><div class="ava__thumb t3"></div><b>BNCC na Prática</b><div class="prog"><i style="--p:90%"></i></div></div>
-                    </div>
-                    <div class="ava__lesson"><span class="ava__play"></span><div><b>Aula 4 · Avaliação formativa</b><small>12 min · videoaula</small></div></div>
-                  </div>
-                </div>
-                <div class="dl__base"></div>
+            <div class="panel__visual panel__visual--ava">
+              <div class="hx hx--aba reveal" aria-hidden="true">
+          <div class="hx__tilt">
+            <div class="dk">
+              <div class="dk__top">
+                <span class="brand"><b><svg viewBox="0 0 24 24"><path d="M2 7l10-4 10 4-10 4L2 7z"/><path d="M6 9v5c0 1.7 2.7 3 6 3s6-1.3 6-3V9"/></svg></b>Instituto Aprender</span>
+                <span class="dk__search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>Buscar cursos, aulas e shorts</span>
+                <span class="dk__icon"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><em>2</em></span>
+                <span class="dk__icon"><svg viewBox="0 0 24 24"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9M10.3 21a1.9 1.9 0 0 0 3.4 0"/></svg><em>5</em></span>
+                <span class="dk__user"><img src="/assets/img/ava/avatar-livia.webp" alt=""><span>Lívia M.<small>Aluna</small></span></span>
               </div>
-              <div class="device-phone">
-                <div class="dp__notch"></div>
-                <div class="dp__screen">
-                  <div class="dp__cert"><svg viewBox="0 0 24 24"><circle cx="12" cy="9" r="6"/><path d="M8.5 14 7 22l5-3 5 3-1.5-8"/></svg><b>Certificado emitido</b><small>Didática Digital · 40h</small></div>
+              <div class="dk__banner">
+                <img src="/assets/img/ava/banner-estudante.webp" alt="">
+                <div class="dk__btext">
+                  <span class="dk__tag">Trilha em destaque</span>
+                  <b>Gestão escolar na prática</b>
+                  <small>12 aulas · 30 horas · com certificado</small>
+                  <span class="dk__btns"><span class="dk__play"><svg viewBox="0 0 24 24"><path d="M7 4v16l13-8z"/></svg>Continuar aula 4</span><span class="dk__ghost">+ Minha lista</span></span>
                 </div>
+                <span class="dk__dots"><i class="is-on"></i><i></i><i></i></span>
               </div>
+              <div class="dk__row"><b>Continue estudando</b><span>Ver todos</span></div>
+              <div class="dk__cards">
+                <div class="cv"><img src="/assets/img/ava/capa-avaliacao.webp" alt=""><span class="bar"><i style="--p:72%"></i></span><b>Avaliação formativa</b><small>72% · 8 aulas</small></div>
+                <div class="cv"><img src="/assets/img/ava/capa-pensamento.webp" alt=""><span class="bar"><i style="--p:45%"></i></span><b>Pensamento computacional</b><small>45% · 10 aulas</small></div>
+                <div class="cv"><img src="/assets/img/ava/capa-convivencia.webp" alt=""><span class="bar"><i style="--p:90%"></i></span><b>Convivência escolar</b><small>90% · 6 aulas</small></div>
+                <div class="cv"><img src="/assets/img/ava/capa-inclusivas.webp" alt=""><span class="bar"><i style="--p:20%"></i></span><b>Práticas inclusivas</b><small>20% · 12 aulas</small></div>
+              </div>
+            </div>
+
+            <div class="ph">
+              <div class="ph__screen">
+                <div class="ph__status"><span>9:41</span><span class="ph__sys"><svg viewBox="0 0 18 12"><path d="M1 11h2V8H1zM5 11h2V6H5zM9 11h2V3.5H9zM13 11h2V1h-2z"/></svg><svg viewBox="0 0 16 12"><path d="M8 11.5 5.6 9a3.4 3.4 0 0 1 4.8 0zM3.2 6.6a6.8 6.8 0 0 1 9.6 0l-1.2 1.2a5.1 5.1 0 0 0-7.2 0zM.8 4.2a10.2 10.2 0 0 1 14.4 0L14 5.4a8.5 8.5 0 0 0-12 0z"/></svg><i class="ph__bat"></i></span></div>
+                <div class="ph__top"><span class="brand brand--sm"><b><svg viewBox="0 0 24 24"><path d="M2 7l10-4 10 4-10 4L2 7z"/><path d="M6 9v5c0 1.7 2.7 3 6 3s6-1.3 6-3V9"/></svg></b>Instituto Aprender</span><img src="/assets/img/ava/avatar-livia.webp" alt=""></div>
+                <div class="ph__banner"><img src="/assets/img/ava/foto-julia.webp" alt=""><div><small>Curso</small><b>Rotina de estudos que funciona</b><span>Assistir agora</span></div></div>
+                <b class="ph__label">Shorts da semana</b>
+                <div class="ph__shorts">
+                  <span><img src="/assets/img/ava/short-carlos.webp" alt=""><i></i></span>
+                  <span><img src="/assets/img/ava/short-marina.webp" alt=""><i></i></span>
+                  <span><img src="/assets/img/ava/short-rafael.webp" alt=""><i></i></span>
+                </div>
+                <div class="ph__nav"><span class="is-on"><svg viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"/></svg>Início</span><span><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5z"/><path d="M4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5"/></svg>Cursos</span><span><svg viewBox="0 0 24 24"><rect x="6" y="3" width="12" height="18" rx="3"/><path d="M10.5 9.5v5l4-2.5z"/></svg>Shorts</span><span><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>Perfil</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="fl fl--toast"><span class="fl__ico"><svg viewBox="0 0 24 24"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9M10.3 21a1.9 1.9 0 0 0 3.4 0"/></svg></span><div><b>Aviso da coordenação</b><small>A avaliação do módulo 2 fecha sexta</small></div></div>
+          <div class="fl fl--xp"><span class="fl__ico fl__ico--gold"><svg viewBox="0 0 24 24"><circle cx="12" cy="9" r="6"/><path d="M8.5 14 7 22l5-3 5 3-1.5-8"/></svg></span><div><b>+50 XP</b><small>Medalha “Pontual”</small></div></div>
+        </div>
             </div>
           </div>
 
