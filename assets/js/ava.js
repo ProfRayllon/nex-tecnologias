@@ -57,30 +57,163 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  /* ---------- Publicação em três passos: avança sozinho enquanto está na tela ---------- */
-  const pub = $("#pub");
-  const passos = $$(".pub__step", pub);
-  const cenas = $$(".pub__scene", pub);
-  let atual = 0, timer;
-  const mostrar = (n) => {
-    atual = n;
-    passos.forEach((p, k) => p.classList.toggle("is-active", k === n));
-    cenas.forEach((c, k) => c.classList.toggle("is-active", k === n));
+  /* ---------- Hero: a tela acompanha o mouse ---------- */
+  const hx = $("#hx");
+  if (matchMedia("(hover: hover) and (min-width: 1081px)").matches && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    hx.addEventListener("pointermove", (e) => {
+      const r = hx.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width - 0.5;
+      const y = (e.clientY - r.top) / r.height - 0.5;
+      hx.style.setProperty("--ry", `${-7 + x * 10}deg`);
+      hx.style.setProperty("--rx", `${3 - y * 8}deg`);
+    });
+    hx.addEventListener("pointerleave", () => {
+      hx.style.removeProperty("--ry");
+      hx.style.removeProperty("--rx");
+    });
+  }
+
+  /* ---------- Módulos: carrossel que avança sozinho enquanto está na tela ---------- */
+  const car = $("#car");
+  const trilho = $("#car-track");
+  const slides = $$(".slide", trilho);
+  const classes = $$(".car__cats button", car);
+  const TEMPO_SLIDE = 6000;
+  car.style.setProperty("--dur", `${TEMPO_SLIDE}ms`);
+  let ativo = -1, carTimer, carVisivel = false, carPausado = false;
+  const pontos = [];
+  const marcar = (k) => {
+    if (k === ativo) return;
+    ativo = k;
+    slides.forEach((s, i) => s.classList.toggle("is-active", i === k));
+    pontos.forEach((d, i) => d.classList.toggle("is-on", i === k));
+    classes.forEach((c) => c.classList.toggle("is-on", c.dataset.cat === slides[k].dataset.cat));
   };
-  const tocar = () => {
-    clearInterval(timer);
-    pub.classList.add("is-playing");
-    timer = setInterval(() => mostrar((atual + 1) % passos.length), 3600);
+  const irPara = (k) => {
+    const s = slides[(k + slides.length) % slides.length];
+    trilho.scrollTo({ left: s.offsetLeft - (trilho.clientWidth - s.clientWidth) / 2, behavior: "smooth" });
+    marcar(slides.indexOf(s));
   };
-  passos.forEach((p, k) => p.addEventListener("click", () => {
-    mostrar(k);
-    if (pub.classList.contains("is-playing")) tocar();
+  const reiniciar = () => {
+    clearTimeout(carTimer);
+    car.classList.remove("is-playing");
+    void car.offsetWidth; // recomeça a barrinha do ponto ativo
+    if (!carVisivel || carPausado) return;
+    car.classList.add("is-playing");
+    carTimer = setTimeout(() => { irPara(ativo + 1); reiniciar(); }, TEMPO_SLIDE);
+  };
+  slides.forEach((s, k) => {
+    const d = document.createElement("button");
+    d.setAttribute("aria-label", `${s.getAttribute("aria-label")} (${k + 1} de ${slides.length})`);
+    d.addEventListener("click", () => { irPara(k); reiniciar(); });
+    $("#car-dots").append(d);
+    pontos.push(d);
+  });
+  $("#car-prev").addEventListener("click", () => { irPara(ativo - 1); reiniciar(); });
+  $("#car-next").addEventListener("click", () => { irPara(ativo + 1); reiniciar(); });
+  classes.forEach((c) => c.addEventListener("click", () => {
+    irPara(slides.findIndex((s) => s.dataset.cat === c.dataset.cat));
+    reiniciar();
   }));
+  // Arrastar ou rolar à mão também troca o módulo ativo.
+  let fimRolagem;
+  trilho.addEventListener("scroll", () => {
+    clearTimeout(fimRolagem);
+    fimRolagem = setTimeout(() => {
+      const meio = trilho.scrollLeft + trilho.clientWidth / 2;
+      let perto = 0, menor = Infinity;
+      slides.forEach((s, i) => {
+        const d = Math.abs(s.offsetLeft + s.clientWidth / 2 - meio);
+        if (d < menor) { menor = d; perto = i; }
+      });
+      if (perto !== ativo) { marcar(perto); reiniciar(); }
+    }, 100);
+  }, { passive: true });
+  car.addEventListener("mouseenter", () => { carPausado = true; reiniciar(); });
+  car.addEventListener("mouseleave", () => { carPausado = false; reiniciar(); });
+  new IntersectionObserver(([e]) => { carVisivel = e.isIntersecting; reiniciar(); }, { threshold: 0.3 }).observe(car);
+  marcar(0);
+
+  /* ---------- Código de validação do certificado (desenho de QR) ---------- */
+  $$("[data-qr]").forEach((qr) => {
+    let semente = 7;
+    for (let i = 0; i < 121; i++) {
+      const x = i % 11, y = Math.floor(i / 11);
+      const canto = (a, b) => x >= a && x < a + 3 && y >= b && y < b + 3;
+      semente = (semente * 9301 + 49297) % 233280;
+      const q = document.createElement("i");
+      if (!(canto(0, 0) || canto(8, 0) || canto(0, 8) || semente / 233280 > 0.5)) q.className = "o";
+      qr.append(q);
+    }
+  });
+
+  /* ---------- Shorts: vitrine em 3D que gira sozinha ---------- */
+  const sf = $("#sf");
+  const shorts = $$(".sc", sf);
+  const TEMPO_SHORT = 4000;
+  sf.style.setProperty("--dur", `${TEMPO_SHORT}ms`);
+  let centro = 0, sfTimer;
+  const posicionar = () => shorts.forEach((c, i) => {
+    let p = i - centro;
+    if (p > shorts.length / 2) p -= shorts.length;
+    if (p < -shorts.length / 2) p += shorts.length;
+    c.dataset.pos = p;
+  });
+  const tocarShorts = () => {
+    clearInterval(sfTimer);
+    sf.classList.add("is-playing");
+    sfTimer = setInterval(() => { centro = (centro + 1) % shorts.length; posicionar(); }, TEMPO_SHORT);
+  };
+  shorts.forEach((c, i) => c.addEventListener("click", () => { centro = i; posicionar(); tocarShorts(); }));
   new IntersectionObserver(([e]) => {
-    if (e.isIntersecting) return tocar();
-    clearInterval(timer);
-    pub.classList.remove("is-playing");
-  }, { threshold: 0.35 }).observe(pub);
+    if (e.isIntersecting) return tocarShorts();
+    clearInterval(sfTimer);
+    sf.classList.remove("is-playing");
+  }, { threshold: 0.3 }).observe(sf);
+
+  /* ---------- Fácil de usar: vídeo com capítulos (Envio, Organização, Publicação) ---------- */
+  const vp = $("#vp");
+  const cenas = $$(".vp__scene", vp);
+  const capitulos = $$(".vp__seg", vp);
+  const botaoPlay = $("#vp-pp");
+  const relogio = $("#vp-time");
+  const CENA = 4000, TOTAL = CENA * cenas.length;
+  let t = 0, ultimo = 0, rodando = false, vpVisivel = false, cenaAtual = -1;
+  const mmss = (ms) => `0:${String(Math.floor(ms / 1000)).padStart(2, "0")}`;
+  const desenhar = () => {
+    const c = Math.min(Math.floor(t / CENA), cenas.length - 1);
+    if (c !== cenaAtual) {
+      cenaAtual = c;
+      cenas.forEach((s) => s.classList.remove("is-active"));
+      void vp.offsetWidth; // recomeça as animações da cena
+      cenas[c].classList.add("is-active");
+      capitulos.forEach((s, k) => s.classList.toggle("is-active", k === c));
+    }
+    capitulos.forEach((s, k) => $("i", s).style.setProperty("--f", Math.max(0, Math.min(1, (t - k * CENA) / CENA))));
+    relogio.textContent = `${mmss(t)} / ${mmss(TOTAL)}`;
+  };
+  const quadro = (agora) => {
+    if (!rodando) return;
+    t += agora - ultimo;
+    ultimo = agora;
+    if (t >= TOTAL) { t = 0; cenaAtual = -1; }
+    desenhar();
+    requestAnimationFrame(quadro);
+  };
+  const atualizarVideo = () => {
+    const tocar = vpVisivel && !vp.classList.contains("is-paused");
+    if (tocar && !rodando) { rodando = true; ultimo = performance.now(); requestAnimationFrame(quadro); }
+    if (!tocar) rodando = false;
+  };
+  botaoPlay.addEventListener("click", () => {
+    const pausar = !vp.classList.contains("is-paused");
+    vp.classList.toggle("is-paused", pausar);
+    botaoPlay.setAttribute("aria-label", pausar ? "Reproduzir" : "Pausar");
+    atualizarVideo();
+  });
+  capitulos.forEach((s, k) => s.addEventListener("click", () => { t = k * CENA; cenaAtual = -1; desenhar(); }));
+  new IntersectionObserver(([e]) => { vpVisivel = e.isIntersecting; atualizarVideo(); }, { threshold: 0.4 }).observe(vp);
+  desenhar();
 
   /* ---------- Calculadora de plano ---------- */
   // O controle anda por faixas (não linear) para 500 e 2.000 ficarem em posições legíveis.

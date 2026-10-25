@@ -11,7 +11,7 @@
   <link rel="icon" type="image/png" href="/assets/img/favicon.png">
   <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
   <link rel="stylesheet" href="/assets/css/style.css?v=15">
-  <link rel="stylesheet" href="/assets/css/ava.css?v=1">
+  <link rel="stylesheet" href="/assets/css/ava.css?v=2">
 </head>
 <body>
 
@@ -35,6 +35,7 @@
         </div>
         <a href="#como-funciona" class="nav__link">Como funciona</a>
         <a href="#modulos" class="nav__link">Módulos</a>
+        <a href="#shorts" class="nav__link">Shorts</a>
         <a href="#tecnologia" class="nav__link">Tecnologia</a>
         <a href="#planos" class="nav__link">Planos</a>
         <a href="#contato" class="btn btn--primary btn--sm nav__cta">Solicitar demonstração
@@ -60,7 +61,7 @@
           <nav class="av-crumb reveal" aria-label="Você está em"><a href="/">Início</a><span>/</span><a href="/#solucoes">Soluções</a><span>/</span><b>AVA Institucional</b></nav>
           <span class="eyebrow reveal">Ambiente Virtual de Aprendizagem</span>
           <h1 class="av-hero__title reveal">Sua instituição. Seus cursos. <span class="text-grad">Sua plataforma.</span></h1>
-          <p class="av-hero__text reveal">Muito mais que um curso on-line: o AVA da NEX une <b>ensino, acompanhamento e comunicação</b> em um só lugar. Página institucional e ambiente de aprendizagem com a sua identidade, painéis de monitoramento em tempo real e ferramentas para cada pessoa da sua rede.</p>
+          <p class="av-hero__text reveal">Ensino, acompanhamento e comunicação em um só lugar, com a <b>marca da sua instituição</b>, no computador e no celular.</p>
           <div class="hero__actions reveal">
             <a href="#planos" class="btn btn--primary">Ver planos <svg viewBox="0 0 24 24" class="ico"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
             <a href="#contato" class="btn btn--outline">Solicitar demonstração</a>
@@ -72,44 +73,53 @@
           </ul>
         </div>
 
-        <!-- Tela do AVA desenhada em HTML -->
-        <div class="av-hero__visual reveal" aria-hidden="true">
-          <div class="win">
-            <div class="win__bar"><i></i><i></i><i></i><span class="win__url"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>ava.suainstituicao.edu.br</span></div>
-            <div class="app">
-              <aside class="app__side">
-                <span class="app__brand"><b></b>Sua instituição</span>
-                <span class="app__nav is-on"><i></i>Início</span>
-                <span class="app__nav"><i></i>Meus cursos</span>
-                <span class="app__nav"><i></i>Trilhas</span>
-                <span class="app__nav"><i></i>Avaliações</span>
-                <span class="app__nav"><i></i>Mensagens <em>3</em></span>
-                <span class="app__nav"><i></i>Certificados</span>
-                <span class="app__nav"><i></i>Conquistas</span>
-              </aside>
-              <div class="app__main">
-                <div class="app__hello">
-                  <div><small>Bom dia,</small><b>Ana Beatriz</b></div>
-                  <span class="app__lvl"><svg viewBox="0 0 24 24"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0z"/><path d="M17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3"/></svg>Nível 7</span>
+        <!-- AVA no computador e no celular -->
+        <div class="hx reveal" id="hx" aria-hidden="true">
+          <div class="hx__tilt">
+            <div class="dk">
+              <div class="dk__top">
+                <span class="brand"><b><svg viewBox="0 0 24 24"><path d="M2 7l10-4 10 4-10 4L2 7z"/><path d="M6 9v5c0 1.7 2.7 3 6 3s6-1.3 6-3V9"/></svg></b>Instituto Aprender</span>
+                <span class="dk__search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>Buscar cursos, aulas e shorts</span>
+                <span class="dk__icon"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><em>2</em></span>
+                <span class="dk__icon"><svg viewBox="0 0 24 24"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9M10.3 21a1.9 1.9 0 0 0 3.4 0"/></svg><em>5</em></span>
+                <span class="dk__user"><img src="/assets/img/ava/avatar-livia.webp" alt=""><span>Lívia M.<small>Aluna</small></span></span>
+              </div>
+              <div class="dk__banner">
+                <img src="/assets/img/ava/banner-estudante.webp" alt="">
+                <div class="dk__btext">
+                  <span class="dk__tag">Trilha em destaque</span>
+                  <b>Gestão escolar na prática</b>
+                  <small>12 aulas · 30 horas · com certificado</small>
+                  <span class="dk__btns"><span class="dk__play"><svg viewBox="0 0 24 24"><path d="M7 4v16l13-8z"/></svg>Continuar aula 4</span><span class="dk__ghost">+ Minha lista</span></span>
                 </div>
-                <div class="app__kpis">
-                  <div><b>3</b><small>Em andamento</small></div>
-                  <div><b>8</b><small>Concluídos</small></div>
-                  <div><b>46h</b><small>Estudadas</small></div>
+                <span class="dk__dots"><i class="is-on"></i><i></i><i></i></span>
+              </div>
+              <div class="dk__row"><b>Continue estudando</b><span>Ver todos</span></div>
+              <div class="dk__cards">
+                <div class="cv"><img src="/assets/img/ava/capa-avaliacao.webp" alt=""><span class="bar"><i style="--p:72%"></i></span><b>Avaliação formativa</b><small>72% · 8 aulas</small></div>
+                <div class="cv"><img src="/assets/img/ava/capa-pensamento.webp" alt=""><span class="bar"><i style="--p:45%"></i></span><b>Pensamento computacional</b><small>45% · 10 aulas</small></div>
+                <div class="cv"><img src="/assets/img/ava/capa-convivencia.webp" alt=""><span class="bar"><i style="--p:90%"></i></span><b>Convivência escolar</b><small>90% · 6 aulas</small></div>
+                <div class="cv"><img src="/assets/img/ava/capa-inclusivas.webp" alt=""><span class="bar"><i style="--p:20%"></i></span><b>Práticas inclusivas</b><small>20% · 12 aulas</small></div>
+              </div>
+            </div>
+
+            <div class="ph">
+              <div class="ph__screen">
+                <div class="ph__status"><span>9:41</span><i></i></div>
+                <div class="ph__top"><span class="brand brand--sm"><b><svg viewBox="0 0 24 24"><path d="M2 7l10-4 10 4-10 4L2 7z"/><path d="M6 9v5c0 1.7 2.7 3 6 3s6-1.3 6-3V9"/></svg></b>Instituto Aprender</span><img src="/assets/img/ava/avatar-livia.webp" alt=""></div>
+                <div class="ph__banner"><img src="/assets/img/ava/foto-julia.webp" alt=""><div><small>Curso</small><b>Rotina de estudos que funciona</b><span>Assistir agora</span></div></div>
+                <b class="ph__label">Shorts da semana</b>
+                <div class="ph__shorts">
+                  <span><img src="/assets/img/ava/short-carlos.webp" alt=""><i></i></span>
+                  <span><img src="/assets/img/ava/short-marina.webp" alt=""><i></i></span>
+                  <span><img src="/assets/img/ava/short-rafael.webp" alt=""><i></i></span>
                 </div>
-                <b class="app__label">Continuar estudando</b>
-                <div class="app__cards">
-                  <div class="app__card"><span class="th th--1"></span><b>Gestão Escolar</b><span class="bar"><i style="--p:72%"></i></span></div>
-                  <div class="app__card"><span class="th th--2"></span><b>Didática Digital</b><span class="bar"><i style="--p:45%"></i></span></div>
-                  <div class="app__card"><span class="th th--3"></span><b>BNCC na Prática</b><span class="bar"><i style="--p:90%"></i></span></div>
-                </div>
-                <div class="app__lesson"><span class="app__play"></span><div><b>Aula 4 · Avaliação formativa</b><small>12 min · videoaula</small></div><span class="pill">Retomar</span></div>
+                <div class="ph__nav"><i class="is-on"></i><i></i><i></i><i></i></div>
               </div>
             </div>
           </div>
           <div class="fl fl--toast"><span class="fl__ico"><svg viewBox="0 0 24 24"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9M10.3 21a1.9 1.9 0 0 0 3.4 0"/></svg></span><div><b>Aviso da coordenação</b><small>A avaliação do módulo 2 fecha sexta</small></div></div>
           <div class="fl fl--xp"><span class="fl__ico fl__ico--gold"><svg viewBox="0 0 24 24"><circle cx="12" cy="9" r="6"/><path d="M8.5 14 7 22l5-3 5 3-1.5-8"/></svg></span><div><b>+50 XP</b><small>Medalha “Pontual”</small></div></div>
-          <div class="fl fl--live"><span class="dot"></span><div><b>128 alunos on-line</b><small>Painel ao vivo</small></div></div>
         </div>
       </div>
     </section>
@@ -236,9 +246,9 @@
         <div class="section__head section__head--split reveal">
           <div>
             <span class="eyebrow">Para cada perfil</span>
-            <h2 class="section__title">Cada pessoa da rede tem <span class="text-blue">o seu espaço no AVA</span></h2>
+            <h2 class="section__title">Cada pessoa da rede vê <span class="text-blue">o que precisa</span></h2>
           </div>
-          <p class="section__sub">Perfis com permissões próprias: cada um vê e faz só o que precisa, e a gestão acompanha tudo.</p>
+          <p class="section__sub">Escolha um perfil e veja a tela que ele recebe.</p>
         </div>
 
         <div class="roles av-tabs reveal">
@@ -254,24 +264,48 @@
           <div class="roles__panel is-active" role="tabpanel" id="pf-admin" aria-labelledby="pfb-admin">
             <div class="roles__text">
               <h3>Administrador</h3>
-              <p>Controla o ambiente inteiro: usuários, perfis, turmas, identidade visual e armazenamento. Acompanha os números da instituição em um painel único.</p>
-              <ul class="checklist">
-                <li>Cadastro e importação de usuários em lote</li>
-                <li>Perfis e permissões por função</li>
-                <li>Gestão de turmas, unidades e ofertas</li>
-                <li>Uso do armazenamento e da plataforma</li>
-              </ul>
+              <p>Usuários, turmas, identidade e armazenamento sob controle, com os números da instituição em um painel.</p>
+              <ul class="tags"><li>Usuários em lote</li><li>Perfis e permissões</li><li>Uso do armazenamento</li></ul>
             </div>
-            <div class="scr" aria-hidden="true">
-              <div class="scr__head"><b>Administração</b><span class="pill">Instituição</span></div>
-              <div class="tbl">
-                <div class="tbl__row tbl__row--head"><span>Usuário</span><span>Perfil</span><span>Status</span></div>
-                <div class="tbl__row"><span><i class="av">MS</i>Marina Souza</span><span>Produtora</span><span class="st st--ok">Ativo</span></div>
-                <div class="tbl__row"><span><i class="av av--2">EC</i>E.M. Centro</span><span>Escola</span><span class="st st--ok">Ativo</span></div>
-                <div class="tbl__row"><span><i class="av av--3">RP</i>Rafael Pinto</span><span>Tutor</span><span class="st st--ok">Ativo</span></div>
-                <div class="tbl__row"><span><i class="av av--4">+</i>Importar planilha</span><span>—</span><span class="st">CSV</span></div>
+            <div class="win" aria-hidden="true">
+              <div class="win__bar"><i></i><i></i><i></i><span class="win__url">ava.suainstituicao.edu.br/admin</span></div>
+              <div class="ui">
+                <aside class="ui__side">
+                  <span class="brand brand--light"><b><svg viewBox="0 0 24 24"><path d="M2 7l10-4 10 4-10 4L2 7z"/><path d="M6 9v5c0 1.7 2.7 3 6 3s6-1.3 6-3V9"/></svg></b>Instituto Aprender</span>
+                  <span class="ui__nav is-on"><svg viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"/></svg>Painel</span>
+                  <span class="ui__nav"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>Usuários</span>
+                  <span class="ui__nav"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5z"/></svg>Cursos</span>
+                  <span class="ui__nav"><svg viewBox="0 0 24 24"><path d="M4 19V5M4 19h16M8 15l3-3 3 2 5-6"/></svg>Relatórios</span>
+                  <span class="ui__nav"><svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 0 18c1 0 1.5-.7 1.5-1.5 0-1.2-1-1.5-1-2.5s1-2 2.5-2h2a4 4 0 0 0 4-4c0-4.4-4-8-9-8z"/></svg>Identidade</span>
+                  <span class="ui__nav"><svg viewBox="0 0 24 24"><path d="M3 6a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>Arquivos</span>
+                </aside>
+                <div class="ui__main">
+                  <div class="ui__head"><div><small>Administração</small><b>Visão geral</b></div><span class="ui__chip">Outubro de 2026</span><img class="ui__me" src="/assets/img/ava/avatar-ana.webp" alt=""></div>
+                  <div class="kpis">
+                    <div class="kpi"><small>Usuários ativos</small><b>1.248</b><em>▲ 12%</em></div>
+                    <div class="kpi"><small>Cursos publicados</small><b>24</b><em>▲ 3 novos</em></div>
+                    <div class="kpi"><small>Conclusão</small><b>74%</b><em>▲ 6 p.p.</em></div>
+                    <div class="kpi"><small>Certificados</small><b>3.410</b><em>▲ 210</em></div>
+                  </div>
+                  <div class="ui__grid">
+                    <div class="card">
+                      <div class="card__h"><b>Acessos nos últimos 30 dias</b><span class="pill">+18%</span></div>
+                      <svg class="chartline" viewBox="0 0 300 100" preserveAspectRatio="none"><defs><linearGradient id="g-adm" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2563EB" stop-opacity=".28"/><stop offset="1" stop-color="#2563EB" stop-opacity="0"/></linearGradient></defs><path d="M0 78 C30 70 45 74 70 62 S120 66 140 50 S190 52 210 38 S260 30 300 14 V100 H0Z" fill="url(#g-adm)"/><path class="chartline__l" d="M0 78 C30 70 45 74 70 62 S120 66 140 50 S190 52 210 38 S260 30 300 14"/></svg>
+                    </div>
+                    <div class="card card--ring">
+                      <div class="card__h"><b>Armazenamento</b></div>
+                      <div class="ring" style="--v:26"><span>128 GB<small>de 500 GB</small></span></div>
+                      <ul class="legend"><li><i></i>Vídeos 92 GB</li><li><i class="c2"></i>Documentos 24 GB</li><li><i class="c3"></i>Imagens 12 GB</li></ul>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <div class="card__h"><b>Últimos cadastros</b><span class="ui__link">Importar planilha</span></div>
+                    <div class="trow"><span><img src="/assets/img/ava/avatar-marina.webp" alt="">Marina Souza</span><span>Produtora</span><span>Sede</span><span class="st st--ok">Ativo</span></div>
+                    <div class="trow"><span><img src="/assets/img/ava/avatar-carlos.webp" alt="">Carlos Mendes</span><span>Escola</span><span>E.M. Centro</span><span class="st st--ok">Ativo</span></div>
+                    <div class="trow"><span><img src="/assets/img/ava/avatar-rafael.webp" alt="">Rafael Pinto</span><span>Tutor</span><span>Turma 2026</span><span class="st st--warn">Convite</span></div>
+                  </div>
+                </div>
               </div>
-              <div class="meter"><div class="meter__top"><b>Armazenamento dedicado</b><small>128 GB de 500 GB</small></div><span class="bar"><i style="--p:26%"></i></span></div>
             </div>
           </div>
 
@@ -279,23 +313,37 @@
           <div class="roles__panel" role="tabpanel" id="pf-prod" aria-labelledby="pfb-prod" hidden>
             <div class="roles__text">
               <h3>Produtor de conteúdo</h3>
-              <p>A equipe pedagógica monta os cursos direto no AVA, sem depender da TI: envia vídeos e materiais, organiza módulos e cria avaliações.</p>
-              <ul class="checklist">
-                <li>Editor de cursos, módulos e aulas</li>
-                <li>Upload de vídeos, PDFs, slides e links</li>
-                <li>Banco de questões reutilizável</li>
-                <li>Revisão e publicação com um clique</li>
-              </ul>
+              <p>Monta o curso direto no AVA: envia vídeos e materiais, organiza módulos e publica, sem depender da TI.</p>
+              <ul class="tags"><li>Editor de cursos</li><li>Vídeos e PDFs</li><li>Banco de questões</li></ul>
             </div>
-            <div class="scr" aria-hidden="true">
-              <div class="scr__head"><b>Editor · Gestão Escolar</b><span class="pill pill--amber">Rascunho</span></div>
-              <div class="ed">
-                <div class="ed__mod"><i class="ed__drag"></i><b>Módulo 1 · Fundamentos</b><small>4 aulas</small></div>
-                <div class="ed__mod"><i class="ed__drag"></i><b>Módulo 2 · Planejamento</b><small>3 aulas</small></div>
-                <div class="ed__mod ed__mod--new"><i class="ed__drag"></i><b>Módulo 3 · Avaliação</b><small>Arrastando…</small></div>
-                <div class="ed__add">+ Adicionar aula, quiz ou material</div>
+            <div class="win" aria-hidden="true">
+              <div class="win__bar"><i></i><i></i><i></i><span class="win__url">ava.suainstituicao.edu.br/editor</span></div>
+              <div class="ui ui--full">
+                <div class="ui__main">
+                  <div class="ui__head"><div><small>Editor de curso</small><b>Avaliação formativa na prática</b></div><span class="pill pill--amber">Rascunho</span><span class="solid-btn">Publicar curso</span></div>
+                  <div class="ed">
+                    <div class="ed__col">
+                      <div class="ed__mod">
+                        <b>Módulo 1 · Fundamentos</b>
+                        <span class="ed__item is-on"><span class="file file--vid">MP4</span>O que é avaliação formativa<small>12:40</small></span>
+                        <span class="ed__item"><span class="file file--pdf">PDF</span>Guia de instrumentos<small>2,4 MB</small></span>
+                        <span class="ed__item"><span class="file file--quiz">QZ</span>Quiz de fixação<small>10 questões</small></span>
+                      </div>
+                      <div class="ed__mod ed__mod--closed"><b>Módulo 2 · Rubricas e feedback</b><small>4 aulas</small></div>
+                      <div class="ed__mod ed__mod--closed"><b>Módulo 3 · Projeto final</b><small>Rascunho</small></div>
+                      <div class="ed__up"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"/></svg><div><b>aula-05-rubricas.mp4</b><span class="bar"><i style="--p:64%"></i></span></div><small>64%</small></div>
+                    </div>
+                    <div class="ed__col">
+                      <div class="vid"><img src="/assets/img/ava/foto-ana.webp" alt=""><span class="vid__play"></span><div class="vid__bar"><span class="bar"><i style="--p:38%"></i></span><small>04:52 / 12:40</small></div></div>
+                      <div class="card ed__meta">
+                        <div><small>Liberação</small><b>Após o módulo anterior</b></div>
+                        <div><small>Carga horária</small><b>2 horas</b></div>
+                        <div><small>Turmas</small><b>2026 · Manhã e Tarde</b></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div class="scr__foot"><span class="ghost-btn">Pré-visualizar</span><span class="solid-btn">Publicar</span></div>
             </div>
           </div>
 
@@ -303,22 +351,38 @@
           <div class="roles__panel" role="tabpanel" id="pf-escola" aria-labelledby="pfb-escola" hidden>
             <div class="roles__text">
               <h3>Escola / Unidade</h3>
-              <p>Em redes de ensino, cada escola acompanha os seus profissionais e também contribui: envia relatos, evidências e materiais que a coordenação valida.</p>
-              <ul class="checklist">
-                <li>Painel da unidade com seus cursistas</li>
-                <li>Envio de atividades, relatos e evidências</li>
-                <li>Fluxo de validação pela coordenação</li>
-                <li>Comparativo com a média da rede</li>
-              </ul>
+              <p>Acompanha os seus profissionais e contribui com a rede: envia relatos e evidências que a coordenação valida.</p>
+              <ul class="tags"><li>Painel da unidade</li><li>Envio de evidências</li><li>Comparativo com a rede</li></ul>
             </div>
-            <div class="scr" aria-hidden="true">
-              <div class="scr__head"><b>E.M. Centro · Envios</b><span class="pill">Rede municipal</span></div>
-              <div class="list">
-                <div class="list__row"><span class="file file--pdf">PDF</span><div><b>Relato de prática – 5º ano</b><small>Enviado por Profa. Lúcia</small></div><span class="st st--ok">Aprovado</span></div>
-                <div class="list__row"><span class="file file--img">IMG</span><div><b>Evidências da oficina</b><small>Enviado por Coord. André</small></div><span class="st st--warn">Em análise</span></div>
-                <div class="list__row"><span class="file file--doc">DOC</span><div><b>Plano de aula adaptado</b><small>Enviado por Prof. Caio</small></div><span class="st st--warn">Em análise</span></div>
+            <div class="win" aria-hidden="true">
+              <div class="win__bar"><i></i><i></i><i></i><span class="win__url">ava.suainstituicao.edu.br/unidade</span></div>
+              <div class="ui ui--full">
+                <div class="ui__main">
+                  <div class="ui__head"><div><small>Painel da unidade</small><b>E.M. Centro</b></div><span class="ui__chip">Rede municipal</span><span class="faces"><img src="/assets/img/ava/avatar-carlos.webp" alt=""><img src="/assets/img/ava/avatar-marina.webp" alt=""><img src="/assets/img/ava/avatar-ana.webp" alt=""><em>+35</em></span></div>
+                  <div class="kpis">
+                    <div class="kpi"><small>Profissionais</small><b>38</b><em>▲ 4 novos</em></div>
+                    <div class="kpi"><small>Conclusão</small><b>82%</b><em>▲ 8 p.p. da rede</em></div>
+                    <div class="kpi"><small>Envios no mês</small><b>24</b><em>▲ 9</em></div>
+                    <div class="kpi"><small>Certificados</small><b>61</b><em>▲ 12</em></div>
+                  </div>
+                  <div class="ui__grid ui__grid--even">
+                    <div class="card">
+                      <div class="card__h"><b>Conclusão por escola</b></div>
+                      <div class="hb"><span>E.M. Centro</span><i style="--p:82%" class="is-me"></i><b>82%</b></div>
+                      <div class="hb"><span>E.M. Jardim</span><i style="--p:76%"></i><b>76%</b></div>
+                      <div class="hb hb--avg"><span>Média da rede</span><i style="--p:74%"></i><b>74%</b></div>
+                      <div class="hb"><span>E.M. Vila Nova</span><i style="--p:61%"></i><b>61%</b></div>
+                      <div class="hb"><span>E.M. Lagoa</span><i style="--p:55%"></i><b>55%</b></div>
+                    </div>
+                    <div class="card">
+                      <div class="card__h"><b>Envios para validação</b><span class="ui__link">Enviar novo</span></div>
+                      <div class="sub"><img src="/assets/img/ava/capa-convivencia.webp" alt=""><div><b>Relato: assembleia de turma</b><small>Profa. Marina · ontem</small></div><span class="st st--ok">Aprovado</span></div>
+                      <div class="sub"><img src="/assets/img/ava/capa-inclusivas.webp" alt=""><div><b>Evidências: sala de recursos</b><small>Coord. Carlos · hoje</small></div><span class="st st--warn">Em análise</span></div>
+                      <div class="sub"><img src="/assets/img/ava/capa-pensamento.webp" alt=""><div><b>Oficina de programação</b><small>Profa. Ana · hoje</small></div><span class="st st--warn">Em análise</span></div>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div class="cmp"><div><small>Conclusão da escola</small><b>82%</b></div><div><small>Média da rede</small><b>74%</b></div><span class="cmp__up">▲ 8 p.p.</span></div>
             </div>
           </div>
 
@@ -326,22 +390,34 @@
           <div class="roles__panel" role="tabpanel" id="pf-tutor" aria-labelledby="pfb-tutor" hidden>
             <div class="roles__text">
               <h3>Tutor / Professor</h3>
-              <p>Acompanha as turmas de perto: vê quem está atrasado, corrige atividades, responde dúvidas no chat e envia avisos para a turma toda.</p>
-              <ul class="checklist">
-                <li>Visão da turma com alertas de risco</li>
-                <li>Correção de atividades e feedback</li>
-                <li>Chat com alunos e fóruns da turma</li>
-                <li>Avisos e mensagens em massa</li>
-              </ul>
+              <p>Vê quem está ficando para trás, corrige atividades e conversa com a turma no mesmo lugar.</p>
+              <ul class="tags"><li>Alertas de risco</li><li>Correção e feedback</li><li>Chat com alunos</li></ul>
             </div>
-            <div class="scr" aria-hidden="true">
-              <div class="scr__head"><b>Turma 2026 · Manhã</b><span class="pill">32 alunos</span></div>
-              <div class="list">
-                <div class="list__row"><i class="av">JL</i><div><b>Júlia Lima</b><small>Módulo 3 · 78%</small></div><span class="st st--ok">Em dia</span></div>
-                <div class="list__row"><i class="av av--2">PH</i><div><b>Pedro Henrique</b><small>Sem acesso há 9 dias</small></div><span class="st st--risk">Risco</span></div>
-                <div class="list__row"><i class="av av--3">CA</i><div><b>Carla Alves</b><small>2 atividades para corrigir</small></div><span class="st st--warn">Corrigir</span></div>
+            <div class="win" aria-hidden="true">
+              <div class="win__bar"><i></i><i></i><i></i><span class="win__url">ava.suainstituicao.edu.br/turmas</span></div>
+              <div class="ui ui--full">
+                <div class="ui__main">
+                  <div class="ui__head"><div><small>Minhas turmas</small><b>Turma 2026 · Manhã</b></div><span class="ui__chip">32 alunos</span><img class="ui__me" src="/assets/img/ava/avatar-rafael.webp" alt=""></div>
+                  <div class="ui__grid ui__grid--tutor">
+                    <div class="card">
+                      <div class="card__h"><b>Acompanhamento</b><span class="pill pill--red">3 em risco</span></div>
+                      <div class="stu"><img src="/assets/img/ava/avatar-julia.webp" alt=""><div><b>Júlia Lima</b><span class="bar"><i style="--p:78%"></i></span></div><span class="st st--ok">Em dia</span></div>
+                      <div class="stu"><img src="/assets/img/ava/avatar-carlos.webp" alt=""><div><b>Carlos Mendes</b><span class="bar bar--red"><i style="--p:22%"></i></span></div><span class="st st--risk">9 dias sem acesso</span></div>
+                      <div class="stu"><img src="/assets/img/ava/avatar-marina.webp" alt=""><div><b>Marina Souza</b><span class="bar"><i style="--p:61%"></i></span></div><span class="st st--warn">2 para corrigir</span></div>
+                      <div class="stu"><img src="/assets/img/ava/avatar-livia.webp" alt=""><div><b>Lívia Martins</b><span class="bar bar--green"><i style="--p:100%"></i></span></div><span class="st st--ok">Concluiu</span></div>
+                    </div>
+                    <div class="card chatbox">
+                      <div class="card__h"><span class="chatbox__who"><img src="/assets/img/ava/avatar-julia.webp" alt=""><b>Júlia Lima</b></span><span class="dot"></span></div>
+                      <div class="chatbox__body">
+                        <span class="bub bub--in">Professor, posso entregar o plano em PDF?</span>
+                        <span class="bub bub--out">Pode sim! Anexa aqui que eu já corrijo.</span>
+                        <span class="bub bub--in bub--file"><span class="file file--pdf">PDF</span>plano-de-acao.pdf</span>
+                      </div>
+                      <div class="chatbox__input">Escreva uma mensagem…<i></i></div>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div class="scr__foot"><span class="ghost-btn">Abrir chat</span><span class="solid-btn">Enviar aviso à turma</span></div>
             </div>
           </div>
 
@@ -349,298 +425,370 @@
           <div class="roles__panel" role="tabpanel" id="pf-aluno" aria-labelledby="pfb-aluno" hidden>
             <div class="roles__text">
               <h3>Aluno / Cursista</h3>
-              <p>Estuda no computador ou no celular, sabe exatamente o que falta, ganha pontos e medalhas ao avançar e recebe o certificado assim que conclui.</p>
-              <ul class="checklist">
-                <li>Trilhas com progresso visível</li>
-                <li>Pontos, níveis, medalhas e ranking</li>
-                <li>Chat com o tutor e avisos no app</li>
-                <li>Certificados para baixar e validar</li>
-              </ul>
+              <p>Estuda de qualquer tela, vê o próprio avanço, ganha medalhas e recebe o certificado ao concluir.</p>
+              <ul class="tags"><li>Trilhas com progresso</li><li>Pontos e medalhas</li><li>Certificados</li></ul>
             </div>
-            <div class="scr" aria-hidden="true">
-              <div class="scr__head"><b>Minha jornada</b><span class="pill pill--gold">Nível 7</span></div>
-              <div class="xp"><div class="xp__top"><b>1.240 XP</b><small>faltam 260 para o nível 8</small></div><span class="bar bar--gold"><i style="--p:83%"></i></span></div>
-              <div class="badges">
-                <span class="bdg"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Pontual</span>
-                <span class="bdg"><svg viewBox="0 0 24 24"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>Maratona</span>
-                <span class="bdg"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Colaborador</span>
-                <span class="bdg bdg--off"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Mestre</span>
+            <div class="win" aria-hidden="true">
+              <div class="win__bar"><i></i><i></i><i></i><span class="win__url">ava.suainstituicao.edu.br/minha-jornada</span></div>
+              <div class="ui ui--full">
+                <div class="ui__main">
+                  <div class="ui__head"><div><small>Minha jornada</small><b>Olá, Júlia!</b></div><span class="pill pill--gold">Nível 7 · 1.240 XP</span><img class="ui__me" src="/assets/img/ava/avatar-julia.webp" alt=""></div>
+                  <div class="ui__grid ui__grid--aluno">
+                    <div class="cont">
+                      <img src="/assets/img/ava/foto-marina.webp" alt="">
+                      <div class="cont__info"><small>Continue de onde parou</small><b>Aula 5 · Algoritmos no dia a dia</b><span class="bar"><i style="--p:45%"></i></span><span class="solid-btn solid-btn--sm">▶ Continuar</span></div>
+                    </div>
+                    <div class="card">
+                      <div class="card__h"><b>Ranking da turma</b></div>
+                      <div class="rk"><i class="rk__p rk__p--1">1</i><img src="/assets/img/ava/avatar-livia.webp" alt=""><b>Lívia</b><span>2.380</span></div>
+                      <div class="rk is-me"><i class="rk__p rk__p--2">2</i><img src="/assets/img/ava/avatar-julia.webp" alt=""><b>Você</b><span>1.240</span></div>
+                      <div class="rk"><i class="rk__p rk__p--3">3</i><img src="/assets/img/ava/avatar-carlos.webp" alt=""><b>Carlos</b><span>1.190</span></div>
+                    </div>
+                  </div>
+                  <div class="ui__grid ui__grid--aluno">
+                    <div class="card medals">
+                      <span class="md"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Pontual</span>
+                      <span class="md"><svg viewBox="0 0 24 24"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>Maratona</span>
+                      <span class="md"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Colaboradora</span>
+                      <span class="md md--off"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Mestre</span>
+                    </div>
+                    <div class="card certmini"><span class="file file--cert"><svg viewBox="0 0 24 24"><circle cx="12" cy="9" r="6"/><path d="M8.5 14 7 22l5-3 5 3-1.5-8"/></svg></span><div><b>Certificado disponível</b><small>Convivência escolar · 40h</small></div><span class="solid-btn solid-btn--sm">Baixar</span></div>
+                  </div>
+                  <div class="card mini-shorts">
+                    <div class="card__h"><b>Shorts para você</b><span class="ui__link">Ver todos</span></div>
+                    <div class="mini-shorts__row">
+                      <span><img src="/assets/img/ava/short-marina.webp" alt=""><small>3 ideias para engajar</small></span>
+                      <span><img src="/assets/img/ava/short-carlos.webp" alt=""><small>Recado da direção</small></span>
+                      <span><img src="/assets/img/ava/short-ana.webp" alt=""><small>Avaliação formativa</small></span>
+                      <span><img src="/assets/img/ava/short-rafael.webp" alt=""><small>Lendo o painel</small></span>
+                      <span><img src="/assets/img/ava/short-livia.webp" alt=""><small>Rotina de estudos</small></span>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div class="list__row list__row--card"><span class="file file--cert"><svg viewBox="0 0 24 24"><circle cx="12" cy="9" r="6"/><path d="M8.5 14 7 22l5-3 5 3-1.5-8"/></svg></span><div><b>Certificado disponível</b><small>BNCC na Prática · 40h</small></div><span class="solid-btn solid-btn--sm">Baixar</span></div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ========== MÓDULOS ========== -->
+    <!-- ========== MÓDULOS (CARROSSEL) ========== -->
     <section class="section av-mods" id="modulos">
       <div class="container">
-        <div class="section__head section__head--split reveal">
-          <div>
-            <span class="eyebrow">Módulos do AVA</span>
-            <h2 class="section__title">Tudo o que um AVA institucional precisa, <span class="text-blue">funcionando junto</span></h2>
-          </div>
-          <p class="section__sub">Clique em cada módulo para ver como ele funciona por dentro.</p>
+        <div class="section__head reveal">
+          <span class="eyebrow">Módulos do AVA</span>
+          <h2 class="section__title">Tudo o que um AVA institucional precisa, <span class="text-blue">funcionando junto</span></h2>
         </div>
 
-        <div class="mx av-tabs reveal">
-          <div class="mx__list" role="tablist" aria-label="Módulos do AVA">
-            <button class="mx__btn is-active" role="tab" aria-selected="true" aria-controls="mx-mon" id="mxb-mon"><span class="mx__ico"><svg viewBox="0 0 24 24"><path d="M4 19V5M4 19h16M8 15l3-3 3 2 5-6"/></svg></span><span><b>Monitoramento</b><small>Painéis e indicadores ao vivo</small></span></button>
-            <button class="mx__btn" role="tab" aria-selected="false" aria-controls="mx-trilhas" id="mxb-trilhas" tabindex="-1"><span class="mx__ico"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5z"/><path d="M4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5"/></svg></span><span><b>Cursos e trilhas</b><small>Conteúdo em percursos</small></span></button>
-            <button class="mx__btn" role="tab" aria-selected="false" aria-controls="mx-gami" id="mxb-gami" tabindex="-1"><span class="mx__ico"><svg viewBox="0 0 24 24"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0z"/><path d="M17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3"/></svg></span><span><b>Gamificação</b><small>Pontos, medalhas e ranking</small></span></button>
-            <button class="mx__btn" role="tab" aria-selected="false" aria-controls="mx-chat" id="mxb-chat" tabindex="-1"><span class="mx__ico"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span><span><b>Chat e fóruns</b><small>Conversa dentro do AVA</small></span></button>
-            <button class="mx__btn" role="tab" aria-selected="false" aria-controls="mx-notif" id="mxb-notif" tabindex="-1"><span class="mx__ico"><svg viewBox="0 0 24 24"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9M10.3 21a1.9 1.9 0 0 0 3.4 0"/></svg></span><span><b>Notificações e alertas</b><small>Regras automáticas</small></span></button>
-            <button class="mx__btn" role="tab" aria-selected="false" aria-controls="mx-msg" id="mxb-msg" tabindex="-1"><span class="mx__ico"><svg viewBox="0 0 24 24"><path d="m22 2-7 20-4-9-9-4z"/><path d="M22 2 11 13"/></svg></span><span><b>Envio de mensagens</b><small>E-mail, WhatsApp e app</small></span></button>
-            <button class="mx__btn" role="tab" aria-selected="false" aria-controls="mx-aval" id="mxb-aval" tabindex="-1"><span class="mx__ico"><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span><span><b>Avaliações</b><small>Correção automática</small></span></button>
-            <button class="mx__btn" role="tab" aria-selected="false" aria-controls="mx-cert" id="mxb-cert" tabindex="-1"><span class="mx__ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="9" r="6"/><path d="M8.5 14 7 22l5-3 5 3-1.5-8"/></svg></span><span><b>Certificados</b><small>Emissão e validação</small></span></button>
+        <div class="car reveal" id="car">
+          <div class="car__cats" aria-label="Classes de módulos">
+            <button data-cat="ensino" class="is-on">Ensino</button>
+            <button data-cat="engajamento">Engajamento</button>
+            <button data-cat="comunicacao">Comunicação</button>
+            <button data-cat="gestao">Gestão</button>
           </div>
 
-          <div class="mx__stage">
-            <!-- Monitoramento -->
-            <div class="mx__panel is-active" role="tabpanel" id="mx-mon" aria-labelledby="mxb-mon">
-              <div class="mx__text">
-                <span class="badge">Módulo</span>
-                <h3>Monitoramento em tempo real</h3>
-                <p>O coração do AVA da NEX. Cada acesso, aula assistida e atividade entregue vira indicador. Gestores acompanham por curso, turma, escola ou rede inteira, e o sistema aponta quem está em risco de evasão antes que seja tarde.</p>
-                <ul class="checklist">
-                  <li>Acessos, frequência, progresso e conclusão</li>
-                  <li>Filtros por curso, turma, unidade e período</li>
-                  <li>Lista de alunos em risco, atualizada sozinha</li>
-                  <li>Relatórios prontos para exportar (PDF e planilha)</li>
-                </ul>
+          <div class="car__track" id="car-track">
+            <!-- 1 · Cursos e trilhas -->
+            <article class="slide" data-cat="ensino" aria-label="Cursos e trilhas">
+              <div class="slide__cap">
+                <span class="slide__cat">Ensino</span>
+                <h3>Cursos e trilhas</h3>
+                <p>Percursos formativos com pré-requisitos, carga horária e progresso calculados sozinhos.</p>
+                <ul class="tags"><li>Vídeos e materiais</li><li>Pré-requisitos</li><li>Matrícula em lote</li></ul>
               </div>
-              <div class="scr" aria-hidden="true">
-                <div class="scr__head"><b>Visão geral da rede</b><span class="pill pill--live"><span class="dot"></span>Ao vivo</span></div>
-                <div class="kp">
-                  <div><b><span data-count="1248">0</span></b><small>Alunos ativos</small></div>
-                  <div><b><span data-count="87">0</span>%</b><small>Frequência</small></div>
-                  <div><b><span data-count="74">0</span>%</b><small>Conclusão</small></div>
+              <div class="slide__screen sc-trail" aria-hidden="true">
+                <div class="bigcover">
+                  <img src="/assets/img/ava/banner-estudante.webp" alt="" loading="lazy">
+                  <div><small>Trilha formativa</small><b>Gestão escolar na prática</b><span>4 cursos · 120 horas</span><span class="bar bar--light"><i style="--p:58%"></i></span><em>58% concluído</em></div>
                 </div>
-                <div class="chart">
-                  <small>Acessos por semana</small>
-                  <div class="bars"><i style="--h:42%"></i><i style="--h:55%"></i><i style="--h:48%"></i><i style="--h:66%"></i><i style="--h:72%"></i><i style="--h:63%"></i><i style="--h:84%"></i><i style="--h:92%"></i></div>
+                <div class="trail">
+                  <div class="tn is-done"><i>✓</i><img src="/assets/img/ava/capa-avaliacao.webp" alt="" loading="lazy"><div><b>Avaliação formativa</b><small>Concluído · 30h</small></div></div>
+                  <div class="tn is-done"><i>✓</i><img src="/assets/img/ava/capa-convivencia.webp" alt="" loading="lazy"><div><b>Convivência escolar</b><small>Concluído · 30h</small></div></div>
+                  <div class="tn is-now"><i>3</i><img src="/assets/img/ava/capa-pensamento.webp" alt="" loading="lazy"><div><b>Pensamento computacional</b><span class="bar"><i style="--p:45%"></i></span></div></div>
+                  <div class="tn is-lock"><i><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></i><img src="/assets/img/ava/capa-inclusivas.webp" alt="" loading="lazy"><div><b>Práticas inclusivas</b><small>Libera ao concluir a etapa 3</small></div></div>
                 </div>
-                <div class="list__row list__row--risk"><i class="av av--2">PH</i><div><b>3 alunos em risco</b><small>Sem acesso há mais de 7 dias</small></div><span class="st st--risk">Ver lista</span></div>
               </div>
-            </div>
+            </article>
 
-            <!-- Trilhas -->
-            <div class="mx__panel" role="tabpanel" id="mx-trilhas" aria-labelledby="mxb-trilhas" hidden>
-              <div class="mx__text">
-                <span class="badge">Módulo</span>
-                <h3>Cursos e trilhas formativas</h3>
-                <p>Organize o conteúdo em cursos, módulos e trilhas com pré-requisitos. O aluno sempre sabe o próximo passo, e a instituição garante a ordem pedagógica.</p>
-                <ul class="checklist">
-                  <li>Videoaulas, PDFs, slides, links e áudios</li>
-                  <li>Liberação por data ou por conclusão da etapa anterior</li>
-                  <li>Carga horária e progresso calculados sozinhos</li>
-                  <li>Turmas, ofertas e matrículas em lote</li>
-                </ul>
+            <!-- 2 · Avaliações -->
+            <article class="slide" data-cat="ensino" aria-label="Avaliações">
+              <div class="slide__cap">
+                <span class="slide__cat">Ensino</span>
+                <h3>Avaliações</h3>
+                <p>Quizzes e provas com banco de questões. Objetivas corrigidas na hora, nota direto no boletim.</p>
+                <ul class="tags"><li>Correção automática</li><li>Banco de questões</li><li>Tempo e tentativas</li></ul>
               </div>
-              <div class="scr" aria-hidden="true">
-                <div class="scr__head"><b>Trilha · Gestão Escolar</b><span class="pill">120h</span></div>
-                <div class="path">
-                  <div class="path__node is-done"><i>✓</i><div><b>Fundamentos da gestão</b><small>Concluído · 30h</small></div></div>
-                  <div class="path__node is-done"><i>✓</i><div><b>Planejamento pedagógico</b><small>Concluído · 30h</small></div></div>
-                  <div class="path__node is-now"><i>3</i><div><b>Avaliação e indicadores</b><small>Em andamento · 64%</small><span class="bar"><i style="--p:64%"></i></span></div></div>
-                  <div class="path__node is-lock"><i><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></i><div><b>Projeto final</b><small>Libera ao concluir a etapa 3</small></div></div>
+              <div class="slide__screen sc-quiz" aria-hidden="true">
+                <div class="quiz__top"><img src="/assets/img/ava/capa-avaliacao.webp" alt="" loading="lazy"><div><small>Quiz · Módulo 3</small><b>Avaliação formativa na prática</b></div><span class="quiz__timer"><svg viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2M9 2h6"/></svg>08:42</span></div>
+                <div class="quiz__dots"><i class="ok"></i><i class="ok"></i><i class="ok"></i><i class="now"></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+                <div class="quiz__q">
+                  <small>Questão 4 de 10</small>
+                  <b>Qual instrumento acompanha a aprendizagem <u>durante</u> o processo?</b>
+                  <span class="qo"><i>A</i>Avaliação somativa</span>
+                  <span class="qo"><i>B</i>Prova de recuperação</span>
+                  <span class="qo qo--ok"><i>C</i>Avaliação formativa</span>
+                  <span class="qo"><i>D</i>Exame externo</span>
+                </div>
+                <div class="quiz__res"><span class="quiz__score">9,0</span><div><b>Muito bem!</b><small>Nota lançada no boletim</small></div><span class="st st--ok">Aprovado</span></div>
+              </div>
+            </article>
+
+            <!-- 3 · Certificados -->
+            <article class="slide" data-cat="ensino" aria-label="Certificados">
+              <div class="slide__cap">
+                <span class="slide__cat">Ensino</span>
+                <h3>Certificados</h3>
+                <p>Emitidos sozinhos ao concluir, com o modelo da sua instituição e validação pública por código.</p>
+                <ul class="tags"><li>Sua marca</li><li>Emissão automática</li><li>Código de validação</li></ul>
+              </div>
+              <div class="slide__screen sc-cert" aria-hidden="true">
+                <div class="cdoc">
+                  <div class="cdoc__head"><span class="brand"><b><svg viewBox="0 0 24 24"><path d="M2 7l10-4 10 4-10 4L2 7z"/><path d="M6 9v5c0 1.7 2.7 3 6 3s6-1.3 6-3V9"/></svg></b>Instituto Aprender</span><span class="cdoc__seal"><svg viewBox="0 0 24 24"><circle cx="12" cy="9" r="6"/><path d="M8.5 14 7 22l5-3 5 3-1.5-8"/></svg></span></div>
+                  <small>Certificado de conclusão</small>
+                  <b class="cdoc__name">Júlia Lima</b>
+                  <p>concluiu o curso <b>Convivência e clima escolar</b>, com carga horária de 40 horas, em 18 de outubro de 2026.</p>
+                  <div class="cdoc__foot">
+                    <span class="sig"><i></i>Direção</span>
+                    <span class="sig"><i></i>Coordenação</span>
+                    <span class="qr" data-qr></span>
+                  </div>
+                </div>
+                <div class="cval">
+                  <small>Validação pública</small>
+                  <span class="cval__in">NEX-7F3A-21C9</span>
+                  <div class="cval__ok"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><div><b>Certificado válido</b><small>Júlia Lima · 40h</small></div></div>
                 </div>
               </div>
-            </div>
+            </article>
 
-            <!-- Gamificação -->
-            <div class="mx__panel" role="tabpanel" id="mx-gami" aria-labelledby="mxb-gami" hidden>
-              <div class="mx__text">
-                <span class="badge">Módulo</span>
-                <h3>Gamificação que engaja</h3>
-                <p>Pontos por aula concluída, medalhas por conquistas, níveis e ranking por turma ou escola. O aluno volta porque quer ver o próprio avanço, e a instituição define as regras.</p>
-                <ul class="checklist">
-                  <li>Pontos (XP) e níveis configuráveis</li>
-                  <li>Medalhas por desempenho, constância e participação</li>
-                  <li>Ranking por turma, escola ou rede</li>
-                  <li>Desafios e metas com prazo</li>
-                </ul>
+            <!-- 4 · Gamificação -->
+            <article class="slide" data-cat="engajamento" aria-label="Gamificação">
+              <div class="slide__cap">
+                <span class="slide__cat">Engajamento</span>
+                <h3>Gamificação</h3>
+                <p>Pontos, níveis, medalhas e ranking. O aluno volta porque quer ver o próprio avanço.</p>
+                <ul class="tags"><li>XP e níveis</li><li>Medalhas</li><li>Ranking e desafios</li></ul>
               </div>
-              <div class="scr" aria-hidden="true">
-                <div class="scr__head"><b>Ranking · Turma 2026</b><span class="pill pill--gold">Semana 12</span></div>
-                <div class="rank">
-                  <div class="rank__row"><i class="rank__pos rank__pos--1">1</i><i class="av av--3">CA</i><b>Carla Alves</b><span>2.380 XP</span></div>
-                  <div class="rank__row"><i class="rank__pos rank__pos--2">2</i><i class="av">JL</i><b>Júlia Lima</b><span>2.115 XP</span></div>
-                  <div class="rank__row is-me"><i class="rank__pos rank__pos--3">3</i><i class="av av--4">AB</i><b>Você</b><span>1.240 XP</span></div>
-                  <div class="rank__row"><i class="rank__pos">4</i><i class="av av--2">MT</i><b>Mateus T.</b><span>1.190 XP</span></div>
+              <div class="slide__screen sc-game" aria-hidden="true">
+                <div class="podium">
+                  <div class="pd pd--2"><img src="/assets/img/ava/avatar-carlos.webp" alt="" loading="lazy"><b>Carlos</b><small>2.115 XP</small><span>2</span></div>
+                  <div class="pd pd--1"><svg class="pd__crown" viewBox="0 0 24 24"><path d="M3 8l4 4 5-7 5 7 4-4-2 11H5z"/></svg><img src="/assets/img/ava/avatar-livia.webp" alt="" loading="lazy"><b>Lívia</b><small>2.380 XP</small><span>1</span></div>
+                  <div class="pd pd--3"><img src="/assets/img/ava/avatar-julia.webp" alt="" loading="lazy"><b>Júlia</b><small>1.240 XP</small><span>3</span></div>
+                </div>
+                <div class="game__side">
+                  <div class="card"><div class="card__h"><b>Nível 7</b><small>1.240 / 1.500 XP</small></div><span class="bar bar--gold"><i style="--p:83%"></i></span></div>
+                  <div class="card"><div class="card__h"><b>Desafio da semana</b><small>4 de 5 aulas</small></div><span class="bar"><i style="--p:80%"></i></span></div>
+                  <div class="card medals">
+                    <span class="md"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Pontual</span>
+                    <span class="md"><svg viewBox="0 0 24 24"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>Maratona</span>
+                    <span class="md md--off"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Mestre</span>
+                  </div>
                 </div>
                 <div class="toast-in"><span class="fl__ico fl__ico--gold"><svg viewBox="0 0 24 24"><circle cx="12" cy="9" r="6"/><path d="M8.5 14 7 22l5-3 5 3-1.5-8"/></svg></span><div><b>Nova medalha!</b><small>“Maratona”: 5 aulas em um dia</small></div></div>
               </div>
-            </div>
+            </article>
 
-            <!-- Chat -->
-            <div class="mx__panel" role="tabpanel" id="mx-chat" aria-labelledby="mxb-chat" hidden>
-              <div class="mx__text">
-                <span class="badge">Módulo</span>
+            <!-- 5 · Chat e fóruns -->
+            <article class="slide" data-cat="engajamento" aria-label="Chat e fóruns">
+              <div class="slide__cap">
+                <span class="slide__cat">Engajamento</span>
                 <h3>Chat e fóruns</h3>
-                <p>Dúvidas resolvidas sem sair do AVA. Conversas privadas com o tutor, grupos por turma e fóruns de discussão, tudo registrado e moderado pela instituição.</p>
-                <ul class="checklist">
-                  <li>Chat individual e em grupo, em tempo real</li>
-                  <li>Fóruns por curso, módulo ou turma</li>
-                  <li>Envio de arquivos e imagens na conversa</li>
-                  <li>Histórico guardado e moderação</li>
-                </ul>
+                <p>Conversa com o tutor, grupos por turma e fóruns de discussão, sem sair do AVA.</p>
+                <ul class="tags"><li>Tempo real</li><li>Grupos por turma</li><li>Arquivos na conversa</li></ul>
               </div>
-              <div class="scr scr--chat" aria-hidden="true">
-                <div class="scr__head"><div class="chat__who"><i class="av av--3">RP</i><div><b>Tutor Rafael</b><small><span class="dot"></span>on-line</small></div></div><span class="pill">Gestão Escolar</span></div>
-                <div class="chat">
-                  <div class="bub bub--in">Oi, Ana! Vi que você começou o módulo 3. Alguma dúvida na atividade?</div>
-                  <div class="bub bub--out">Sim! Posso entregar o plano em PDF?</div>
-                  <div class="bub bub--in">Pode sim. Anexa aqui que eu já te dou um retorno.</div>
-                  <div class="bub bub--out bub--file"><span class="file file--pdf">PDF</span>plano-de-acao.pdf</div>
-                  <div class="bub bub--typing"><i></i><i></i><i></i></div>
+              <div class="slide__screen sc-chat" aria-hidden="true">
+                <div class="ct">
+                  <div class="ct__search">Conversas</div>
+                  <div class="ct__item is-on"><span class="ct__grp">T</span><div><b>Turma 2026 · Manhã</b><small>Rafael: Encontro amanhã às 19h</small></div><em>3</em></div>
+                  <div class="ct__item"><img src="/assets/img/ava/avatar-rafael.webp" alt="" loading="lazy"><div><b>Tutor Rafael</b><small>Pode anexar aqui</small></div></div>
+                  <div class="ct__item"><img src="/assets/img/ava/avatar-marina.webp" alt="" loading="lazy"><div><b>Marina Souza</b><small>Obrigada!</small></div></div>
+                  <div class="ct__item"><span class="ct__grp ct__grp--f">F</span><div><b>Fórum · Módulo 3</b><small>24 respostas</small></div></div>
+                </div>
+                <div class="cv2">
+                  <div class="cv2__head"><span class="ct__grp">T</span><div><b>Turma 2026 · Manhã</b><small>32 participantes</small></div></div>
+                  <div class="cv2__body">
+                    <div class="msg2"><img src="/assets/img/ava/avatar-rafael.webp" alt="" loading="lazy"><div><small>Tutor Rafael</small><span>Pessoal, o encontro ao vivo é amanhã às 19h. 🎥</span></div></div>
+                    <div class="msg2"><img src="/assets/img/ava/avatar-julia.webp" alt="" loading="lazy"><div><small>Júlia</small><span>Vai ficar gravado?</span></div></div>
+                    <div class="msg2 msg2--me"><div><span>Vai sim, fica na aba Aulas ao vivo.</span></div></div>
+                    <div class="msg2"><img src="/assets/img/ava/avatar-marina.webp" alt="" loading="lazy"><div><small>Marina</small><span class="msg2__typing"><i></i><i></i><i></i></span></div></div>
+                  </div>
                 </div>
               </div>
-            </div>
+            </article>
 
-            <!-- Notificações -->
-            <div class="mx__panel" role="tabpanel" id="mx-notif" aria-labelledby="mxb-notif" hidden>
-              <div class="mx__text">
-                <span class="badge">Módulo</span>
-                <h3>Notificações e alertas automáticos</h3>
-                <p>Defina regras uma vez e o AVA trabalha sozinho: lembra prazos, avisa sobre conteúdo novo e alerta a coordenação quando um aluno para de acessar.</p>
-                <ul class="checklist">
-                  <li>Lembretes de prazo e de aulas ao vivo</li>
-                  <li>Aviso de novo conteúdo e de nota publicada</li>
-                  <li>Alerta de inatividade e risco de evasão</li>
-                  <li>Notificação no app, no e-mail ou no WhatsApp</li>
-                </ul>
+            <!-- 6 · Notificações e alertas -->
+            <article class="slide" data-cat="comunicacao" aria-label="Notificações e alertas">
+              <div class="slide__cap">
+                <span class="slide__cat">Comunicação</span>
+                <h3>Notificações e alertas</h3>
+                <p>Regras automáticas lembram prazos, avisam sobre conteúdo novo e alertam quando alguém para de acessar.</p>
+                <ul class="tags"><li>Lembretes de prazo</li><li>Risco de evasão</li><li>App, e-mail e WhatsApp</li></ul>
               </div>
-              <div class="scr" aria-hidden="true">
-                <div class="scr__head"><b>Regras de alerta</b><span class="pill">4 ativas</span></div>
-                <div class="rules">
-                  <div class="rule"><div><b>Aluno sem acessar há 7 dias</b><small>Avisa o aluno e o tutor</small></div><span class="sw is-on"></span></div>
-                  <div class="rule"><div><b>Prazo de atividade em 48h</b><small>Lembra quem não entregou</small></div><span class="sw is-on"></span></div>
+              <div class="slide__screen sc-notif" aria-hidden="true">
+                <div class="lock">
+                  <div class="lock__time">09:41<small>Sexta-feira, 24 de outubro</small></div>
+                  <div class="push"><span class="push__ico"><svg viewBox="0 0 24 24"><path d="M2 7l10-4 10 4-10 4L2 7z"/><path d="M6 9v5c0 1.7 2.7 3 6 3s6-1.3 6-3V9"/></svg></span><div><b>Prazo amanhã</b><small>Entregue a atividade do módulo 3</small></div><em>agora</em></div>
+                  <div class="push"><span class="push__ico"><svg viewBox="0 0 24 24"><path d="M2 7l10-4 10 4-10 4L2 7z"/><path d="M6 9v5c0 1.7 2.7 3 6 3s6-1.3 6-3V9"/></svg></span><div><b>Novo short publicado</b><small>Profa. Marina · 3 ideias para engajar</small></div><em>5 min</em></div>
+                  <div class="push"><span class="push__ico"><svg viewBox="0 0 24 24"><path d="M2 7l10-4 10 4-10 4L2 7z"/><path d="M6 9v5c0 1.7 2.7 3 6 3s6-1.3 6-3V9"/></svg></span><div><b>Sua nota saiu</b><small>Quiz do módulo 2: 9,0</small></div><em>1 h</em></div>
+                </div>
+                <div class="rulesbox">
+                  <div class="card__h"><b>Regras de alerta</b><span class="pill">18 enviados hoje</span></div>
+                  <div class="rule"><div><b>7 dias sem acessar</b><small>Avisa aluno e tutor</small></div><span class="sw is-on"></span></div>
+                  <div class="rule"><div><b>Prazo em 48h</b><small>Lembra quem não entregou</small></div><span class="sw is-on"></span></div>
                   <div class="rule"><div><b>Nota abaixo de 6,0</b><small>Avisa a coordenação</small></div><span class="sw is-on"></span></div>
-                  <div class="rule"><div><b>Novo material publicado</b><small>Notifica a turma</small></div><span class="sw"></span></div>
-                </div>
-                <div class="feed">
-                  <div class="feed__item"><span class="feed__dot feed__dot--risk"></span>Pedro H. está há 9 dias sem acessar<small>agora</small></div>
-                  <div class="feed__item"><span class="feed__dot"></span>Lembrete enviado a 6 alunos<small>há 2 min</small></div>
+                  <div class="rule"><div><b>Novo conteúdo</b><small>Notifica a turma</small></div><span class="sw is-on"></span></div>
                 </div>
               </div>
-            </div>
+            </article>
 
-            <!-- Mensagens -->
-            <div class="mx__panel" role="tabpanel" id="mx-msg" aria-labelledby="mxb-msg" hidden>
-              <div class="mx__text">
-                <span class="badge">Módulo</span>
-                <h3>Envio de mensagens em massa</h3>
-                <p>Comunicados para uma turma, uma escola ou a rede inteira, pelos canais que o público realmente lê. Um serviço de mensageria dedicado cuida da fila, do agendamento e do registro de entrega.</p>
-                <ul class="checklist">
-                  <li>E-mail, WhatsApp e notificação no app</li>
-                  <li>Público por curso, turma, perfil ou unidade</li>
-                  <li>Agendamento e modelos prontos</li>
-                  <li>Relatório de entregues e lidas</li>
-                </ul>
+            <!-- 7 · Envio de mensagens -->
+            <article class="slide" data-cat="comunicacao" aria-label="Envio de mensagens">
+              <div class="slide__cap">
+                <span class="slide__cat">Comunicação</span>
+                <h3>Envio de mensagens</h3>
+                <p>Comunicados para uma turma, uma escola ou a rede inteira, com agendamento e relatório de leitura.</p>
+                <ul class="tags"><li>E-mail e WhatsApp</li><li>Agendamento</li><li>Entregues e lidas</li></ul>
               </div>
-              <div class="scr" aria-hidden="true">
-                <div class="scr__head"><b>Nova mensagem</b><span class="pill">Agendada · 08:00</span></div>
-                <div class="comp">
-                  <div class="comp__field"><small>Para</small><span class="chip">Turma 2026 · Manhã <em>32</em></span><span class="chip">E.M. Centro <em>58</em></span></div>
-                  <div class="comp__field"><small>Canais</small><span class="chip chip--on">E-mail</span><span class="chip chip--on">WhatsApp</span><span class="chip chip--on">App</span></div>
-                  <div class="comp__msg">Olá, {nome}! O encontro ao vivo do módulo 3 é amanhã, às 19h. O link já está no seu AVA.</div>
+              <div class="slide__screen sc-msg" aria-hidden="true">
+                <div class="card comp2">
+                  <div class="card__h"><b>Novo comunicado</b><span class="pill">Agendado · 08:00</span></div>
+                  <div class="comp2__f"><small>Para</small><span class="chip">Turma 2026 · Manhã <em>32</em></span><span class="chip">E.M. Centro <em>58</em></span></div>
+                  <div class="comp2__f"><small>Canais</small><span class="chip chip--on">E-mail</span><span class="chip chip--on">WhatsApp</span><span class="chip chip--on">App</span></div>
+                  <img class="comp2__img" src="/assets/img/ava/capa-convivencia.webp" alt="" loading="lazy">
+                  <div class="comp2__txt">Olá, {nome}! A semana de convivência começa segunda. Confira a programação no seu AVA.</div>
+                  <div class="deliv">
+                    <div><small>Entregues</small><span class="bar"><i style="--p:98%"></i></span><b>98%</b></div>
+                    <div><small>Lidas</small><span class="bar bar--soft"><i style="--p:76%"></i></span><b>76%</b></div>
+                  </div>
                 </div>
-                <div class="deliv">
-                  <div><small>Entregues</small><span class="bar"><i style="--p:98%"></i></span><b>98%</b></div>
-                  <div><small>Lidas</small><span class="bar bar--soft"><i style="--p:76%"></i></span><b>76%</b></div>
+                <div class="wphone">
+                  <div class="wphone__head"><span class="brand brand--light brand--sm"><b><svg viewBox="0 0 24 24"><path d="M2 7l10-4 10 4-10 4L2 7z"/><path d="M6 9v5c0 1.7 2.7 3 6 3s6-1.3 6-3V9"/></svg></b>Instituto Aprender</span></div>
+                  <div class="wphone__body">
+                    <div class="wmsg"><img src="/assets/img/ava/capa-convivencia.webp" alt="" loading="lazy"><span>Olá, Júlia! A semana de convivência começa segunda. Confira a programação no seu AVA.</span><small>08:00 ✓✓</small></div>
+                    <div class="wmsg wmsg--me"><span>Que legal! 👏</span><small>08:03</small></div>
+                  </div>
                 </div>
               </div>
-            </div>
+            </article>
 
-            <!-- Avaliações -->
-            <div class="mx__panel" role="tabpanel" id="mx-aval" aria-labelledby="mxb-aval" hidden>
-              <div class="mx__text">
-                <span class="badge">Módulo</span>
-                <h3>Avaliações com correção automática</h3>
-                <p>Quizzes, provas e atividades com banco de questões. As objetivas são corrigidas na hora; as discursivas vão para o tutor com rubrica. Notas caem direto no boletim.</p>
-                <ul class="checklist">
-                  <li>Múltipla escolha, V ou F, associação e discursivas</li>
-                  <li>Banco de questões com sorteio por prova</li>
-                  <li>Tentativas, tempo limite e nota mínima</li>
-                  <li>Feedback imediato para o aluno</li>
-                </ul>
+            <!-- 8 · Monitoramento -->
+            <article class="slide" data-cat="gestao" aria-label="Monitoramento">
+              <div class="slide__cap">
+                <span class="slide__cat">Gestão</span>
+                <h3>Monitoramento</h3>
+                <p>O coração do AVA: cada acesso vira indicador, por curso, turma, escola ou rede, em tempo real.</p>
+                <ul class="tags"><li>Painéis ao vivo</li><li>Alunos em risco</li><li>Relatórios exportáveis</li></ul>
               </div>
-              <div class="scr" aria-hidden="true">
-                <div class="scr__head"><b>Quiz · Módulo 3</b><span class="pill">Questão 4 de 10</span></div>
-                <p class="q">Qual instrumento acompanha a aprendizagem <b>durante</b> o processo?</p>
-                <div class="opts">
-                  <span class="opt">Avaliação somativa</span>
-                  <span class="opt opt--ok">Avaliação formativa</span>
-                  <span class="opt">Prova de recuperação</span>
+              <div class="slide__screen sc-mon" aria-hidden="true">
+                <div class="kpis">
+                  <div class="kpi"><small>Alunos ativos</small><b><span data-count="1248">0</span></b><em>▲ 12%</em></div>
+                  <div class="kpi"><small>Frequência</small><b><span data-count="87">0</span>%</b><em>▲ 4 p.p.</em></div>
+                  <div class="kpi"><small>Conclusão</small><b><span data-count="74">0</span>%</b><em>▲ 6 p.p.</em></div>
+                  <div class="kpi kpi--live"><small>On-line agora</small><b><span data-count="128">0</span></b><em><span class="dot"></span>ao vivo</em></div>
                 </div>
-                <div class="score"><div><small>Resultado parcial</small><b>9,0</b></div><span class="st st--ok">Aprovado</span></div>
+                <div class="mon__grid">
+                  <div class="card">
+                    <div class="card__h"><b>Acessos por semana</b><span class="legend2"><i></i>2026 <i class="c2"></i>2025</span></div>
+                    <svg class="chartline" viewBox="0 0 300 110" preserveAspectRatio="none"><defs><linearGradient id="g-mon" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2563EB" stop-opacity=".25"/><stop offset="1" stop-color="#2563EB" stop-opacity="0"/></linearGradient></defs><path d="M0 92 C25 88 40 80 60 82 S100 70 120 64 S160 58 180 46 S230 40 250 30 S285 18 300 14 V110 H0Z" fill="url(#g-mon)"/><path class="chartline__l chartline__l--b" d="M0 96 C30 94 50 90 75 88 S120 84 150 80 S200 76 230 70 S280 64 300 60"/><path class="chartline__l" d="M0 92 C25 88 40 80 60 82 S100 70 120 64 S160 58 180 46 S230 40 250 30 S285 18 300 14"/></svg>
+                  </div>
+                  <div class="card card--donut">
+                    <div class="card__h"><b>Situação dos alunos</b></div>
+                    <div class="donut"><span>1.248<small>alunos</small></span></div>
+                    <ul class="legend"><li><i></i>Em dia 78%</li><li><i class="c4"></i>Atenção 15%</li><li><i class="c5"></i>Risco 7%</li></ul>
+                  </div>
+                </div>
+                <div class="card risk">
+                  <img src="/assets/img/ava/avatar-carlos.webp" alt="" loading="lazy"><img src="/assets/img/ava/avatar-marina.webp" alt="" loading="lazy"><span class="risk__more">+86</span>
+                  <div><b>88 alunos em risco de evasão</b><small>Sem acesso há mais de 7 dias</small></div>
+                  <span class="solid-btn solid-btn--sm">Enviar alerta</span>
+                </div>
               </div>
-            </div>
+            </article>
+          </div>
 
-            <!-- Certificados -->
-            <div class="mx__panel" role="tabpanel" id="mx-cert" aria-labelledby="mxb-cert" hidden>
-              <div class="mx__text">
-                <span class="badge">Módulo</span>
-                <h3>Certificados digitais</h3>
-                <p>Ao concluir, o certificado é emitido sozinho com o modelo da sua instituição. Qualquer pessoa confere a autenticidade pelo código, na página pública de validação.</p>
-                <ul class="checklist">
-                  <li>Modelos com sua marca e assinaturas</li>
-                  <li>Emissão automática por regra de conclusão</li>
-                  <li>Código único e página de validação</li>
-                  <li>Histórico de certificados do aluno</li>
-                </ul>
-              </div>
-              <div class="cert" aria-hidden="true">
-                <span class="cert__seal"><svg viewBox="0 0 24 24"><circle cx="12" cy="9" r="6"/><path d="M8.5 14 7 22l5-3 5 3-1.5-8"/></svg></span>
-                <small>Certificado de conclusão</small>
-                <b class="cert__name">Ana Beatriz Moreira</b>
-                <p>concluiu o curso <b>BNCC na Prática</b>, com carga horária de 40 horas.</p>
-                <div class="cert__foot">
-                  <span class="cert__sig"><i></i>Coordenação</span>
-                  <span class="cert__code">NEX-7F3A-21C9</span>
-                  <span class="cert__ok"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>Válido</span>
-                </div>
-              </div>
-            </div>
+          <div class="car__ctrl">
+            <button class="car__arrow" id="car-prev" aria-label="Módulo anterior"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></button>
+            <div class="car__dots" id="car-dots"></div>
+            <button class="car__arrow" id="car-next" aria-label="Próximo módulo"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></button>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ========== FÁCIL DE USAR ========== -->
+    <!-- ========== SHORTS INSTITUCIONAIS ========== -->
+    <section class="section av-shorts" id="shorts">
+      <div class="container shorts__inner">
+        <div class="shorts__text reveal">
+          <span class="eyebrow eyebrow--dark">Shorts institucionais</span>
+          <h2>A sua instituição também fala em <span class="hl-light">vídeos curtos</span></h2>
+          <p>Vídeos verticais de até um minuto, publicados direto no AVA e assistidos no celular como em uma rede social.</p>
+          <ul class="tags tags--light"><li>Comunicados da gestão</li><li>Dicas dos professores</li><li>Resumos de aula</li><li>Bastidores e eventos</li></ul>
+        </div>
+        <div class="sf reveal" id="sf" aria-hidden="true">
+          <div class="sc" data-pos="0">
+            <img src="/assets/img/ava/short-marina.webp" alt="" loading="lazy">
+            <span class="sc__prog"><i></i></span>
+            <div class="sc__side"><span><svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg>248</span><span><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>31</span></div>
+            <div class="sc__info"><span class="sc__who"><img src="/assets/img/ava/avatar-marina.webp" alt="" loading="lazy">Profa. Marina</span><b>3 ideias para engajar a turma</b></div>
+          </div>
+          <div class="sc" data-pos="1">
+            <img src="/assets/img/ava/short-carlos.webp" alt="" loading="lazy">
+            <span class="sc__prog"><i></i></span>
+            <div class="sc__side"><span><svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg>512</span><span><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>64</span></div>
+            <div class="sc__info"><span class="sc__who"><img src="/assets/img/ava/avatar-carlos.webp" alt="" loading="lazy">Direção</span><b>Recado da direção para a semana pedagógica</b></div>
+          </div>
+          <div class="sc" data-pos="2">
+            <img src="/assets/img/ava/short-rafael.webp" alt="" loading="lazy">
+            <span class="sc__prog"><i></i></span>
+            <div class="sc__side"><span><svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg>187</span><span><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>22</span></div>
+            <div class="sc__info"><span class="sc__who"><img src="/assets/img/ava/avatar-rafael.webp" alt="" loading="lazy">Coord. Rafael</span><b>Como ler o painel de indicadores</b></div>
+          </div>
+          <div class="sc" data-pos="-2">
+            <img src="/assets/img/ava/short-julia.webp" alt="" loading="lazy">
+            <span class="sc__prog"><i></i></span>
+            <div class="sc__side"><span><svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg>903</span><span><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>88</span></div>
+            <div class="sc__info"><span class="sc__who"><img src="/assets/img/ava/avatar-julia.webp" alt="" loading="lazy">Júlia, aluna</span><b>Minha rotina de estudos no AVA</b></div>
+          </div>
+          <div class="sc" data-pos="-1">
+            <img src="/assets/img/ava/short-ana.webp" alt="" loading="lazy">
+            <span class="sc__prog"><i></i></span>
+            <div class="sc__side"><span><svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg>341</span><span><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>40</span></div>
+            <div class="sc__info"><span class="sc__who"><img src="/assets/img/ava/avatar-ana.webp" alt="" loading="lazy">Profa. Ana</span><b>Dica rápida: avaliação formativa</b></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== FÁCIL DE USAR (VÍDEO) ========== -->
     <section class="section av-easy" id="facil">
       <div class="container">
         <div class="section__head reveal">
           <span class="eyebrow">Fácil de usar</span>
           <h2 class="section__title">Do arquivo à turma estudando <span class="text-blue">em três passos</span></h2>
-          <p class="section__sub">Quem produz conteúdo não precisa saber programar nem esperar a TI. Arraste, organize e publique.</p>
         </div>
 
-        <div class="pub reveal" id="pub">
-          <ol class="pub__steps">
-            <li><button class="pub__step is-active" data-step="0"><span class="pub__n">1</span><span><b>Envie</b><small>Arraste vídeos, PDFs e slides</small></span></button></li>
-            <li><button class="pub__step" data-step="1"><span class="pub__n">2</span><span><b>Organize</b><small>Monte módulos e aulas</small></span></button></li>
-            <li><button class="pub__step" data-step="2"><span class="pub__n">3</span><span><b>Publique</b><small>A turma é avisada na hora</small></span></button></li>
-          </ol>
-
-          <div class="pub__stage" aria-hidden="true">
-            <div class="pub__scene is-active">
-              <div class="drop">
-                <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"/></svg>
-                <b>Solte os arquivos aqui</b>
-                <small>Vídeo, PDF, PowerPoint, áudio, imagem ou link</small>
-              </div>
-              <div class="ups">
-                <div class="up"><span class="file file--vid">MP4</span><div><b>aula-01-introducao.mp4</b><span class="bar"><i></i></span></div><small>480 MB</small></div>
-                <div class="up"><span class="file file--pdf">PDF</span><div><b>apostila-modulo-1.pdf</b><span class="bar"><i></i></span></div><small>12 MB</small></div>
-                <div class="up"><span class="file file--doc">PPT</span><div><b>slides-planejamento.pptx</b><span class="bar"><i></i></span></div><small>24 MB</small></div>
+        <div class="vp reveal" id="vp">
+          <div class="vp__screen" aria-hidden="true">
+            <!-- Envio -->
+            <div class="vp__scene is-active">
+              <div class="vp__box">
+                <div class="drop">
+                  <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"/></svg>
+                  <b>Solte os arquivos aqui</b>
+                  <small>Vídeo, PDF, PowerPoint, áudio, imagem ou link</small>
+                </div>
+                <div class="ups">
+                  <div class="up"><span class="file file--vid">MP4</span><div><b>aula-01-introducao.mp4</b><span class="bar"><i></i></span></div><small>480 MB</small></div>
+                  <div class="up"><span class="file file--pdf">PDF</span><div><b>apostila-modulo-1.pdf</b><span class="bar"><i></i></span></div><small>12 MB</small></div>
+                  <div class="up"><span class="file file--doc">PPT</span><div><b>slides-planejamento.pptx</b><span class="bar"><i></i></span></div><small>24 MB</small></div>
+                </div>
+                <span class="drag"><span class="file file--vid">MP4</span><svg viewBox="0 0 24 24"><path d="M5 3l14 8-6 2-3 6z"/></svg></span>
               </div>
             </div>
-
-            <div class="pub__scene">
-              <div class="org">
+            <!-- Organização -->
+            <div class="vp__scene">
+              <div class="vp__box org">
                 <div class="org__mod"><b>Módulo 1 · Introdução</b>
                   <span class="org__item"><span class="file file--vid">MP4</span>Aula 1 · Boas-vindas</span>
                   <span class="org__item"><span class="file file--pdf">PDF</span>Apostila do módulo</span>
@@ -652,12 +800,12 @@
                 </div>
               </div>
             </div>
-
-            <div class="pub__scene">
-              <div class="done">
+            <!-- Publicação -->
+            <div class="vp__scene">
+              <div class="vp__box done">
                 <div class="done__card">
-                  <div class="done__row"><b>Gestão Escolar · Módulo 2</b><span class="sw is-on"></span></div>
-                  <small>Publicado para Turma 2026 · Manhã</small>
+                  <img src="/assets/img/ava/capa-avaliacao.webp" alt="" loading="lazy">
+                  <div><div class="done__row"><b>Módulo 2 · Planejamento</b><span class="sw is-on"></span></div><small>Publicado para Turma 2026 · Manhã</small></div>
                 </div>
                 <div class="done__checks">
                   <span><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Conteúdo disponível no AVA</span>
@@ -666,6 +814,16 @@
                 </div>
               </div>
             </div>
+          </div>
+
+          <div class="vp__bar">
+            <button class="vp__pp" id="vp-pp" aria-label="Pausar"><svg class="vp__i-pause" viewBox="0 0 24 24"><path d="M8 5v14M16 5v14"/></svg><svg class="vp__i-play" viewBox="0 0 24 24"><path d="M7 4v16l13-8z"/></svg></button>
+            <div class="vp__chaps">
+              <button class="vp__seg" data-i="0"><span class="vp__track"><i></i></span><small>Envio</small></button>
+              <button class="vp__seg" data-i="1"><span class="vp__track"><i></i></span><small>Organização</small></button>
+              <button class="vp__seg" data-i="2"><span class="vp__track"><i></i></span><small>Publicação</small></button>
+            </div>
+            <span class="vp__time" id="vp-time">0:00 / 0:12</span>
           </div>
         </div>
       </div>
@@ -758,7 +916,7 @@
           <div class="feat__col reveal">
             <span class="feat__ico"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>
             <h3>Comunicação e engajamento</h3>
-            <ul><li>Chat individual e em grupo</li><li>Fóruns de discussão</li><li>Mural de avisos</li><li>Notificações automáticas</li><li>Mensagens por e-mail e WhatsApp</li><li>Pontos, medalhas e ranking</li></ul>
+            <ul><li>Chat individual e em grupo</li><li>Fóruns de discussão</li><li>Mural de avisos</li><li>Shorts institucionais</li><li>Notificações automáticas</li><li>Mensagens por e-mail e WhatsApp</li><li>Pontos, medalhas e ranking</li></ul>
           </div>
           <div class="feat__col reveal">
             <span class="feat__ico"><svg viewBox="0 0 24 24"><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 0 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 0 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 0 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 0 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></span>
@@ -805,26 +963,26 @@
         </div>
 
         <div class="plans">
-          <article class="plan reveal" data-plano="Essencial" data-max="500">
+          <article class="plan plan--ess reveal" data-plano="Essencial" data-max="500">
             <span class="plan__rec">Recomendado para você</span>
             <div class="plan__head"><span class="plan__ico"><svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.7l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.7l7 4a2 2 0 0 0 2 0l7-4a2 2 0 0 0 1-1.7z"/></svg></span><div><h3>Essencial</h3><small>Para começar com tudo no lugar</small></div></div>
             <div class="plan__nums"><div><b>até 500</b><small>usuários ativos</small></div><div><b>100 GB</b><small>armazenamento</small></div></div>
             <ul class="checklist">
               <li>Página home + AVA com sua identidade</li>
               <li>Cursos, trilhas, avaliações e certificados</li>
+              <li>Shorts institucionais</li>
               <li>Chat, fóruns e mural de avisos</li>
               <li>Gamificação: pontos e medalhas</li>
               <li>Notificações no app e por e-mail</li>
               <li>Painel de acompanhamento</li>
-              <li>Suporte por chat e e-mail</li>
             </ul>
             <a href="#contato" class="btn btn--outline btn--block" data-plano-btn>Solicitar orçamento</a>
           </article>
 
-          <article class="plan plan--hl reveal" data-plano="Profissional" data-max="2000">
+          <article class="plan plan--plus reveal" data-plano="Plus" data-max="2000">
             <span class="plan__tag">Mais escolhido</span>
             <span class="plan__rec">Recomendado para você</span>
-            <div class="plan__head"><span class="plan__ico"><svg viewBox="0 0 24 24"><path d="M12 2 15.1 8.3 22 9.3l-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg></span><div><h3>Profissional</h3><small>Para acompanhar de perto e engajar</small></div></div>
+            <div class="plan__head"><span class="plan__ico"><svg viewBox="0 0 24 24"><path d="M12 2 15.1 8.3 22 9.3l-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg></span><div><h3>Plus</h3><small>Para acompanhar de perto e engajar</small></div></div>
             <div class="plan__nums"><div><b>até 2.000</b><small>usuários ativos</small></div><div><b>500 GB</b><small>armazenamento</small></div></div>
             <ul class="checklist">
               <li><b>Tudo do Essencial</b>, e mais:</li>
@@ -835,15 +993,15 @@
               <li>Perfis de produtor e de escola/unidade</li>
               <li>Relatórios exportáveis · suporte prioritário</li>
             </ul>
-            <a href="#contato" class="btn btn--primary btn--block" data-plano-btn>Solicitar orçamento</a>
+            <a href="#contato" class="btn btn--light btn--block" data-plano-btn>Solicitar orçamento</a>
           </article>
 
-          <article class="plan reveal" data-plano="Institucional" data-max="10000">
+          <article class="plan plan--inst reveal" data-plano="Institucional" data-max="10000">
             <span class="plan__rec">Recomendado para você</span>
             <div class="plan__head"><span class="plan__ico"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V10l7-5 7 5v11M9 21v-6h6v6"/></svg></span><div><h3>Institucional</h3><small>Para redes e grandes instituições</small></div></div>
             <div class="plan__nums"><div><b>até 10.000</b><small>usuários ativos</small></div><div><b>2 TB</b><small>armazenamento</small></div></div>
             <ul class="checklist">
-              <li><b>Tudo do Profissional</b>, e mais:</li>
+              <li><b>Tudo do Plus</b>, e mais:</li>
               <li>Multiunidades: painel por escola e por rede</li>
               <li>Painéis gerenciais avançados</li>
               <li>Integrações e API com outros sistemas</li>
@@ -851,7 +1009,7 @@
               <li>Capacitação contínua das equipes</li>
               <li>Gerente de conta dedicado</li>
             </ul>
-            <a href="#contato" class="btn btn--outline btn--block" data-plano-btn>Solicitar orçamento</a>
+            <a href="#contato" class="btn btn--glass btn--block" data-plano-btn>Solicitar orçamento</a>
           </article>
         </div>
 
@@ -866,13 +1024,14 @@
           <button class="cmpt__toggle" id="cmpt-toggle" aria-expanded="false" aria-controls="cmpt-body">Comparar os planos em detalhe <svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button>
           <div class="cmpt__body" id="cmpt-body" hidden>
             <table>
-              <thead><tr><th scope="col">Recurso</th><th scope="col">Essencial</th><th scope="col">Profissional</th><th scope="col">Institucional</th></tr></thead>
+              <thead><tr><th scope="col">Recurso</th><th scope="col">Essencial</th><th scope="col">Plus</th><th scope="col">Institucional</th></tr></thead>
               <tbody>
                 <tr><th scope="row">Usuários ativos</th><td>até 500</td><td>até 2.000</td><td>até 10.000</td></tr>
                 <tr><th scope="row">Armazenamento dedicado</th><td>100 GB</td><td>500 GB</td><td>2 TB</td></tr>
                 <tr><th scope="row">Página home + AVA com sua marca</th><td class="y">Sim</td><td class="y">Sim</td><td class="y">Sim</td></tr>
                 <tr><th scope="row">Domínio próprio</th><td class="n">Subdomínio</td><td class="y">Sim</td><td class="y">Sim</td></tr>
                 <tr><th scope="row">Cursos, trilhas, avaliações e certificados</th><td class="y">Sim</td><td class="y">Sim</td><td class="y">Sim</td></tr>
+                <tr><th scope="row">Shorts institucionais</th><td class="y">Sim</td><td class="y">Sim</td><td class="y">Sim</td></tr>
                 <tr><th scope="row">Chat e fóruns</th><td class="y">Sim</td><td class="y">Sim</td><td class="y">Sim</td></tr>
                 <tr><th scope="row">Gamificação</th><td>Pontos e medalhas</td><td class="y">Completa</td><td class="y">Completa</td></tr>
                 <tr><th scope="row">Notificações</th><td>App e e-mail</td><td class="y">App, e-mail e WhatsApp</td><td class="y">App, e-mail e WhatsApp</td></tr>
@@ -968,7 +1127,7 @@
               <select name="interesse" id="form-plano">
                 <option value="AVA Institucional">Ainda não sei</option>
                 <option value="AVA Institucional · Essencial">Essencial (até 500 usuários)</option>
-                <option value="AVA Institucional · Profissional">Profissional (até 2.000 usuários)</option>
+                <option value="AVA Institucional · Plus">Plus (até 2.000 usuários)</option>
                 <option value="AVA Institucional · Institucional">Institucional (até 10.000 usuários)</option>
                 <option value="AVA Institucional · Sob medida">Sob medida</option>
                 <option value="AVA Institucional · Funcionalidade sob medida">Nova funcionalidade</option>
@@ -998,7 +1157,7 @@
           <p class="footer__about">Conectando ideias hoje para um amanhã mais inteligente.</p>
         </div>
         <div><h4>Soluções</h4><a href="/solucoes/ava">AVA Institucional</a><a href="/#solucoes">CRM Educacional</a><a href="/#solucoes">Consultoria</a></div>
-        <div><h4>AVA</h4><a href="#como-funciona">Como funciona</a><a href="#modulos">Módulos</a><a href="#tecnologia">Tecnologia</a><a href="#planos">Planos</a><a href="#faq">Perguntas frequentes</a></div>
+        <div><h4>AVA</h4><a href="#como-funciona">Como funciona</a><a href="#modulos">Módulos</a><a href="#shorts">Shorts</a><a href="#tecnologia">Tecnologia</a><a href="#planos">Planos</a><a href="#faq">Perguntas frequentes</a></div>
         <div><h4>Institucional</h4><a href="/#diferenciais">Diferenciais</a><a href="/#como-trabalhamos">Como trabalhamos</a><a href="#contato">Contato</a><a href="/entrar">Área do cliente</a></div>
       </div>
       <div class="footer__bottom">
@@ -1013,6 +1172,6 @@
   </a>
 
   <script src="/assets/js/main.js?v=15"></script>
-  <script src="/assets/js/ava.js?v=1"></script>
+  <script src="/assets/js/ava.js?v=2"></script>
 </body>
 </html>
