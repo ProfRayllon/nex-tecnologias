@@ -54,6 +54,7 @@ app.post(["/", "/entrar"], (req, res) => res.redirect(303, req.path));
 
 app.get(["/", "/index.html"], enviar("index.html"));
 app.get(["/entrar", "/login", "/cliente"], enviar("entrar.html"));
+app.get(["/solucoes/ava", "/ava"], enviar("ava.html"));
 app.get("/portal", comSessao("portal.html"));
 app.get("/admin", comSessao("admin.html", "admin"));
 app.get("/favicon.ico", enviar("assets/img/favicon.png"));

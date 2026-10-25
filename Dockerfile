@@ -10,7 +10,7 @@ COPY server/package.json server/package-lock.json ./server/
 RUN cd server && npm ci --omit=dev
 
 # Site, área do cliente e painel.
-COPY index.html entrar.html portal.html admin.html 404.html ./
+COPY index.html ava.html entrar.html portal.html admin.html 404.html ./
 COPY assets ./assets
 COPY server ./server
 
